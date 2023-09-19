@@ -1,8 +1,5 @@
 ![alt text](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/LOGO.png)                      
                                                                                                                                                     
-![alt text](https://i.insider.com/5ef120643f73704134751865?width=700)
-
-
 Lentokenttäseikkailu:
 
 Pelaaja on seikkailija, joka matkustaa eri lentokentille ympäri maailmaa. Pelaaja ratkaisee ohjelmointi kysymyksiä, jolla ansaitsee €-budjettia, samalla pelaaja voi löytää poweruppeja ja oppia samalla lentokenttien historiasta ja kulttuurista. 
@@ -43,6 +40,10 @@ Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkail
   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______ 
  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/ 
                                                                                                                               
+                                                                                                                              
+                                                                                                                              
+                                                                                                                              
+![alt text](https://i.insider.com/5ef120643f73704134751865?width=700)
                                                                                                                               
                                     
                 _________      .__    ___________      __________              

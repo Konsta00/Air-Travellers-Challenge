@@ -1,4 +1,4 @@
-![alt text]([https://i.insider.com/5ef120643f73704134751865?width=700](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/LOGO.png?raw=true))                      
+![alt text](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/LOGO.png)                      
                                                                                                                                                     
 ![alt text](https://i.insider.com/5ef120643f73704134751865?width=700)
 

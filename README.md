@@ -52,7 +52,6 @@ SEN JÄLKEEN JUOKSE MYSQL-KONSOLISSA:
 DROP TABLE IF EXISTS goal;
 DROP TABLE IF EXISTS goal_reached;
 
-ALTER TABLE airport DROP COLUMN type;
 ALTER TABLE airport DROP COLUMN elevation_ft;
 ALTER TABLE airport DROP COLUMN iso_region;
 ALTER TABLE airport DROP COLUMN municipality;

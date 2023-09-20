@@ -33,15 +33,9 @@ Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkail
 
 
 Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkailua, esimerkiksi auttamalla paikallista ympäristöä.
+![alt text](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/BANNER_X_SNAKE.png)
                                                                                                                               
-                                                                                                                              
-                                                                                                                              
-                                                                                                                              
-  ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______ 
- /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/ 
-                                                                                                                              
-                                                                                                                              
-                                                                                                                              
+                                                                                                                                                                                                                                                        
                                                                                                                               
 ![alt text](https://i.insider.com/5ef120643f73704134751865?width=700)
                                                                                                                               

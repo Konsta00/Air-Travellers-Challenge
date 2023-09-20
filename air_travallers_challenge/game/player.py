@@ -3,13 +3,13 @@ import random
 class Player:
     def __init__(self, name, character):
         self.name = name
-        self.airport = self.starting_airport()
+        self.airport = None
         self.budget = 500
         self.distance_traveled = 0
         self.character = character
 
 
-    def starting_airport():
+    def set_starting_airport(self):
         starting_airports = {
                 "KATL": "Hartsfield-Jackson Atlanta International Airport, USA",
                 "ZBAA": "Beijing Capital International Airport, China",
@@ -24,4 +24,4 @@ class Player:
             }
         
         random_airport = random.choice(list(starting_airports.keys()))
-        return random_airport
+        self.airport = random_airport

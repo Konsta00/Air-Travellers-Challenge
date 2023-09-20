@@ -1,7 +1,8 @@
-import db_connection
+from database import db_connection
+
 connection = db_connection.connect_to_database()
 
-def get10_closest_airports(current_airport):
+def get_closest_airports(current_airport):
 
     # fetch coordinates for current airport
     sql = 'SELECT latitude_deg, longitude_deg FROM airport WHERE ident = %s ;'
@@ -20,10 +21,9 @@ def get10_closest_airports(current_airport):
             Distance_KM ASC
         LIMIT 10;
     '''
-    print(closest_airports_sql)
+
     closest_airports_list = db_connection.fetch_data(connection, closest_airports_sql)
-    
-    print(closest_airports_list)
+    return closest_airports_list
 
     # FETCH 10 CLOSEST AIRPORT FROM DATABSE, APPEND TO LIST AND FINALLY RETURN THE LIST. IN MAIN CODE SET 
 
@@ -32,4 +32,4 @@ def get10_closest_airports(current_airport):
 
 
 
-get10_closest_airports('EHAM')
+get_closest_airports('EHAM')

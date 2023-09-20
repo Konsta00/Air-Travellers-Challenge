@@ -33,18 +33,9 @@ Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkail
 
 
 Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkailua, esimerkiksi auttamalla paikallista ympäristöä.
+![alt text](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/BANNER_X_SNAKE.png)
                                                                                                                               
-                                                                                                                              
-                                                                                                                              
-                                                                                                                              
-  ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______ 
- /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/  /_____/ 
-                                                                                                                              
-                                                                                                                              
-                                                                                                                              
-                                                                                                                              
-![alt text](https://i.insider.com/5ef120643f73704134751865?width=700)
-                                                                                                                              
+                                                                                                                                                                                                                                                                                                                                                                             
                                     
                 _________      .__    ___________      __________              
                /   _____/ _____|  |   \__    ___/___   \______   \__ __  ____  
@@ -61,7 +52,6 @@ SEN JÄLKEEN JUOKSE MYSQL-KONSOLISSA:
 DROP TABLE IF EXISTS goal;
 DROP TABLE IF EXISTS goal_reached;
 
-ALTER TABLE airport DROP COLUMN type;
 ALTER TABLE airport DROP COLUMN elevation_ft;
 ALTER TABLE airport DROP COLUMN iso_region;
 ALTER TABLE airport DROP COLUMN municipality;

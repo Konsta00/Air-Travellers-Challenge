@@ -92,6 +92,8 @@ iso_country | varchar(40)
 iso_country | varchar(40)
 name | varchar(40)
 continent | varchar(40)
+
+TESTI TESTI
                                                                                                                               
                                                                                                                               
 ![alt text](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/ER.png)                      

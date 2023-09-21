@@ -25,11 +25,10 @@ def get_closest_airports(current_airport):
     closest_airports_list = db_connection.fetch_data(connection, closest_airports_sql)
     return closest_airports_list
 
-    # FETCH 10 CLOSEST AIRPORT FROM DATABSE, APPEND TO LIST AND FINALLY RETURN THE LIST. IN MAIN CODE SET 
+def insert_player_sql(name, current_airport, character, budget, co2_consumed):
+        insert_player_sql = 'INSERT INTO players (name, current_aiport, character, budget, co2_consumed) VALUES (%s, %s, %s, %s, %s); '
 
+        db_connection.execute_query(insert_player_sql, (name, current_airport, character, budget, co2_consumed))
 
-    
+        print('Added new player to database')
 
-
-
-get_closest_airports('EHAM')

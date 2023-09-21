@@ -49,8 +49,9 @@ https://moodle2.metropolia.fi/pluginfile.php/1561494/mod_resource/content/1/lp.s
 
 SEN JÄLKEEN JUOKSE MYSQL-KONSOLISSA:
 
-DROP TABLE IF EXISTS goal;
+
 DROP TABLE IF EXISTS goal_reached;
+DROP TABLE IF EXISTS goal;
 
 ALTER TABLE airport DROP COLUMN elevation_ft;
 ALTER TABLE airport DROP COLUMN iso_region;

@@ -25,16 +25,14 @@ input_name = str(input('Select a name for player: '))
 # CREATE GAME INSTANCE
 game = Game()
 
-#PRINT CHARACTERS FOR USERkk TO SELECT
-game.print_characters()
+#PRINT CHARACTERS FOR USER TO SELECT
+game.print_avatars()
 
-input_character = int(input())
+input_avatar = int(input())
 
 # CRETE NEW PLAYER INSTANCE WITH INPUT_NAME AND INPUT_CHARACTER
-player = Player(input_name, input_character)
+player = Player(input_name, input_avatar)
 
-# CREATE NEW PLAYER IN DATABASE
-player.insert_player_to_database()
 
 # SET PLAYER IN GAME INSTANCE
 game.set_player(player)
@@ -46,11 +44,14 @@ game.set_current_airport()
 # SET CLOSEST AIRPORTS TO GAME
 game.set_closest_airports()
 
+# CREATE NEW PLAYER IN DATABASE
+player.insert_player_to_database()
+
 
 # DEBUG & DEVELOPEMENT
 
 print(f'Player name: {player.name}')
-print(f'Player character: {player.character}')
+print(f'Player character: {player.avatar_id}')
 print(f'Player current airport: {player.airport}')
 
 print(game.closest_airports)

@@ -48,69 +48,7 @@ Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkail
 
 Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkailua, esimerkiksi auttamalla paikallista ympäristöä.
 ![alt text](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/BANNER_X_SNAKE.png)
-                                                                                                                              
-                                                                                                                                                                                                                                                                                                                                                                             
-                                    
-                _________      .__    ___________      __________              
-               /   _____/ _____|  |   \__    ___/___   \______   \__ __  ____  
-               \_____  \ / ____/  |     |    | /  _ \   |       _/  |  \/    \ 
-               /        < <_|  |  |__   |    |(  <_> )  |    |   \  |  /   |  \
-              /_______  /\__   |____/   |____| \____/   |____|_  /____/|___|  /
-                      \/    |__|                               \/           \/ 
-
-Lataa flight_game tietokanta: 
-https://moodle2.metropolia.fi/pluginfile.php/1561494/mod_resource/content/1/lp.sql
-
-SEN JÄLKEEN JUOKSE MYSQL-KONSOLISSA:
-
-
-DROP TABLE IF EXISTS goal_reached;
-DROP TABLE IF EXISTS goal;
-
-ALTER TABLE airport DROP COLUMN elevation_ft;
-ALTER TABLE airport DROP COLUMN iso_region;
-ALTER TABLE airport DROP COLUMN municipality;
-ALTER TABLE airport DROP COLUMN scheduled_service;
-ALTER TABLE airport DROP COLUMN gps_code;
-ALTER TABLE airport DROP COLUMN iata_code;
-ALTER TABLE airport DROP COLUMN local_code;
-ALTER TABLE airport DROP COLUMN home_link;
-ALTER TABLE airport DROP COLUMN keywords;
-ALTER TABLE airport DROP COLUMN wikipedia_link;
-
-ALTER TABLE game DROP COLUMN co2_budget;
-ALTER TABLE game CHANGE COLUMN `screen_name` name varchar(255);
-ALTER TABLE game ADD budget int NOT NULL DEFAULT(0);
-ALTER TABLE game CHANGE COLUMN `location` current_airport varchar(10);
-ALTER TABLE game RENAME player;
-
-ALTER TABLE country DROP COLUMN keywords;
-ALTER TABLE country DROP COLUMN wikipedia_link;
-ALTER TABLE player CHANGE COLUMN `character` `avatar` varchar(255);
-
------------------------------------------------
-TABLES BASIC DESC:
-
-id | varchar(40)
-co2_consumed | int(8)
-current_airport | varchar(10)
-name | varchar(255)
-budget | int(11)
-
-id | int(11)
-ident | varchar(40)
-name | varchar(40)
-latitude_deg | double
-longitude_deg | double
-continent | varchar(40)
-iso_country | varchar(40)
-
-iso_country | varchar(40)
-name | varchar(40)
-continent | varchar(40)
- 
-                                                                                                                              
-![alt text](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/ER.png)                      
+                                                                                    
 
                                                                                                                               
                                                                                                                               

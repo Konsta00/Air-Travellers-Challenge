@@ -17,11 +17,11 @@ class Game:
     def set_closest_airports(self):
         self.closest_airports = get_closest_airports(self.current_airport)
 
-    def print_characters(self):
-        characters = ('Donald J. Trump', 'Hillary Clinton', 'Sanna Marin')
+    def print_avatars(self):
+        avatars = ('Donald J. Trump', 'Hillary Clinton', 'Sanna Marin')
 
         index = 1
-        print(f'Select character from {index}-{len(characters)}: ')
-        for index, character in enumerate(characters):
-            print(f'{index+1}. {character}')
+        print(f'Select avatar from {index}-{len(avatars)}: ')
+        for index, avatar in enumerate(avatars):
+            print(f'{index+1}. {avatar}')
 

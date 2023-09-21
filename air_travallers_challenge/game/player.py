@@ -3,12 +3,12 @@ from database.db_models import insert_player_sql
 
 
 class Player:
-    def __init__(self, name, character):
+    def __init__(self, name, avatar_id):
         self.name = name
         self.airport = None
         self.budget = 500
         self.distance_traveled = 0
-        self.character = character
+        self.avatar_id = avatar_id
         self.co2_consumed = 0
 
 
@@ -33,14 +33,16 @@ class Player:
         self.airport = airport
 
     def insert_player_to_database(self):
-            name = self.name
-            character = self.character
-            budget = self.budget
-            distance = self.distance_traveled
-            current_airport = self.airport
-            co2_consumed = self.co2_consumed
+            params = (
+                        self.name,
+                        self.avatar_id,
+                        self.budget,
+                        self.distance_traveled,
+                        self.airport,
+                        self.co2_consumed
+                    )
 
-            insert_player_sql(name, current_airport, character, budget, co2_consumed)
+            insert_player_sql(params)
 
     def update_database(self):
         asd = 'asd'

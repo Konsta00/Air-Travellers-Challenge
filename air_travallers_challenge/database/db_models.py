@@ -25,10 +25,17 @@ def get_closest_airports(current_airport):
     closest_airports_list = db_connection.fetch_data(connection, closest_airports_sql)
     return closest_airports_list
 
-def insert_player_sql(name, current_airport, character, budget, co2_consumed):
-        insert_player_sql = 'INSERT INTO players (name, current_aiport, character, budget, co2_consumed) VALUES (%s, %s, %s, %s, %s); '
+def insert_player_sql(params):
+        insert_player_sql = "INSERT INTO player (name, avatar_id, budget, distance_traveled, current_airport, co2_consumed) VALUES (%s, %s, %s, %s, %s, %s); "
 
-        db_connection.execute_query(insert_player_sql, (name, current_airport, character, budget, co2_consumed))
+        db_connection.execute_query(connection, insert_player_sql, (params))
 
         print('Added new player to database')
+
+def get_random_question_sql(avatar_id):
+        get_random_question_sql = 'SELECT * FROM questions WHERE avatar_id = %s; '
+
+        db_connection.fetch_data(connection, get_random_question_sql, (avatar_id, ))
+
+        print('FETCH ALL QUESTIONS FOR CERTAIN AVATAR')
 

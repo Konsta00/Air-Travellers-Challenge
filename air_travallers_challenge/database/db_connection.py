@@ -38,10 +38,10 @@ def execute_query(connection, query, params=None):
 # Function to fetch data from the database
 def fetch_data(connection, query, params=None):
     cursor = connection.cursor(dictionary=True)
-
-
     try:
-        if params:
+        if len(params) > 1:
+            cursor.execute(query, params)
+        elif params:
             cursor.execute(query, (params,))
         else:
             cursor.execute(query)

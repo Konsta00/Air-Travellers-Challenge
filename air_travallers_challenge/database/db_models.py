@@ -35,7 +35,7 @@ def insert_player_sql(params):
 def get_random_question_sql(avatar_id):
         get_random_question_sql = 'SELECT * FROM questions WHERE avatar_id = %s; '
 
-        db_connection.fetch_data(connection, get_random_question_sql, (avatar_id, ))
+        questions = db_connection.fetch_data(connection, get_random_question_sql, (avatar_id, ))
 
-        print('FETCH ALL QUESTIONS FOR CERTAIN AVATAR')
+        return questions
 

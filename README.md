@@ -28,6 +28,21 @@ Powerups:
 - Käteispalkinto
 - Skip kysymys
 
+PELIN IDEA:
+--------------
+Pelaaja valitsee hahmonsa ja aloituslentokenttä on jotenkin aloitushahmoon liittyvä. ESIM. hahmon valinta: Donald Trump,
+jolloin aloituspaikkana olisis Yhdysvallat (Lentokenttä siellä).
+
+Pelin ideana on saavuttaa 1000 pistettä mahdollisimman vähäisellä lentämisellä.
+
+Pelaaja vastaa lentokentälle saavuttaessa kysymykseen ja mikäli kysymyksen saa ensimmäisellä vastauksella oikein
+saa pelaaja +100 pistettä. Mikäli vastaa yrityksellä oikein saa +70 pistettä ja kolmannella yrityksellä +50.
+
+Kun pelaaja on vastannut kysymykseen oikein voi hän matkustaa uuteen kohteeseen. Täällä taas vastaa kysymykseen.
+
+Jos pelaaja saa kysymyksen ensimmäisellä oikein hän saattaa saada "power upin" jolla voi "skipata" kysymyksen jollakin
+kentällä ja saada suoraan 100pistettä. 
+-----------------
 
 Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkailua, esimerkiksi auttamalla paikallista ympäristöä.
 

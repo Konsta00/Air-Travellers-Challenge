@@ -33,7 +33,7 @@ input_character = int(input())
 # CRETE NEW PLAYER INSTANCE WITH INPUT_NAME AND INPUT_CHARACTER
 player = Player(input_name, input_character)
 
-# CREATE NEW PLAYER IN DATABASE
+# CREATE NEW PLAYER IN DATABASEs
 player.insert_player_to_database()
 
 # SET PLAYER IN GAME INSTANCE

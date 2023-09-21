@@ -86,6 +86,7 @@ ALTER TABLE game RENAME player;
 
 ALTER TABLE country DROP COLUMN keywords;
 ALTER TABLE country DROP COLUMN wikipedia_link;
+ALTER TABLE player CHANGE COLUMN `character` `avatar` varchar(255);
 
 -----------------------------------------------
 TABLES BASIC DESC:

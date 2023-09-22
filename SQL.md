@@ -38,12 +38,12 @@ ALTER TABLE country DROP COLUMN wikipedia_link;
 ALTER TABLE player ADD avatar_id int NOT NULL DEFAULT(0);
 
 CREATE TABLE questions (
-    avatar_id INT PRIMARY KEY DEFAULT(0),
-    question_text VARCHAR(500) NOT NULL,
-    clue1 VARCHAR(255),
-    clue2 VARCHAR(255),
-    answer VARCHAR(255) NOT NULL,
-    wrong_answer VARCHAR(255) NOT NULL
+     avatar_id INT DEFAULT(0),
+     question_text VARCHAR(500) NOT NULL,
+     clue1 VARCHAR(255),
+     clue2 VARCHAR(255),
+     answer VARCHAR(255) NOT NULL,
+     wrong_answer VARCHAR(255) NOT NULL
 );
 
 ALTER TABLE player ADD distance_traveled INT DEFAULT(0);

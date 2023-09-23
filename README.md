@@ -28,6 +28,8 @@ Powerups:
 - Käteispalkinto
 - Skip kysymys
 
+https://docs.google.com/document/d/1S8WWbmltN4jDnygLBXsgCFfJzgW93RzI8U38FrUqCWk/edit
+
 PELIN IDEA:
 --------------
 Pelaaja valitsee hahmonsa ja aloituslentokenttä on jotenkin aloitushahmoon liittyvä. ESIM. hahmon valinta: Donald Trump,

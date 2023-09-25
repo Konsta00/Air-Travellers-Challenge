@@ -10,7 +10,8 @@
 8 8888 `8b.     8 8888           .8'   `8. `88888.   8 8888        ,88'            ,8'     `8.`'     `8.`8888.   8 8888         
 8 8888   `8b.   8 8888          .888888888. `88888.  8 8888    ,o88P'             ,8'       `8        `8.`8888.  8 8888         
 8 8888     `88. 8 888888888888 .8'       `8. `88888. 8 888888888P'               ,8'         `         `8.`8888. 8 888888888888  
-</pre>                                                                  
+</pre>
+
 ```markdown
 ![Lentokenttäseikkailu Logo](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/images/LOGO.png)
 
@@ -65,4 +66,5 @@ Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkail
 Travel safe and check your cabon dioxide emissions
 
 ![Lentokenttäseikkailu Banner](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/images/BANNER_X_SNAKE.png)
+
 ```

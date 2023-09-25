@@ -4,17 +4,20 @@ Organizing a Python game project like the one you described, which involves MySQ
    Start by setting up the directory structure for your project. This makes it easier to manage your files and code. Here's a basic structure:
 
    ```
-   your_game_project/
-   ├── main.py
-   ├── database/
-   │   ├── database_setup.sql
-   │   └── db_connection.py
-   ├── game/
-   │   ├── __init__.py
-   │   ├── game.py
-   │   ├── player.py
-   │   └── questions.py
-   └── README.md
+    air_travellers_challenge/
+            ├── main.py
+            ├── database/
+            │   ├── __init__.py
+            │   ├── database_setup.sql
+            │   ├── db_connection.py
+            │   └── db_models.py
+            ├── game/
+            │   ├── __init__.py
+            │   ├── game.py
+            │   ├── player.py
+            │   └── questions.py
+            └── README.md
+
    ```
 
 2. **Set up the MySQL Database:**

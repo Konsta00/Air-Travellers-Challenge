@@ -101,7 +101,7 @@ Jos pelaaja saa kysymyksen ensimmäisellä oikein, hän saattaa saada "power upi
 
 Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkailua, esimerkiksi auttamalla paikallista ympäristöä.
 
-![Lentokenttäseikkailu Banner](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/images/BANNER_X_SNAKE.png)
+![Lentokenttäseikkailu Banner](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/images/BANNER_X_SNAKE.png)
 ```
                                                                                                                               
                                                                                                                               

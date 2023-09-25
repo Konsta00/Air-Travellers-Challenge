@@ -1,7 +1,6 @@
 # IMPORT GAME 6 PLAYER CLASS + NEEDED MODULES
 from game import Game
 from game import Player
-from game import get_random_question
 
 
 # TODO: PRINT WELCOME SCREEN & RULES FOR THE GAME
@@ -51,7 +50,7 @@ game.set_closest_airports()
 player.insert_player_to_database()
 
 # GET QUESTIONS FOR PLAYER
-print(get_random_question(player.avatar_id))
+
 
 
 # DEBUG & DEVELOPEMENT

@@ -11,7 +11,7 @@
     8 8888     `88. 8 888888888888 .8'       `8. `88888. 8 888888888P'               ,8'         `         `8.`8888. 8 888888888888  
 </pre>
 
-< a href="https://docs.google.com/document/d/1S8WWbmltN4jDnygLBXsgCFfJzgW93RzI8U38FrUqCWk/edit">LINKKI MÄÄRITTELYDOKUMENTTIIN</a>
+<a href="https://docs.google.com/document/d/1S8WWbmltN4jDnygLBXsgCFfJzgW93RzI8U38FrUqCWk/edit">LINKKI MÄÄRITTELYDOKUMENTTIIN</a>
 
 ![alt text](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/images/LOGO.png)                      
 

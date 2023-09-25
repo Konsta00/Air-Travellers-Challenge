@@ -47,6 +47,7 @@ CREATE TABLE questions (
 );
 
 ALTER TABLE player ADD distance_traveled INT DEFAULT(0);
+ALTER TABLE player ADD points INT DEFAULT(0);
 
 ALTER TABLE player MODIFY COLUMN id INT AUTO_INCREMENT;
 

@@ -7,13 +7,21 @@
               /_______  /\__   |____/   |____| \____/   |____|_  /____/|___|  /
                       \/    |__|                               \/           \/ 
 
-<div>
-     <h2> Lataa flight_game tietokanta: </h2>
-     <a href="https://moodle2.metropolia.fi/pluginfile.php/1561494/mod_resource/content/1/lp.sql">LINKKI TIETOKANTAAN</a>
-</div>
+```markdown
+# SQL Database Setup
 
-<h3>SEN JÄLKEEN JUOKSE MYSQL-KONSOLISSA:</h3>
+In this section, we'll provide instructions for setting up the flight_game database and making necessary schema changes. 
 
+## Download the flight_game Database
+
+To get started, download the flight_game database using the following link:
+[Download flight_game Database](<a href="https://moodle2.metropolia.fi/pluginfile.php/1561494/mod_resource/content/1/lp.sql">DOWNLOAD LINK</a>)
+
+## MySQL Console Commands
+
+After downloading the database, run the following MySQL commands in your console to make the required modifications:
+
+```sql
 DROP TABLE IF EXISTS goal_reached;
 DROP TABLE IF EXISTS goal;
 
@@ -29,15 +37,16 @@ ALTER TABLE airport DROP COLUMN keywords;
 ALTER TABLE airport DROP COLUMN wikipedia_link;
 
 ALTER TABLE game DROP COLUMN co2_budget;
-ALTER TABLE game CHANGE COLUMN `screen_name` `name` varchar(255);
-ALTER TABLE game ADD budget int NOT NULL DEFAULT(0);
-ALTER TABLE game CHANGE COLUMN `location` `current_airport` varchar(10);
+ALTER TABLE game CHANGE COLUMN `screen_name` `name` VARCHAR(255);
+ALTER TABLE game ADD budget INT NOT NULL DEFAULT(0);
+ALTER TABLE game CHANGE COLUMN `location` `current_airport` VARCHAR(10);
 ALTER TABLE game RENAME player;
 
 ALTER TABLE country DROP COLUMN keywords;
 ALTER TABLE country DROP COLUMN wikipedia_link;
-ALTER TABLE player ADD avatar_id int NOT NULL DEFAULT(0);
+ALTER TABLE player ADD avatar_id INT NOT NULL DEFAULT(0);
 
+-- Create the 'questions' table
 CREATE TABLE questions (
      avatar_id INT DEFAULT(0),
      question_text VARCHAR(500) NOT NULL,
@@ -53,11 +62,11 @@ ALTER TABLE player ADD points INT DEFAULT(0);
 
 ALTER TABLE player MODIFY COLUMN id INT AUTO_INCREMENT;
 
-
+-- Clear the 'player' table
 DELETE FROM player;
 
-
-INSERT INTO questions (avatar_id, question_text, clue1, clue2, answer, wrong_answer, wrong_asnwer2) VALUES
+-- Insert sample questions into the 'questions' table
+INSERT INTO questions (avatar_id, question_text, clue1, clue2, answer, wrong_answer, wrong_answer2) VALUES
 (1, 'Mikä on Pythonin peruslauseke?', 'Se on yksinkertainen ohje', 'Se suorittaa tietyn tehtävän', 'Peruslauseke Pythonissa on "print()"', 'Se on banaani'),
 (1, 'Mikä on luokka (class) Python-ohjelmoinnissa?', 'Se on objekti, joka voi sisältää toiminnallisuutta', 'Se on Pythonin avainsana', 'Luokka on objekti, joka voi sisältää toiminnallisuutta', 'Se on funktio'),
 (1, 'Mikä on merkkijonon (string) tärkein ominaisuus Pythonissa?', 'Se voi sisältää tekstiä', 'Se on vain numero', 'Merkkijono voi sisältää tekstiä', 'Se voi sisältää vain yhden merkin');
@@ -71,7 +80,12 @@ INSERT INTO questions (avatar_id, question_text, clue1, clue2, answer, wrong_ans
 INSERT INTO questions (avatar_id, question_text, clue1, clue2, answer, wrong_answer, wrong_answer2) VALUES
 (3, 'Mikä on funktio Python-ohjelmoinnissa?', 'Se on nimetty lohko koodia', 'Se on tietorakenne', 'Funktio on nimetty lohko koodia, joka suorittaa tietyn tehtävän', 'Se on luku'),
 (3, 'Mitä tarkoittaa "for"-silmukka Pythonissa?', 'Se toistaa koodilohkoa useita kertoja', 'Se lopettaa ohjelman suorituksen', '"for"-silmukka toistaa koodilohkoa useita kertoja annetun ehdon perusteella', 'Se tulostaa aina "Hello, World!"');
-(3, 'Mikä on Pythonin sanakirja (dictionary)?', 'Se on tietorakenne, joka sisältää avain-arvo -pareja', 'Se on lista', 'Sanakirja on tietorakenne, joka sisältää avain-arvo -pareja', 'Se on funktio'),
+(3, 'Mikä on Pythonin sanakirja (dictionary)?', 'Se on tietorakenne, joka sisältää avain-arvo -pareja', 'Se on lista', 'Sanakirja on tietorakenne, joka sisältää avain-arvo -pareja', 'Se on funktio');
+```
 
-                                                                                                                              
-![alt text](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/ER_V2.png)  
+## Database Schema Diagram
+
+Below is a database schema diagram for reference:
+
+![Database Schema](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/ER_V2.png)
+```

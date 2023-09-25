@@ -1,5 +1,5 @@
 ```markdown
-![Lentokenttäseikkailu Logo](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/images/LOGO.png)
+![Lentokenttäseikkailu Logo](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/images/LOGO.png)
 
 # Lentokenttäseikkailu
 

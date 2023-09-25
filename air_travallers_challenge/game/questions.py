@@ -7,5 +7,3 @@ def get_questions_avatar(avatar_id):
 
     print(questions)
 
-
-    

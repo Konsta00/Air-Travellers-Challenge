@@ -15,8 +15,8 @@ In this section, we'll provide instructions for setting up the flight_game datab
 ## Download the flight_game Database
 
 To get started, download the flight_game database using the following link:
-[Download flight_game Database]:
-<https://moodle2.metropolia.fi/mod/resource/view.php?id=482997>
+[Download flight_game Database]
+https://moodle2.metropolia.fi/pluginfile.php/1561494/mod_resource/content/1/lp.sql
 
 ## MySQL Console Commands
 

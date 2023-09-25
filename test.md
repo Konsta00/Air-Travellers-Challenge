@@ -47,5 +47,9 @@ Jos pelaaja saa kysymyksen ensimmäisellä oikein, hän saattaa saada "power upi
 
 Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkailua, esimerkiksi auttamalla paikallista ympäristöä.
 
+## BANNER
+
+Travel safe and check your cabon dioxide emissions
+
 ![Lentokenttäseikkailu Banner](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/images/BANNER_X_SNAKE.png)
 ```

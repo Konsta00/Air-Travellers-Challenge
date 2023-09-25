@@ -87,3 +87,8 @@ def fetch_coords(connection, query, lat, lon):
         return None
     finally:
         cursor.close()
+
+# def fetch_last_row():
+#     cursor.execute("SELECT LAST_INSERT_ID()")
+#     row = cursor.fetchone()
+#     last_inserted_id = row[0]

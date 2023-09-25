@@ -5,6 +5,7 @@ from database.db_models import get_airports_iso_sql
 
 class Player:
     def __init__(self, name, avatar_id):
+        self.id = None
         self.name = name
         self.airport = None
         self.budget = 500
@@ -56,11 +57,51 @@ class Player:
                         self.co2_consumed
                     )
 
-            insert_player_sql(params)
+            self.id =  insert_player_sql(params)
+            print(self.id)
+
 
 # TODO: UPDATE PLAYER INFO TO DABASE ALMOST EVERYTIME SOMETHING GETS CHANGED
     def update_database(self):
-        asd = 'asd'
+        print(f'''
+        NEW PLAYER VALUES FROM update_database(): 
+            \n ID: {self.id}
+            \n Name: {self.name}
+            \n Points: {self.points}
+            \n Budget: {self.budget} 
+            \n Distance traveled: {self.distance_travelled}
+            \n Co2 consumed: {self.co2_consumed}
+        ''')
+
+# TODO: UPDATE PLAYER
+    def update_player(self, points, amount, distance, new_airport, amount_co2_consumed):
+        
+        print(f'''
+        OLD PLAYER VALUES: 
+            \n ID: {self.id}
+            \n Name: {self.name}
+            \n Points: {self.points}
+            \n Budget: {self.budget} 
+            \n Distance traveled: {self.distance_travelled}
+            \n Co2 consumed: {self.co2_consumed}
+        ''')
+
+        if bool(points):
+            self.points += points
+        else:
+            self.points -= points
+        
+        if bool(amount):
+            self.budget += amount
+        else:
+            self.budget -= amount
+
+        self.distance_travelled += + distance
+        self.airport = new_airport
+        self.co2_consumed += co2_consumed
+
+        self.update_database()
+
 
 
 # TODO: UPDATE PLAYER POINTS

@@ -11,7 +11,7 @@ def get_closest_airports(current_airport):
     lat, lon = coords = db_connection.fetch_one(connection, sql, current_airport)
 
     closest_airports_sql = f'''
-    SELECT name, latitude_deg, longitude_deg,
+    SELECT name, ident, iso_country, id, latitude_deg, longitude_deg,
             6371 * ACOS(
                 COS(RADIANS({lat})) * COS(RADIANS(latitude_deg)) 
                 * COS(RADIANS({lon} - longitude_deg)) +
@@ -41,6 +41,15 @@ def insert_player_sql(params):
 
     db_connection.execute_query(connection, insert_player_sql, (params))
 
+    connection.commit()
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT LAST_INSERT_ID()")
+    row = cursor.fetchone()
+    last_inserted_id = row[0]
+    
+
+    return last_inserted_id
     print('Added new player to database')
 
 # QUESTION CLASS SQL QUERIES

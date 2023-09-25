@@ -44,15 +44,43 @@ game.set_current_airport()
  
 
 # SET CLOSEST AIRPORTS TO GAME
-
+print(f'Game current airport: {game.current_airport}')
 game.set_closest_airports()
-print(f'Game closest airport: {game.closest_airports}')
-
 
 # CREATE NEW PLAYER IN DATABASE
 player.insert_player_to_database()
 
 # GET QUESTIONS FOR PLAYER
+
+# ------------+++++++++++++---------------+++++++++++++++
+
+print('OLD VALUES: \n')
+print(f'Player name: {player.name}')
+print(f'Player avatar: {player.avatar_id}')
+print(f'Player current airport: {player.airport}')
+
+print('TRAVEL TO A NEW AIRPORT')
+last_index = None
+for i, airport in enumerate(game.closest_airports):
+      print(f'{i+1}. {airport["name"]} | {airport["ident"]} ')
+      last_index = i
+
+# TODO: CREATE TRY STATEMENT FOR USER INPUT & MOVE THIS TO ACCORDING MODULE MAYBE
+
+# ASK USER TO SELECT AIRPORT
+selected_airport = int(input(f'SELECT AIRPORT BY TYPING 1-{last_index}: \n'))
+
+# "TRAVEL" TO NEW AIRPORT
+for i, airport in enumerate(game.closest_airports):
+    if i+1 == selected_airport:
+        game.current_airport = airport['ident']
+        player.airport = airport['ident']
+
+print('NEW VALUES: \n')
+print(f'Player name: {player.name}')
+print(f'Player avatar: {player.avatar_id}')
+print(f'Player current airport: {player.airport}')
+
 
 # DEBUG & DEVELOPEMENT
 

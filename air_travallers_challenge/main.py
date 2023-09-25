@@ -1,3 +1,4 @@
+# IMPORT GAME 6 PLAYER CLASS + NEEDED MODULES
 from game import Game
 from game import Player
 from game import get_random_question
@@ -20,27 +21,28 @@ print('''
                       \/     \/     \/               \/     \//_____/      \/            
       ''')
 
-# ASK FOR NAME
+# SELECT NAME FOR PLAYER
 input_name = str(input('Select a name for player: '))
 
 # CREATE GAME INSTANCE
 game = Game()
 
-#PRINT CHARACTERS FOR USER TO SELECT
+#PRINT AVATARS FOR USER TO SELECT
 game.print_avatars()
 
 input_avatar = int(input())
 
-# CRETE NEW PLAYER INSTANCE WITH INPUT_NAME AND INPUT_CHARACTER
+# CRETE NEW PLAYER INSTANCE WITH GIVEN NAME AND GIVEN AVATAR
 player = Player(input_name, input_avatar)
 
 
-# SET PLAYER IN GAME INSTANCE
+# SET PLAYER AS PLAYER INSTANCE IN GAME INSTANCE
 game.set_player(player)
 
-# SET AIPORT TO PLAYER & CURRENT AIRPORT TO GAME
-player.set_starting_airport()
-game.set_current_airport() 
+# SET PLAYER INSTANCE STARTING AIPORT BASED ON AVATAR & SET GAME INSTANCED CURRENT AIRPORT
+player.set_starting_airport(player.avatar_id)
+game.set_current_airport()
+ 
 
 # SET CLOSEST AIRPORTS TO GAME
 game.set_closest_airports()

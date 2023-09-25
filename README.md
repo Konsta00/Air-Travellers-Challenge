@@ -1,4 +1,3 @@
-![alt text](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/images/LOGO.png)                      
                                                                                                                                                     
 Lentokenttäseikkailu:
 
@@ -51,17 +50,33 @@ Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkail
 Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkailua, esimerkiksi auttamalla paikallista ympäristöä.
 ![alt text](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/images/BANNER_X_SNAKE.png)
 
+ <pre>                                                                  ____             
+    8 888888888o.   8 8888888888            .8.          8 888888888o.                        ,8.       ,8.          8 8888888888   
+8 8888    `88.  8 8888                 .888.         8 8888    `^888.                    ,888.     ,888.         8 8888         
+8 8888     `88  8 8888                :88888.        8 8888        `88.                 .`8888.   .`8888.        8 8888         
+8 8888     ,88  8 8888               . `88888.       8 8888         `88                ,8.`8888. ,8.`8888.       8 8888         
+8 8888.   ,88'  8 888888888888      .8. `88888.      8 8888          88               ,8'8.`8888,8^8.`8888.      8 888888888888 
+8 888888888P'   8 8888             .8`8. `88888.     8 8888          88              ,8' `8.`8888' `8.`8888.     8 8888         
+8 8888`8b       8 8888            .8' `8. `88888.    8 8888         ,88             ,8'   `8.`88'   `8.`8888.    8 8888         
+8 8888 `8b.     8 8888           .8'   `8. `88888.   8 8888        ,88'            ,8'     `8.`'     `8.`8888.   8 8888         
+8 8888   `8b.   8 8888          .888888888. `88888.  8 8888    ,o88P'             ,8'       `8        `8.`8888.  8 8888         
+8 8888     `88. 8 888888888888 .8'       `8. `88888. 8 888888888P'               ,8'         `         `8.`8888. 8 888888888888  
+</pre>
+
+
+![alt text](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/images/LOGO.png)                      
+
 ```markdown
 
 ![Lentokenttäseikkailu Logo](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/images/LOGO.png)
 
 # Lentokenttäseikkailu
 
-**Pelin Kuvaus:**
+## Pelin Kuvaus:
 
 Pelaaja on seikkailija, joka matkustaa eri lentokentille ympäri maailmaa. Pelaaja ratkaisee ohjelmointi kysymyksiä, jolla ansaitsee €-budjettia, samalla pelaaja voi löytää poweruppeja ja oppia samalla lentokenttien historiasta ja kulttuurista.
 
-**Pelin Toiminnot:**
+## Pelin Toiminnot:
 
 - Pelaaja valitsee pelin alussa hahmon, mikä määrittää kysymyksien vaikeuden ja aloituspaikan maailmassa.
 - Pelin aluksi pelaaja pystyy matkustamaan 10 lähimpään lentokenttään.
@@ -71,7 +86,7 @@ Pelaaja on seikkailija, joka matkustaa eri lentokentille ympäri maailmaa. Pelaa
 - difficult_country = korkeampi palkinto.
 - player_level > esim. 15 = difficult_question = korkeampi palkinto.
 
-**Palkinnot:**
+## Palkinnot:
 
 - Jokaisella lentokentällä on vaikeustaso, joka määrittää kysymyksen vaikeuden ja mahdollisen powerupin.
 - Kaava pisteiden laskemiseen: lopulliset_pisteet = lentokenttä_vaikeustaso * pisteet_kysymyksestä.
@@ -80,14 +95,14 @@ Pelaaja on seikkailija, joka matkustaa eri lentokentille ympäri maailmaa. Pelaa
 - Jokaisella pelaajalla on pelin alussa 3 ilmaista vihjettä, jos vihjeet loppuvat, niitä pystyy ostamaan lisää.
 - Myös Poweruppeja voi ostaa lisää, mutta ne ovat arvokkaampia.
 
-**Powerupit:**
+## Powerupit:
 
 - Ilmainen matkustus mihin tahansa lentokenttään.
 - 3 lisävihjettä.
 - Käteispalkinto.
 - Kysymyksen ohittaminen.
 
-**Pelin Idea:**
+## Pelin Idea:
 
 Pelaaja valitsee hahmonsa, ja aloituslentokenttä liittyy jotenkin aloitushahmoon. Esimerkiksi hahmon valinta: Donald Trump, jolloin aloituspaikkana olisi Yhdysvallat (Lentokenttä siellä).
 
@@ -100,8 +115,6 @@ Kun pelaaja on vastannut kysymykseen oikein, hän voi matkustaa uuteen kohteesee
 Jos pelaaja saa kysymyksen ensimmäisellä oikein, hän saattaa saada "power upin", jolla voi "skipata" kysymyksen jollakin kentällä ja saada suoraan 100 pistettä.
 
 Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkailua, esimerkiksi auttamalla paikallista ympäristöä.
-
-![Lentokenttäseikkailu Banner](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/images/BANNER_X_SNAKE.png)
 ```
                                                                                                                               
                                                                                                                               

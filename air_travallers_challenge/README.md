@@ -5,18 +5,18 @@ Organizing a Python game project like the one you described, which involves MySQ
 
    ```
     air_travellers_challenge/
-   ├── main.py
-   ├── database/
-   │   ├── __init__.py
-   │   ├── database_setup.sql
-   │   ├── db_connection.py
-   │   └── db_models.py
-   ├── game/
-   │   ├── __init__.py
-   │   ├── game.py
-   │   ├── player.py
-   │   └── questions.py
-   └── README.md
+            ├── main.py
+            ├── database/
+            │   ├── __init__.py
+            │   ├── database_setup.sql
+            │   ├── db_connection.py
+            │   └── db_models.py
+            ├── game/
+            │   ├── __init__.py
+            │   ├── game.py
+            │   ├── player.py
+            │   └── questions.py
+            └── README.md
 
    ```
 

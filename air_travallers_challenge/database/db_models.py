@@ -24,27 +24,31 @@ def get_closest_airports(current_airport):
         LIMIT 10;
     '''
 
-    closest_airports_list = db_connection.fetch_data(connection, closest_airports_sql)
+    closest_airports_list = db_connection.fetch_data(connection, closest_airports_sql, ())
     return closest_airports_list
 
 # PLAYER CLASS SQL QUERIES
 
 def get_airports_iso_sql(iso):
+    get_airports_iso_sql = 'SELECT * FROM airport WHERE iso_country = %s LIMIT 5; '
 
+    airports = db_connection.fetch_data(connection, get_airports_iso_sql, iso)
+
+    return airports
 
 def insert_player_sql(params):
-        insert_player_sql = "INSERT INTO player (name, avatar_id, budget, distance_traveled, current_airport, co2_consumed) VALUES (%s, %s, %s, %s, %s, %s); "
+    insert_player_sql = "INSERT INTO player (name, avatar_id, budget, distance_traveled, current_airport, co2_consumed) VALUES (%s, %s, %s, %s, %s, %s); "
 
-        db_connection.execute_query(connection, insert_player_sql, (params))
+    db_connection.execute_query(connection, insert_player_sql, (params))
 
-        print('Added new player to database')
+    print('Added new player to database')
 
 # QUESTION CLASS SQL QUERIES
 
 def get_questions_avatar_sql(avatar_id):
-        get_questions_sql = 'SELECT * FROM questions WHERE avatar_id = %s; '
+    get_questions_sql = 'SELECT * FROM questions WHERE avatar_id = %s; '
 
-        questions = db_connection.fetch_data(connection, get_random_question_sql, (avatar_id, ))
+    questions = db_connection.fetch_data(connection, get_random_question_sql, (avatar_id, ))
 
-        return questions
+    return questions
 

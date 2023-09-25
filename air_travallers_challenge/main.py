@@ -44,14 +44,15 @@ game.set_current_airport()
  
 
 # SET CLOSEST AIRPORTS TO GAME
+
 game.set_closest_airports()
+print(f'Game closest airport: {game.closest_airports}')
+
 
 # CREATE NEW PLAYER IN DATABASE
 player.insert_player_to_database()
 
 # GET QUESTIONS FOR PLAYER
-
-
 
 # DEBUG & DEVELOPEMENT
 
@@ -59,4 +60,4 @@ print(f'Player name: {player.name}')
 print(f'Player character: {player.avatar_id}')
 print(f'Player current airport: {player.airport}')
 
-print(game.closest_airports)
+# print(game.closest_airports)

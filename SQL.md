@@ -7,11 +7,12 @@
               /_______  /\__   |____/   |____| \____/   |____|_  /____/|___|  /
                       \/    |__|                               \/           \/ 
 
-Lataa flight_game tietokanta: 
-https://moodle2.metropolia.fi/pluginfile.php/1561494/mod_resource/content/1/lp.sql
+<div>
+     <h2> Lataa flight_game tietokanta: </h2>
+     <a href="https://moodle2.metropolia.fi/pluginfile.php/1561494/mod_resource/content/1/lp.sql">LINKKI TIETOKANTAAN</a>
+</div>
 
-SEN JÄLKEEN JUOKSE MYSQL-KONSOLISSA:
-
+<h3>SEN JÄLKEEN JUOKSE MYSQL-KONSOLISSA:</h3>
 
 DROP TABLE IF EXISTS goal_reached;
 DROP TABLE IF EXISTS goal;
@@ -73,4 +74,4 @@ INSERT INTO questions (avatar_id, question_text, clue1, clue2, answer, wrong_ans
 (3, 'Mikä on Pythonin sanakirja (dictionary)?', 'Se on tietorakenne, joka sisältää avain-arvo -pareja', 'Se on lista', 'Sanakirja on tietorakenne, joka sisältää avain-arvo -pareja', 'Se on funktio'),
 
                                                                                                                               
-![alt text](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/ER.png)  
+![alt text](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/ER_V2.png)  

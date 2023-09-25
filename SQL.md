@@ -73,4 +73,4 @@ INSERT INTO questions (avatar_id, question_text, clue1, clue2, answer, wrong_ans
 (3, 'Mikä on Pythonin sanakirja (dictionary)?', 'Se on tietorakenne, joka sisältää avain-arvo -pareja', 'Se on lista', 'Sanakirja on tietorakenne, joka sisältää avain-arvo -pareja', 'Se on funktio'),
 
                                                                                                                               
-![alt text](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/ER.png)  
+![alt text](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/ER_V2.png)  

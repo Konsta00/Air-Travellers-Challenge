@@ -45,13 +45,6 @@ Jos pelaaja saa kysymyksen ensimmäisellä oikein hän saattaa saada "power upin
 kentällä ja saada suoraan 100pistettä. 
 
 Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkailua, esimerkiksi auttamalla paikallista ympäristöä.
-
-
-Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkailua, esimerkiksi auttamalla paikallista ympäristöä.
-![alt text](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/images/BANNER_X_SNAKE.png)
-
-
-
  <pre>                                                                  ____             
     8 888888888o.   8 8888888888            .8.          8 888888888o.                        ,8.       ,8.          8 8888888888   
     8 8888    `88.  8 8888                 .888.         8 8888    `^888.                    ,888.     ,888.         8 8888         
@@ -83,16 +76,13 @@ Pelaaja on seikkailija, joka matkustaa eri lentokentille ympäri maailmaa. Pelaa
 - Pelaaja valitsee pelin alussa hahmon, mikä määrittää kysymyksien vaikeuden ja aloituspaikan maailmassa.
 - Pelin aluksi pelaaja pystyy matkustamaan 10 lähimpään lentokenttään.
 - Mitä suurempi pelaajan taso, sitä kauemmas pystyy matkustamaan.
-- Matkustaminen kuluttaa pelaajan budjettia.
+- Matkustaminen kuluttaa pelaajan budjettia ja nostaa päästöjä.
 - Pelaajan taso vaikuttaa myös kysymyksien vaikeuteen.
-- difficult_country = korkeampi palkinto.
-- player_level > esim. 15 = difficult_question = korkeampi palkinto.
 
 ## Palkinnot:
 
-- Jokaisella lentokentällä on vaikeustaso, joka määrittää kysymyksen vaikeuden ja mahdollisen powerupin.
 - Kaava pisteiden laskemiseen: lopulliset_pisteet = lentokenttä_vaikeustaso * pisteet_kysymyksestä.
-- 3 kysymystä per lentokenttä, jos pelaaja saa yli 1 kysymyksen väärin, tulee miinuspisteitä.
+- 1 kysymys per lentokenttä, jos pelaaja saa yli 1 kysymyksen väärin, tulee miinuspisteitä.
 - Jos pelaaja vastaa oikein 2/3 kysymyksestä, voi voittaa Powerupin.
 - Jokaisella pelaajalla on pelin alussa 3 ilmaista vihjettä, jos vihjeet loppuvat, niitä pystyy ostamaan lisää.
 - Myös Poweruppeja voi ostaa lisää, mutta ne ovat arvokkaampia.
@@ -100,7 +90,7 @@ Pelaaja on seikkailija, joka matkustaa eri lentokentille ympäri maailmaa. Pelaa
 ## Powerupit:
 
 - Ilmainen matkustus mihin tahansa lentokenttään.
-- 3 lisävihjettä.
+- 3 ilmaista lisävihjettä.
 - Käteispalkinto.
 - Kysymyksen ohittaminen.
 
@@ -118,5 +108,5 @@ Jos pelaaja saa kysymyksen ensimmäisellä oikein, hän saattaa saada "power upi
 
 Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkailua, esimerkiksi auttamalla paikallista ympäristöä.
 ```
-                                                                                                                              
+![alt text](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/images/BANNER_X_SNAKE.png)                                                                                                                              
                                                                                                                               

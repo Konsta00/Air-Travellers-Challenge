@@ -43,7 +43,8 @@ CREATE TABLE questions (
      clue1 VARCHAR(255),
      clue2 VARCHAR(255),
      answer VARCHAR(255) NOT NULL,
-     wrong_answer VARCHAR(255) NOT NULL
+     wrong_answer VARCHAR(255) NOT NULL,
+     wrong_answer2 VARCHAR(255) NOT NULL
 );
 
 ALTER TABLE player ADD distance_traveled INT DEFAULT(0);
@@ -55,26 +56,21 @@ ALTER TABLE player MODIFY COLUMN id INT AUTO_INCREMENT;
 DELETE FROM player;
 
 
-INSERT INTO questions (avatar_id, question_text, clue1, clue2, answer, wrong_answer) VALUES
+INSERT INTO questions (avatar_id, question_text, clue1, clue2, answer, wrong_answer, wrong_asnwer2) VALUES
 (1, 'Mikä on Pythonin peruslauseke?', 'Se on yksinkertainen ohje', 'Se suorittaa tietyn tehtävän', 'Peruslauseke Pythonissa on "print()"', 'Se on banaani'),
 (1, 'Mikä on luokka (class) Python-ohjelmoinnissa?', 'Se on objekti, joka voi sisältää toiminnallisuutta', 'Se on Pythonin avainsana', 'Luokka on objekti, joka voi sisältää toiminnallisuutta', 'Se on funktio'),
 (1, 'Mikä on merkkijonon (string) tärkein ominaisuus Pythonissa?', 'Se voi sisältää tekstiä', 'Se on vain numero', 'Merkkijono voi sisältää tekstiä', 'Se voi sisältää vain yhden merkin');
 
-INSERT INTO questions (avatar_id, question_text, clue1, clue2, answer, wrong_answer) VALUES
+INSERT INTO questions (avatar_id, question_text, clue1, clue2, answer, wrong_answer, wrong_answer2) VALUES
 (2, 'Miten Pythonissa tulostetaan teksti näytölle?', 'Käyttämällä "print()" -funktiota', 'Käyttämällä "input()" -funktiota', 'Pythonissa teksti tulostetaan näytölle käyttämällä "print()" -funktiota', 'Käyttämällä "scan()" -funktiota'),
 (2, 'Mikä on Pythonin lista (list)?', 'Se on tietorakenne, joka voi sisältää useita alkioita', 'Se on Pythonin versio sanakirjasta', 'Lista on tietorakenne, joka voi sisältää useita alkioita', 'Se on luku'),
 (2, 'Mikä on Pythonin if-lauseen (ehtolauseen) tarkoitus?', 'Se mahdollistaa ehtoisen suorituksen', 'Se lopettaa ohjelman suorituksen', 'If-lause mahdollistaa ehtoisen suorituksen riippuen annetusta ehdosta', 'Se tulostaa aina "Hello, World!"');
+(2, 'Kuinka Pythonissa käsitellään poikkeuksia (exceptions)?', 'Käyttämällä try ja except lohkoja', 'Poikkeuksia ei voi käsitellä Pythonissa', 'Pythonissa poikkeuksia käsitellään try ja except lohkoilla', 'Käyttämällä if-lauseita'),
 
-INSERT INTO questions (avatar_id, question_text, clue1, clue2, answer, wrong_answer) VALUES
+INSERT INTO questions (avatar_id, question_text, clue1, clue2, answer, wrong_answer, wrong_answer2) VALUES
 (3, 'Mikä on funktio Python-ohjelmoinnissa?', 'Se on nimetty lohko koodia', 'Se on tietorakenne', 'Funktio on nimetty lohko koodia, joka suorittaa tietyn tehtävän', 'Se on luku'),
 (3, 'Mitä tarkoittaa "for"-silmukka Pythonissa?', 'Se toistaa koodilohkoa useita kertoja', 'Se lopettaa ohjelman suorituksen', '"for"-silmukka toistaa koodilohkoa useita kertoja annetun ehdon perusteella', 'Se tulostaa aina "Hello, World!"');
+(3, 'Mikä on Pythonin sanakirja (dictionary)?', 'Se on tietorakenne, joka sisältää avain-arvo -pareja', 'Se on lista', 'Sanakirja on tietorakenne, joka sisältää avain-arvo -pareja', 'Se on funktio'),
 
-INSERT INTO questions (avatar_id, question_text, clue1, clue2, answer, wrong_answer) VALUES
-(4, 'Mikä on Pythonin sanakirja (dictionary)?', 'Se on tietorakenne, joka sisältää avain-arvo -pareja', 'Se on lista', 'Sanakirja on tietorakenne, joka sisältää avain-arvo -pareja', 'Se on funktio'),
-(4, 'Mikä on Pythonin moduuli?', 'Se on Pythonin kirjasto', 'Se on tietoturvaominaisuus', 'Moduuli on Pythonin tiettyjen toimintojen tai ominaisuuksien kokoelma', 'Se on luku');
-
-INSERT INTO questions (avatar_id, question_text, clue1, clue2, answer, wrong_answer) VALUES
-(5, 'Kuinka Pythonissa käsitellään poikkeuksia (exceptions)?', 'Käyttämällä try ja except lohkoja', 'Poikkeuksia ei voi käsitellä Pythonissa', 'Pythonissa poikkeuksia käsitellään try ja except lohkoilla', 'Käyttämällä if-lauseita'),
-(5, 'Mikä on Pythonin while-silmukka?', 'Se on toistorakenne, joka toistaa koodilohkoa niin kauan kuin ehto on tosi', 'Se on Pythonin funktio', 'While-silmukka on toistorakenne, joka toistaa koodilohkoa niin kauan kuin ehto on tosi', 'Se on lista');
                                                                                                                               
 ![alt text](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/ER.png)  

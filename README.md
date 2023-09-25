@@ -52,6 +52,7 @@ Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkail
 ![alt text](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/images/BANNER_X_SNAKE.png)
 
 ```markdown
+
 ![Lentokenttäseikkailu Logo](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/images/LOGO.png)
 
 # Lentokenttäseikkailu

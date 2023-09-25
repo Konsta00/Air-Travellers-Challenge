@@ -1,5 +1,3 @@
-Sure, I can format the text and images in your document using Markdown. Here's the improved formatting:
-
 ```markdown
 ![Lentokenttäseikkailu Logo](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/images/LOGO.png)
 
@@ -51,5 +49,3 @@ Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkail
 
 ![Lentokenttäseikkailu Banner](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/images/BANNER_X_SNAKE.png)
 ```
-
-This Markdown format organizes your content with headings, bullet points, and images for better readability and presentation. Feel free to adjust the formatting or content as needed.

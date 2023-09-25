@@ -88,5 +88,5 @@ INSERT INTO questions (avatar_id, question_text, clue1, clue2, answer, wrong_ans
 
 Below is a database schema diagram for reference:
 
-![Database Schema](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/ER_V2.png)
+![Database Schema](https://github.com/Konsta00/Air-Travellers-Challenge/main/ER_V2.png)
 ```

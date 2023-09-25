@@ -11,8 +11,8 @@
      <h2> Lataa flight_game tietokanta: </h2>
      <a href="https://moodle2.metropolia.fi/pluginfile.php/1561494/mod_resource/content/1/lp.sql">LINKKI TIETOKANTAAN</a>
 </div>
-SEN JÄLKEEN JUOKSE MYSQL-KONSOLISSA:
 
+<h3>SEN JÄLKEEN JUOKSE MYSQL-KONSOLISSA:</h3>
 
 DROP TABLE IF EXISTS goal_reached;
 DROP TABLE IF EXISTS goal;

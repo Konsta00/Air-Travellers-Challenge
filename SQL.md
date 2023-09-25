@@ -7,7 +7,7 @@
               /_______  /\__   |____/   |____| \____/   |____|_  /____/|___|  /
                       \/    |__|                               \/           \/ 
 
-Lataa flight_game tietokanta: 
+<h2> Lataa flight_game tietokanta: </h2>
 https://moodle2.metropolia.fi/pluginfile.php/1561494/mod_resource/content/1/lp.sql
 
 SEN JÄLKEEN JUOKSE MYSQL-KONSOLISSA:

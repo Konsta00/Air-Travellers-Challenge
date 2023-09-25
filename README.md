@@ -16,9 +16,6 @@
 ![alt text](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/images/LOGO.png)                      
 
 ```markdown
-
-![Lentokenttäseikkailu Logo](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/images/LOGO.png)
-
 # Lentokenttäseikkailu
 
 ## Pelin Kuvaus:

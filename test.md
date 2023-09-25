@@ -1,80 +1,55 @@
-Certainly, I can help you format the SQL.md file to make it more visually appealing. Below is an example of how you can format the content using Markdown:
+Sure, I can format the text and images in your document using Markdown. Here's the improved formatting:
 
 ```markdown
-# SQL Database Setup
+![Lentokenttäseikkailu Logo](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/images/LOGO.png)
 
-In this section, we'll provide instructions for setting up the flight_game database and making necessary schema changes. 
+# Lentokenttäseikkailu
 
-## Download the flight_game Database
+**Pelin Kuvaus:**
 
-To get started, download the flight_game database using the following link:
-[Download flight_game Database](https://moodle2.metropolia.fi/pluginfile.php/1561494/mod_resource/content/1/lp.sql)
+Pelaaja on seikkailija, joka matkustaa eri lentokentille ympäri maailmaa. Pelaaja ratkaisee ohjelmointi kysymyksiä, jolla ansaitsee €-budjettia, samalla pelaaja voi löytää poweruppeja ja oppia samalla lentokenttien historiasta ja kulttuurista.
 
-## MySQL Console Commands
+**Pelin Toiminnot:**
 
-After downloading the database, run the following MySQL commands in your console to make the required modifications:
+- Pelaaja valitsee pelin alussa hahmon, mikä määrittää kysymyksien vaikeuden ja aloituspaikan maailmassa.
+- Pelin aluksi pelaaja pystyy matkustamaan 10 lähimpään lentokenttään.
+- Mitä suurempi pelaajan taso, sitä kauemmas pystyy matkustamaan.
+- Matkustaminen kuluttaa pelaajan budjettia.
+- Pelaajan taso vaikuttaa myös kysymyksien vaikeuteen.
+- difficult_country = korkeampi palkinto.
+- player_level > esim. 15 = difficult_question = korkeampi palkinto.
 
-```sql
-DROP TABLE IF EXISTS goal_reached;
-DROP TABLE IF EXISTS goal;
+**Palkinnot:**
 
-ALTER TABLE airport DROP COLUMN elevation_ft;
-ALTER TABLE airport DROP COLUMN iso_region;
-ALTER TABLE airport DROP COLUMN municipality;
-ALTER TABLE airport DROP COLUMN scheduled_service;
-ALTER TABLE airport DROP COLUMN gps_code;
-ALTER TABLE airport DROP COLUMN iata_code;
-ALTER TABLE airport DROP COLUMN local_code;
-ALTER TABLE airport DROP COLUMN home_link;
-ALTER TABLE airport DROP COLUMN keywords;
-ALTER TABLE airport DROP COLUMN wikipedia_link;
+- Jokaisella lentokentällä on vaikeustaso, joka määrittää kysymyksen vaikeuden ja mahdollisen powerupin.
+- Kaava pisteiden laskemiseen: lopulliset_pisteet = lentokenttä_vaikeustaso * pisteet_kysymyksestä.
+- 3 kysymystä per lentokenttä, jos pelaaja saa yli 1 kysymyksen väärin, tulee miinuspisteitä.
+- Jos pelaaja vastaa oikein 2/3 kysymyksestä, voi voittaa Powerupin.
+- Jokaisella pelaajalla on pelin alussa 3 ilmaista vihjettä, jos vihjeet loppuvat, niitä pystyy ostamaan lisää.
+- Myös Poweruppeja voi ostaa lisää, mutta ne ovat arvokkaampia.
 
-ALTER TABLE game DROP COLUMN co2_budget;
-ALTER TABLE game CHANGE COLUMN `screen_name` `name` VARCHAR(255);
-ALTER TABLE game ADD budget INT NOT NULL DEFAULT(0);
-ALTER TABLE game CHANGE COLUMN `location` `current_airport` VARCHAR(10);
-ALTER TABLE game RENAME player;
+**Powerupit:**
 
-ALTER TABLE country DROP COLUMN keywords;
-ALTER TABLE country DROP COLUMN wikipedia_link;
-ALTER TABLE player ADD avatar_id INT NOT NULL DEFAULT(0);
+- Ilmainen matkustus mihin tahansa lentokenttään.
+- 3 lisävihjettä.
+- Käteispalkinto.
+- Kysymyksen ohittaminen.
 
--- Create the 'questions' table
-CREATE TABLE questions (
-     avatar_id INT DEFAULT(0),
-     question_text VARCHAR(500) NOT NULL,
-     clue1 VARCHAR(255),
-     clue2 VARCHAR(255),
-     answer VARCHAR(255) NOT NULL,
-     wrong_answer VARCHAR(255) NOT NULL,
-     wrong_answer2 VARCHAR(255) NOT NULL
-);
+**Pelin Idea:**
 
-ALTER TABLE player ADD distance_traveled INT DEFAULT(0);
-ALTER TABLE player ADD points INT DEFAULT(0);
+Pelaaja valitsee hahmonsa, ja aloituslentokenttä liittyy jotenkin aloitushahmoon. Esimerkiksi hahmon valinta: Donald Trump, jolloin aloituspaikkana olisi Yhdysvallat (Lentokenttä siellä).
 
-ALTER TABLE player MODIFY COLUMN id INT AUTO_INCREMENT;
+Pelin tavoitteena on saavuttaa 1000 pistettä mahdollisimman vähäisellä lentämisellä.
 
--- Clear the 'player' table
-DELETE FROM player;
+Pelaaja vastaa lentokentälle saavuttaessa kysymykseen, ja mikäli kysymyksen saa ensimmäisellä vastauksella oikein, pelaaja saa +100 pistettä. Mikäli vastaa yrityksellä oikein, saa +70 pistettä, ja kolmannella yrityksellä +50 pistettä.
 
--- Insert sample questions into the 'questions' table
-INSERT INTO questions (avatar_id, question_text, clue1, clue2, answer, wrong_answer, wrong_answer2) VALUES
-(1, 'Mikä on Pythonin peruslauseke?', 'Se on yksinkertainen ohje', 'Se suorittaa tietyn tehtävän', 'Peruslauseke Pythonissa on "print()"', 'Se on banaani'),
-(1, 'Mikä on luokka (class) Python-ohjelmoinnissa?', 'Se on objekti, joka voi sisältää toiminnallisuutta', 'Se on Pythonin avainsana', 'Luokka on objekti, joka voi sisältää toiminnallisuutta', 'Se on funktio'),
-(1, 'Mikä on merkkijonon (string) tärkein ominaisuus Pythonissa?', 'Se voi sisältää tekstiä', 'Se on vain numero', 'Merkkijono voi sisältää tekstiä', 'Se voi sisältää vain yhden merkin');
+Kun pelaaja on vastannut kysymykseen oikein, hän voi matkustaa uuteen kohteeseen. Täällä taas vastaa kysymykseen.
 
--- Insert more questions if needed
--- ...
+Jos pelaaja saa kysymyksen ensimmäisellä oikein, hän saattaa saada "power upin", jolla voi "skipata" kysymyksen jollakin kentällä ja saada suoraan 100 pistettä.
 
+Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkailua, esimerkiksi auttamalla paikallista ympäristöä.
+
+![Lentokenttäseikkailu Banner](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/images/BANNER_X_SNAKE.png)
 ```
 
-## Database Schema Diagram
-
-Below is a database schema diagram for reference:
-
-![Database Schema](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/ER_V2.png)
-
-```
-
-This Markdown format organizes the content with headings, code blocks, and inline links to make it more readable and structured. You can further customize the styling to match your preferences.
+This Markdown format organizes your content with headings, bullet points, and images for better readability and presentation. Feel free to adjust the formatting or content as needed.

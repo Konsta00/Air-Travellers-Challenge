@@ -40,7 +40,7 @@ class Player:
             # avatar_id = 3 = Felipe IV
             iso = 'ES'
 
-
+# AIRPORTS DICTIONARY
         airports_dict = {}
         airports = get_airports_iso_sql(iso)
 
@@ -114,13 +114,14 @@ class Player:
 
 
 # TODO: UPDATE PLAYER POINTS
-    def update_points(self,points_to_add):
+    def update_points(self, points_to_add):
         if bool(points_to_add):
             self.points += points_to_add
         else:
             self.points -= points_to_add
 
-        self.update_points()
+    def update_distance(self):
+        
 
 # TODO: SELECT RANDOM POWERUP AND AND IT TO PLAYER INSTANCE DICTIONARY
     def random_powerup():

@@ -20,7 +20,7 @@ print('''
                       \/     \/     \/               \/     \//_____/      \/            
       ''')
 
-# SELECT NAME FOR PLAYER
+# SELECT NAME FOR PLAYER TODO: CHECK THE INPUT IS STRING
 input_name = str(input('Select a name for player: '))
 
 # CREATE GAME INSTANCE
@@ -34,13 +34,13 @@ input_avatar = int(input())
 # CRETE NEW PLAYER INSTANCE WITH GIVEN NAME AND GIVEN AVATAR
 player = Player(input_name, input_avatar)
 
-
 # SET PLAYER AS PLAYER INSTANCE IN GAME INSTANCE
 game.set_player(player)
 
 # SET PLAYER INSTANCE STARTING AIPORT BASED ON AVATAR & SET GAME INSTANCED CURRENT AIRPORT
 player.set_starting_airport(player.avatar_id)
 game.set_current_airport()
+
  
 
 # SET CLOSEST AIRPORTS TO GAME

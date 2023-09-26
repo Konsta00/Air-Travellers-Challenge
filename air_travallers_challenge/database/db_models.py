@@ -3,7 +3,7 @@ from database import db_connection
 connection = db_connection.connect_to_database()
 
 # GAME CLASS SQL QUERIES
-
+# SOURCE: FROM CHATGPT
 def get_closest_airports(current_airport):
 
     # fetch coordinates for current airport
@@ -21,7 +21,7 @@ def get_closest_airports(current_airport):
             airport
         ORDER BY
             Distance_KM ASC
-        LIMIT 10;
+        LIMIT 11;
     '''
 
     closest_airports_list = db_connection.fetch_data(connection, closest_airports_sql, ())

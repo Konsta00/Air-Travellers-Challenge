@@ -14,7 +14,10 @@ player.set_starting_airport(player.avatar_id)
 
 game.set_player(player)
 game.set_current_airport()
+
 game.set_closest_airports()
+
+# print('Game current airport: ', game.current_airport)
 
 # print(game.closest_airports)
 
@@ -24,7 +27,6 @@ questions = Questions()
 questions.set_questions(player.avatar_id)
 
 print(questions.questions)
-
 
 print('OLD VALUES: \n')
 player.print_player()

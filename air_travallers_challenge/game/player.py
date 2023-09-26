@@ -2,6 +2,7 @@ import random
 import json
 from database.db_models import insert_player_sql 
 from database.db_models import get_airports_iso_sql
+from database.db_models import update_points
 
 class Player:
     def __init__(self, name, avatar_id):
@@ -96,18 +97,22 @@ class Player:
         else:
             self.budget -= amount
 
-        self.distance_travelled += + distance
+        self.distance_travelled += distance
         self.airport = new_airport
-        self.co2_consumed += co2_consumed
+        self.co2_consumed += amount_co2_consumed
 
         self.update_database()
 
 
 
 # TODO: UPDATE PLAYER POINTS
-    def update_points(points_to_add):
-        var = "var"
+    def update_points(self,points_to_add):
+        if bool(points_to_add):
+            self.points += points_to_add
+        else:
+            self.points -= points_to_add
 
+        self.update_points()
 
 # TODO: SELECT RANDOM POWERUP AND AND IT TO PLAYER INSTANCE DICTIONARY
     def random_powerup():

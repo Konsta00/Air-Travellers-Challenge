@@ -61,3 +61,7 @@ def get_questions_avatar_sql(avatar_id):
 
     return questions
 
+def update_points():
+    update_points = "UPDATE game SET points = points + 100 WHERE name = %s"
+    cursor = connection.cursor
+    cursor.execute(update_points)

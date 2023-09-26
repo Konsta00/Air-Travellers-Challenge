@@ -43,6 +43,7 @@ Kun pelaaja on vastannut kysymykseen oikein voi hän matkustaa uuteen kohteeseen
 Jos pelaaja saa kysymyksen ensimmäisellä oikein hän saattaa saada "power upin" jolla voi "skipata" kysymyksen jollakin
 kentällä ja saada suoraan 100pistettä. 
 
+
 Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkailua, esimerkiksi auttamalla paikallista ympäristöä.
 
 

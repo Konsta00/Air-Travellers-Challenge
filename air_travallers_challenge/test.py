@@ -26,7 +26,9 @@ game.set_closest_airports()
 questions = Questions()
 questions.set_questions(player.avatar_id)
 
-print(questions.questions)
+random_question = questions.return_random_question()
+
+print('Random question: \n', random_question)
 
 print('OLD VALUES: \n')
 player.print_player()
@@ -37,7 +39,6 @@ last_index = None
 for i, airport in enumerate(game.closest_airports):
       print(f'{i+1}. {airport["name"]} | {airport["ident"]} ')
       last_index = i
-
 
 # TODO: CREATE TRY STATEMENT FOR USER INPUT & MOVE THIS TO ACCORDING MODULE MAYBE
 

@@ -40,7 +40,6 @@ game.set_player(player)
 # SET PLAYER INSTANCE STARTING AIPORT BASED ON AVATAR & SET GAME INSTANCED CURRENT AIRPORT
 player.set_starting_airport(player.avatar_id)
 game.set_current_airport()
-
  
 
 # SET CLOSEST AIRPORTS TO GAME

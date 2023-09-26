@@ -120,8 +120,11 @@ class Player:
         else:
             self.points -= points_to_add
 
-    def update_distance(self):
-        
+    def update_distance(self, distance_to_add):
+        if bool(distance_to_add):
+            self.distance += distance_to_add
+        else:
+            self.distance -= distance_to_add
 
 # TODO: SELECT RANDOM POWERUP AND AND IT TO PLAYER INSTANCE DICTIONARY
     def random_powerup():

@@ -16,6 +16,15 @@ class Player:
         self.powerups = (
         )
 
+    def print_player(self):
+        print('ID: ', self.id)
+        print('Name: ', self.name)
+        print('Points: ', self.points)
+        print('Budget: ', self.budget)
+        print('Airport: ', self.airport)
+        print('Co2 consumed: ', self.co2_consumed)
+        print('Avatar ID: ', self.avatar_id)
+
 # GET ALL AIRPORTS FROM SELECTED AVATAR AND SET STARTING AIRPORT FOR PLAYER 
     def set_starting_airport(self, avatar_id):
         iso = ''
@@ -32,7 +41,6 @@ class Player:
 
 
         airports_dict = {}
-        
         airports = get_airports_iso_sql(iso)
 
         for airport in airports:

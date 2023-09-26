@@ -2,33 +2,34 @@ from game import Game
 from game import Player
 from game import Questions
 
+def print_options():
+    print('''
+[OPTIONS]
+5. Display a clue ($TBD)
+6. Use a powerup 
+    ''')
+
+# CREATE GAME, PLAYER ETC. SET NEEDED VARIABLES
 input_name = 'test_name'
-
 game = Game()
-
 game.print_avatars()
 input_avatar = 1
-
 player = Player(input_name, input_avatar)
 player.set_starting_airport(player.avatar_id)
-
 game.set_player(player)
 game.set_current_airport()
-
 game.set_closest_airports()
-
-# print('Game current airport: ', game.current_airport)
-
-# print(game.closest_airports)
-
-# ASK A QUESTION
-
 questions = Questions()
 questions.set_questions(player.avatar_id)
 
-random_question = questions.return_random_question()
 
-print('Random question: \n', random_question)
+# ASK PLAYER A QUESTION. GET RANDOM QUESTION 
+question = questions.return_random_question()
+questions.print_question(question)
+print_options()
+
+
+print('Random question type = \n', )
 
 print('OLD VALUES: \n')
 player.print_player()
@@ -55,3 +56,4 @@ print('NEW VALUES: \n')
 player.print_player()
 
 # print(game.closest_airports)
+

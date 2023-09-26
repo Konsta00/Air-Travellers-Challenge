@@ -55,9 +55,9 @@ player.insert_player_to_database()
 # ------------+++++++++++++---------------+++++++++++++++
 
 print('OLD VALUES: \n')
-print(f'Player name: {player.name}')
-print(f'Player avatar: {player.avatar_id}')
-print(f'Player current airport: {player.airport}')
+player.print_player()
+
+# PRINT LIST OF AIRPORS WHERE PLAYER CAN TRAVEL
 
 print('TRAVEL TO A NEW AIRPORT')
 last_index = None
@@ -77,15 +77,6 @@ for i, airport in enumerate(game.closest_airports):
         player.airport = airport['ident']
 
 print('NEW VALUES: \n')
-print(f'Player name: {player.name}')
-print(f'Player avatar: {player.avatar_id}')
-print(f'Player current airport: {player.airport}')
-
-
-# DEBUG & DEVELOPEMENT
-
-print(f'Player name: {player.name}')
-print(f'Player character: {player.avatar_id}')
-print(f'Player current airport: {player.airport}')
+player.print_player()
 
 # print(game.closest_airports)

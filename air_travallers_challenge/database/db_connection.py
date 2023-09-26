@@ -39,7 +39,9 @@ def execute_query(connection, query, params=None):
 def fetch_data(connection, query, params=None):
     cursor = connection.cursor(dictionary=True)
     try:
-        if len(params) > 2:
+        if type(params) == int:
+            cursor.execute(query, (params, ))
+        elif len(params) > 2:
             cursor.execute(query, params)
         elif params:
             cursor.execute(query, (params,))

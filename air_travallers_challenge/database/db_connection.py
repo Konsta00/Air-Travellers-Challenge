@@ -21,7 +21,9 @@ def connect_to_database():
 def execute_query(connection, query, params=None):
     cursor = connection.cursor(dictionary=True)
     try:
-        if params:
+        if len(params) > 1:
+            cursor.execute(query, params)
+        elif params:
             cursor.execute(query, (params,))
         else:
             cursor.execute(query)
@@ -36,10 +38,10 @@ def execute_query(connection, query, params=None):
 # Function to fetch data from the database
 def fetch_data(connection, query, params=None):
     cursor = connection.cursor(dictionary=True)
-
-
     try:
-        if params:
+        if len(params) > 2:
+            cursor.execute(query, params)
+        elif params:
             cursor.execute(query, (params,))
         else:
             cursor.execute(query)
@@ -85,3 +87,8 @@ def fetch_coords(connection, query, lat, lon):
         return None
     finally:
         cursor.close()
+
+# def fetch_last_row():
+#     cursor.execute("SELECT LAST_INSERT_ID()")
+#     row = cursor.fetchone()
+#     last_inserted_id = row[0]

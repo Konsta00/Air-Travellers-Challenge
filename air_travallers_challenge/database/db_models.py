@@ -2,6 +2,8 @@ from database import db_connection
 
 connection = db_connection.connect_to_database()
 
+# GAME CLASS SQL QUERIES
+
 def get_closest_airports(current_airport):
 
     # fetch coordinates for current airport
@@ -9,7 +11,7 @@ def get_closest_airports(current_airport):
     lat, lon = coords = db_connection.fetch_one(connection, sql, current_airport)
 
     closest_airports_sql = f'''
-    SELECT name, latitude_deg, longitude_deg,
+    SELECT name, ident, iso_country, id, latitude_deg, longitude_deg,
             6371 * ACOS(
                 COS(RADIANS({lat})) * COS(RADIANS(latitude_deg)) 
                 * COS(RADIANS({lon} - longitude_deg)) +
@@ -22,13 +24,40 @@ def get_closest_airports(current_airport):
         LIMIT 10;
     '''
 
-    closest_airports_list = db_connection.fetch_data(connection, closest_airports_sql)
+    closest_airports_list = db_connection.fetch_data(connection, closest_airports_sql, ())
     return closest_airports_list
 
-def insert_player_sql(name, current_airport, character, budget, co2_consumed):
-        insert_player_sql = 'INSERT INTO players (name, current_aiport, character, budget, co2_consumed) VALUES (%s, %s, %s, %s, %s); '
+# PLAYER CLASS SQL QUERIES
 
-        db_connection.execute_query(insert_player_sql, (name, current_airport, character, budget, co2_consumed))
+def get_airports_iso_sql(iso):
+    get_airports_iso_sql = 'SELECT * FROM airport WHERE iso_country = %s LIMIT 5; '
 
-        print('Added new player to database')
+    airports = db_connection.fetch_data(connection, get_airports_iso_sql, iso)
+
+    return airports
+
+def insert_player_sql(params):
+    insert_player_sql = "INSERT INTO player (name, avatar_id, budget, distance_traveled, current_airport, co2_consumed) VALUES (%s, %s, %s, %s, %s, %s); "
+
+    db_connection.execute_query(connection, insert_player_sql, (params))
+
+    connection.commit()
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT LAST_INSERT_ID()")
+    row = cursor.fetchone()
+    last_inserted_id = row[0]
+    
+
+    return last_inserted_id
+    print('Added new player to database')
+
+# QUESTION CLASS SQL QUERIES
+
+def get_questions_avatar_sql(avatar_id):
+    get_questions_sql = 'SELECT * FROM questions WHERE avatar_id = %s; '
+
+    questions = db_connection.fetch_data(connection, get_random_question_sql, (avatar_id, ))
+
+    return questions
 

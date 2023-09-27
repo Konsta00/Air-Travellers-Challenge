@@ -60,5 +60,47 @@ Jos pelaaja saa kysymyksen ensimmäisellä oikein, hän saattaa saada "power upi
 ## Kestävän matkustamisen ja ympäristönsuojelun teemat voivat olla osa seikkailua, esimerkiksi auttamalla paikallista ympäristöä.
 
 ```
+
+tai
+ 
+
+```markdown 
+Pelin Kuvaus:
+
+Peli Lentokenttäseikkailu on seikkailupeli, jossa pelaajana toimit seikkailijana, joka matkustaa eri lentokentille ympäri maailmaa. Pelaajana sinun tehtäväsi on ratkaista ohjelmointikysymyksiä, ansaita euroja (€) budjettiisi sekä löytää erityisiä voimapäivityksiä. Samalla saat oppia lentokenttien historiasta ja kulttuurista.
+
+Pelin Toiminnot:
+
+Peli alkaa valitsemalla hahmosi, joka määrää kysymysten vaikeustason ja aloituspaikan maailmassa.
+Alussa voit matkustaa lähimpään 10 lentokenttään.
+Pelaajan tason noustessa voit matkustaa kauemmas.
+Matkustaminen kuluttaa budjettiasi ja lisää hiilidioksidipäästöjäsi.
+Pelaajan taso vaikuttaa myös kysymysten vaikeustasoon.
+Palkinnot:
+
+Pisteiden laskentakaava: lopulliset_pisteet = lopulliset_pisteet = lentokenttä_vaikeustaso * pisteet_kysymyksestä.
+Jokaisella lentokentällä on yksi kysymys(?). Jos vastaat yli 1 kysymykseen väärin, menetät pisteitä.
+Jos vastaat oikein vähintään 2/3 kysymyksestä, voit voittaa Powerupin.
+Alussa sinulla on 3 ilmaista vihjettä, mutta voit ostaa lisää, samoin kuin Poweruppeja, jotka ovat arvokkaampia.
+Powerupit:
+
+Ilmainen matka mihin tahansa lentokenttään.
+3 ilmaista lisävihjettä.
+Käteispalkinto.
+Kysymyksen ohittaminen.
+Pelin Idea:
+
+Valitset hahmosi, ja aloituslentokenttä liittyy valitsemaasi hahmoon. Esimerkiksi, jos valitset hahmoksi Donald Trumpin, aloitat Yhdysvalloista.
+
+Päämääränä on saavuttaa 1000 pistettä mahdollisimman vähäisellä lentämisellä.
+
+Saavuttuasi lentokentälle, vastaat kysymykseen. Jos vastaat ensimmäisellä yrityksellä oikein, saat +100 pistettä. Toisella yrityksellä saat +70 pistettä, ja kolmannella yrityksellä saat +50 pistettä.
+
+Kun vastaat kysymykseen oikein, voit matkustaa uuteen kohteeseen ja vastata uuteen kysymykseen.
+
+Jos saat kysymyksen oikein ensimmäisellä yrityksellä, saat mahdollisuuden voittaa "power upin", jolla voit ohittaa kysymyksen jossakin kentässä ja saada suoraan 100 pistettä.
+
+```
+
 ![alt text](https://github.com/Konsta00/Air-Travellers-Challenge/blob/main/images/BANNER_X_SNAKE.png)                                                                                                                              
                                                                                                                               

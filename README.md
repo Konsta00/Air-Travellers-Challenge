@@ -84,13 +84,12 @@ Jokaisella lentokentällä on yksi kysymys(?). Jos vastaat yli 1 kysymykseen vä
 Jos vastaat oikein vähintään 2/3 kysymyksestä, voit voittaa Powerupin.
 Alussa sinulla on 3 ilmaista vihjettä, mutta voit ostaa lisää, samoin kuin Poweruppeja, jotka ovat arvokkaampia.
 
-##Powerupit:
-
-Ilmainen matka mihin tahansa lentokenttään.
-3 ilmaista lisävihjettä.
-Käteispalkinto.
-Kysymyksen ohittaminen.
-Pelin Idea:
+## Powerupit:
+- Ilmainen matka mihin tahansa lentokenttään.
+- 3 ilmaista lisävihjettä.
+- Käteispalkinto.
+- Kysymyksen ohittaminen.
+- Pelin Idea:
 
 Valitset hahmosi, ja aloituslentokenttä liittyy valitsemaasi hahmoon. Esimerkiksi, jos valitset hahmoksi Donald Trumpin, aloitat Yhdysvalloista.
 

@@ -24,21 +24,57 @@ class Questions:
         question_dict = json.loads(selected_question)
 
         return question_dict
+    
 
-
-    def print_question(self, question):
-        print(f'''
-            {question["question_text"]}
-
-1. {question["answer"]}
-2. {question["wrong_answer"]}
-3. {question["wrong_answer2"]}    
-        ''')
+    def ask_question(self, question):
+        print(f'{question["question_text"]}')
+        # PUT QUESTIONS IN RANDOM ORDER & PRINT THEM
         
-# {'avatar_id': 1, 
-# 'question_text': 'Mik„ on luokka (class) Python-ohjelmoinnissa?', 
-# 'clue1': 'Se on objekti, joka voi sis„lt„„ toiminnallisuutta', 
-# 'clue2': 'Se on Pythonin avainsana', 
-# 'answer': 'Luokka on objekti, joka voi sis„lt„„ toiminnallisuutta', 
-# 'wrong_answer': 'Se on funktio', 
-# 'wrong_answer2': ''}
+        if question["wrong_answer2"] == '':
+            n = random.randint(0, 100)
+
+            if n < 50:
+                print(f'''
+                    CASE 1
+                1. {question["answer"]}
+                2. {question["wrong_answer"]}   
+                ''')
+                return True
+            else:
+                print(f'''
+                    CASE 2
+                1. {question["wrong_answer"]}
+                2. {question["answer"]}
+                ''')
+                return False
+
+
+
+        # keys = list(question.keys())
+        # random.shuffle(keys)
+        # shuffled_dict = {key: question[key] for key in keys}
+
+        # print(f'''
+        #       ---------------------------------------
+        #       {shuffled_dict}
+        #       ---------------------------------------
+        #       '''
+        #       )
+
+        # input_answer = input(int(''))
+
+        # while True:
+        #     try:
+        #         input_answer = int(input("Enter your choice (1 or 2): "))
+        #         if input_answer in [1, 2]:
+        #             break  # Valid input, exit the loop
+        #         else:
+        #             print("Invalid choice. Please enter 1 or 2.")
+        #     except ValueError:
+        #         print("Invalid input. Please enter a number (1 or 2).")
+
+        # # Now, input_answer contains a valid integer choice (1 or 2)
+        # return input_answer
+
+
+    

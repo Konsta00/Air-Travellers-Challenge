@@ -3,7 +3,6 @@ import random
 from database.db_models import get_closest_airports
 
 class Game:
-# INIATIALIZE GAME CLASS 
     def __init__(self):
         self.game_over = False
         self.closest_airports = None
@@ -19,20 +18,54 @@ class Game:
         self.current_airport = self.player.airport
 
 # SET 10 CLOSEST AIRPORT TO GAME FROM DATABASE QUERY 
-    def set_closest_airports(self):
+    def load_closest_airports(self):
         self.closest_airports = get_closest_airports(self.current_airport)
 
-# PRINT AVATARS ON SCREEN
-    def print_avatars(self):
-        avatars = ('Donald Trump', 'Mona Lisa', 'Felipe VI')
+    def print_available_airports(self):
+        print('Select from the airports to which you want to travel to.')
+        for i, airport in enumerate(self.closest_airports, start=0):
+            print(f'{"CURREN AIRPORT:" if i == 0 else f"{i}."} {airport["name"]} | {airport["ident"]}')
 
-        index = 1
-        print(f'Select avatar from {index}-{len(avatars)}: ')
-        for index, avatar in enumerate(avatars):
-            print(f'{index+1}. {avatar}')
+# PRINT AVATARS ON SCREEN
+    def display_avatars(self):
+        avatars = ('Donald Trump', 'Mona Lisa', 'Felipe VI')
+        for index, avatar in enumerate(avatars, start=1):
+            print(f'{index}. {avatar}')
 
 # UPDATE GAME WITH NEW VALUES
-    def update_game(self, status, player, next_airport, next_closest_airports):
-        self.game_over = status
-        self.current_airport = next_airport
-        self.closest_airports = next_closest_airports
+    def update_game(self, status, is_game_over, new_airport, new_closest_airports):
+        self.game_over = is_game_over
+        self.current_airport = new_airport
+        self.closest_airports = new_closest_airports
+
+# CHANGE GAME INSTANCE & PLAYER INSTANCE AIRPORT TO NEW AIRPORT BASED ON PLAYER INPUT 
+    def travel_to_new_airport(self, input_airport):
+        for i, airport in enumerate(self.closest_airports):
+            if i+1 == input_airport:
+                self.current_airport = airport['ident']
+                self.player.airport = airport['ident']
+
+    def display_options(self):
+        print(f'''
+              [PLAYER {self.player.name.upper()}]:\n
+                {self.player.points} points \n
+                {self.player.budget}€
+
+              WHAT DO YOU WANT TO DO:
+                1. ANSWER ANOTHER QUESTION
+                2. TRAVEL TO NEW AIRPORT
+                3. VISIT THE STORE
+                4. STATS
+            ''')
+        
+    def travel(self):
+        try:
+            input_airport = int(input(f'SELECT AIRPORT BY TYPING 1-{len(self.closest_airports)-1}:'))
+            if 1 <= input_airport <= len(self.closest_airports) - 1:
+                self.travel_to_new_airport(input_airport)
+            else:
+                print('Invalid airport selection.')
+        except ValueError:
+            print('Invalid input. Please enter a valid airport number.')
+
+

@@ -9,7 +9,7 @@ class Player:
         self.id = None
         self.name = name
         self.airport = None
-        self.budget = 500
+        self.budget = 0
         self.distance_traveled = 0
         self.avatar_id = avatar_id
         self.co2_consumed = 0
@@ -66,8 +66,11 @@ class Player:
                         self.co2_consumed
                     )
 
-            self.id =  insert_player_sql(params)
-            print(self.id)
+            try:
+                self.id =  insert_player_sql(params)
+                print(self.id)
+            except Exception as error:
+                print('Error inserting player to database: {error}')
 
 
 # TODO: UPDATE PLAYER INFO TO DABASE ALMOST EVERYTIME SOMETHING GETS CHANGED
@@ -111,14 +114,26 @@ class Player:
 
         self.update_database()
 
-
+    def check_values(self):
+        if self.budget < 0:
+            self.budget = 0
+        if self.points < 0:
+            self.points = 0
+        
+    def update_budget(self, amount):
+        if bool(amount):
+            self.budget += amount
+        elif not bool(amount):
+            self.budget -= amount
 
 # TODO: UPDATE PLAYER POINTS
     def update_points(self, points_to_add):
         if bool(points_to_add):
             self.points += points_to_add
-        else:
+        elif not bool(points_to_add):
             self.points -= points_to_add
+            if self.points < 0: self.points = 0 
+
 
     def update_distance(self, distance_to_add):
         if bool(distance_to_add):
@@ -128,4 +143,4 @@ class Player:
 
 # TODO: SELECT RANDOM POWERUP AND AND IT TO PLAYER INSTANCE DICTIONARY
     def random_powerup():
-        asd = 'asd'
+        pass

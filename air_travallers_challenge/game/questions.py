@@ -16,65 +16,52 @@ class Questions:
         
         questions_dict = {}
         for i, question in enumerate(self.questions):
-            questions_dict[f'question-{i+1}'] = f'{question}'
+            question_json = json.dumps(question)
+            questions_dict[f"question-{i+1}"] = f'{question_json}'
 
-        random_question = random.choice(list(questions_dict.keys()))
-        selected_question = questions_dict[f'{random_question}']
-        selected_question = selected_question.replace("'", "\"")
-        question_dict = json.loads(selected_question)
-
-        return question_dict
+        random_question_key = random.choice(list(questions_dict.keys()))
+        selected_question = questions_dict[f'{random_question_key}']
+        selected_question_json = questions_dict[random_question_key]
+        
+        try:
+            selected_question = json.loads(selected_question_json)
+            return selected_question
+        except json.JSONDecodeError as e:
+            print(f"Error decoding JSON: {e}")
+            return {}  # Return an empty dictionary on error
     
 
     def ask_question(self, question):
+        print('''
+              [KYSYMYS]
+              ''')
         print(f'{question["question_text"]}')
+
         # PUT QUESTIONS IN RANDOM ORDER & PRINT THEM
-        
         if question["wrong_answer2"] == '':
-            n = random.randint(0, 100)
+            rand = random.randint(0, 100)
 
-            if n < 50:
+            if rand < 33:
                 print(f'''
-                    CASE 1
-                1. {question["answer"]}
-                2. {question["wrong_answer"]}   
+1. {question["answer"]}
+2. {question["wrong_answer"]} 
+3. WRONG ANSWER HERE: {question["wrong_answer2"]}
                 ''')
-                return True
-            else:
+                return 1
+            elif rand > 66:
                 print(f'''
-                    CASE 2
-                1. {question["wrong_answer"]}
-                2. {question["answer"]}
+1. {question["wrong_answer"]}
+2. {question["answer"]}
+3. WRONG ANSWER HERE: {question["wrong_answer2"]}
                 ''')
-                return False
-
-
-
-        # keys = list(question.keys())
-        # random.shuffle(keys)
-        # shuffled_dict = {key: question[key] for key in keys}
-
-        # print(f'''
-        #       ---------------------------------------
-        #       {shuffled_dict}
-        #       ---------------------------------------
-        #       '''
-        #       )
-
-        # input_answer = input(int(''))
-
-        # while True:
-        #     try:
-        #         input_answer = int(input("Enter your choice (1 or 2): "))
-        #         if input_answer in [1, 2]:
-        #             break  # Valid input, exit the loop
-        #         else:
-        #             print("Invalid choice. Please enter 1 or 2.")
-        #     except ValueError:
-        #         print("Invalid input. Please enter a number (1 or 2).")
-
-        # # Now, input_answer contains a valid integer choice (1 or 2)
-        # return input_answer
+                return 2
+            else: 
+                print(f'''
+1. WRONG ANSWER HERE: {question["wrong_answer2"]}
+2. {question["wrong_answer"]}
+3. {question["answer"]}
+                ''')
+                return 3
 
 
     

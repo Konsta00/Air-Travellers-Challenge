@@ -1,70 +1,88 @@
-from game import Game
-from game import Player
-from game import Questions
+from game import Game, Player, Questions
 
-def print_options():
+def setup_game():
+    game = Game()
+
+    input_name = input("Enter your name: ")
+    game.display_avatars()
+    input_avatar = int(input("Select an avatar (1, 2, or 3): "))
+    
+    player = Player(input_name, input_avatar)
+    player.set_starting_airport(player.avatar_id)
+    
+    game.set_player(player)
+    game.set_current_airport()
+    game.load_closest_airports()
+    
+    questions = Questions()
+    questions.set_questions(player.avatar_id)
+    
+    return game, player, questions
+
+def display_options():
     print('''
 [OPTIONS]
 5. Display a clue ($TBD)
 6. Use a powerup 
     ''')
+def main():
+    game, player, questions = setup_game()
+    
+    question = questions.return_random_question()
+    
+    game.display_avatars()
+    display_options()
+    
+    # PRINT THE QUESTIONS, RANDOMIZE ORDER OF THE QUESTIONS AND
+    # RETURN THE RIGHT VALUE THAT MATCHES THE CORRECT ANSWERS INPUT 
+    question_bool = questions.ask_question(question)
+    
+    input_answer = int(input('Select correct answer by typing the corresponding number: '))
+    
+    if input_answer:
+        if question_bool == input_answer:
+            print('''
+                    [CORRECT ANSWER] \n 
+100 points added for player.
+$100 dollars added to player\'s wallet.''')
+            player.update_points(100)
+            player.update_budget(100)
+    
+    # CHECK THAT POINTS & BUDGET DONT GO UNDER 0. SET THEM TO 0 IF THEY DO
+    player.check_values()        
+    
+    # DISPLAY OPTIONS FOR PLAYER TO CHOOSE FROM
+    game.display_options()
 
-# CREATE GAME, PLAYER ETC. SET NEEDED VARIABLES
-input_name = 'test_name'
-game = Game()
-game.print_avatars()
-input_avatar = 1
-player = Player(input_name, input_avatar)
-player.set_starting_airport(player.avatar_id)
-game.set_player(player)
-game.set_current_airport()
-game.set_closest_airports()
-questions = Questions()
-questions.set_questions(player.avatar_id)
+    input_continue = int(input('Select (1, 2, 3 or 4)'))
+    try: 
+        if input_continue:
+            if input_continue == 1:
+                pass
+            elif input_continue == 2:
+                game.print_available_airports()
+                game.travel()
+            elif input_continue == 3:
+                pass
+            elif input_continue == 4:
+                pass
+    except ValueError:
+            print('Invalid input. Please enter a valid selection.')
 
 
-# ASK PLAYER A QUESTION. GET RANDOM QUESTION 
-question = questions.return_random_question()
+# TODO: CHEECK WHAT THE USER CHOOSES FROM INPUT.
+# TODO:
+    
 
-print_options()
-
-reversed_questions_bool = questions.ask_question(question)
-
-input_answer = int(input('Select correct answer by typing the corresponding number: '))
-
-if input_answer:
-    if reversed_questions_bool and input_answer == 1:
-        print('CORRECT ANSWER \n 100 points added for player. \n $100 dollars added to players wallet.')
-    elif reversed_questions_bool == False and input_answer == 2:
-        print('CORRECT ANSWER \n 100 added points for player. \n $100 dollars added to players wallet.')
-    else:
-        print('WRONG ANSWER.')
-        
+    print('NEW VALUES: \n')
+    player.print_player()
 
 
-# print('OLD VALUES: \n')
-# player.print_player()
 
-# # PRINT LIST OF AIRPORS WHERE PLAYER CAN TRAVEL
-# print('TRAVEL TO A NEW AIRPORT')
-# last_index = None
-# for i, airport in enumerate(game.closest_airports):
-#       print(f'{i+1}. {airport["name"]} | {airport["ident"]} ')
-#       last_index = i
+if __name__ == "__main__":
+    main()
 
-# # TODO: CREATE TRY STATEMENT FOR USER INPUT & MOVE THIS TO ACCORDING MODULE MAYBE
 
-# # ASK USER TO SELECT AIRPORT
-# selected_airport = int(input(f'SELECT AIRPORT BY TYPING 1-{last_index}: \n'))
 
-# # "TRAVEL" TO NEW AIRPORT
-# for i, airport in enumerate(game.closest_airports):
-#     if i+1 == selected_airport:
-#         game.current_airport = airport['ident']
-#         player.airport = airport['ident']
 
-print('NEW VALUES: \n')
-player.print_player()
-
-# print(game.closest_airports)
 

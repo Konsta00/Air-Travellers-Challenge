@@ -79,8 +79,16 @@ $100 dollars added to player\'s wallet.''')
 
 
 
+<<<<<<< Updated upstream
 if __name__ == "__main__":
     main()
+=======
+
+
+
+questions = Questions()
+questions.set_questions(player.avatar_id)
+>>>>>>> Stashed changes
 
 
 

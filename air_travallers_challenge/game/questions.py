@@ -33,7 +33,7 @@ class Questions:
 
     def ask_question(self, question):
         print('''
-              [KYSYMYS]
+        [KYSYMYS]
               ''')
         print(f'{question["question_text"]}')
 
@@ -46,6 +46,9 @@ class Questions:
 1. {question["answer"]}
 2. {question["wrong_answer"]} 
 3. WRONG ANSWER HERE: {question["wrong_answer2"]}
+
+6. USE POWER-UP
+
                 ''')
                 return 1
             elif rand > 66:
@@ -53,6 +56,8 @@ class Questions:
 1. {question["wrong_answer"]}
 2. {question["answer"]}
 3. WRONG ANSWER HERE: {question["wrong_answer2"]}
+
+6. USE POWER-UP
                 ''')
                 return 2
             else: 
@@ -60,6 +65,8 @@ class Questions:
 1. WRONG ANSWER HERE: {question["wrong_answer2"]}
 2. {question["wrong_answer"]}
 3. {question["answer"]}
+
+6. USE POWER-UP
                 ''')
                 return 3
 

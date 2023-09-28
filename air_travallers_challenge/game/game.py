@@ -26,7 +26,7 @@ class Game:
         for i, airport in enumerate(self.closest_airports, start=0):
             print(f'{"CURREN AIRPORT:" if i == 0 else f"{i}."} {airport["name"]} | {airport["ident"]}')
 
-# PRINT AVATARS ON SCREEN
+# PRINT AVATARS ON SCREEN 
     def display_avatars(self):
         avatars = ('Donald Trump', 'Mona Lisa', 'Felipe VI')
         for index, avatar in enumerate(avatars, start=1):

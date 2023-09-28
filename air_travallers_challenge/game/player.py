@@ -14,8 +14,9 @@ class Player:
         self.avatar_id = avatar_id
         self.co2_consumed = 0
         self.points = 0
-        self.powerups = (
-        )
+        self.powerups = {
+
+        }
 
     def print_player(self):
         print('ID: ', self.id)
@@ -142,5 +143,22 @@ class Player:
             self.distance -= distance_to_add
 
 # TODO: SELECT RANDOM POWERUP AND AND IT TO PLAYER INSTANCE DICTIONARY
-    def random_powerup():
+    def random_powerup(self):
+
+        powerups_dict = {'powerup_skip': 'skip_question',
+                     'powerup_hint': 'free_hint',
+                       'powerup_travel': 'free_travel'}
+        
+        random_powerup_key = random.choice(list(powerups_dict.keys()))
+
+        content = powerups_dict[random_powerup_key]
+    
+        powerup_json = json.dumps(content)
+        self.powerups[f'{random_powerup_key}'] = f'{powerup_json}'
+
+        print(f'PRINT SELF POWERUPS:\n {self.powerups} ')
+
+
+    def use_powerup(self, input):
         pass
+

@@ -1,4 +1,5 @@
 from game import Game, Player, Questions
+import random
 
 def setup_game():
     game = Game()
@@ -38,15 +39,30 @@ def main():
     question_bool = questions.ask_question(question)
     
     input_answer = int(input('Select correct answer by typing the corresponding number: '))
+    player.random_powerup()
+    player.random_powerup()
     
     if input_answer:
-        if question_bool == input_answer:
+        if input_answer == 6:
+            print('Which powerup do you want to use: ')
+            print(player.powerups)
+
+            # IMPLEMENT USER POWER
+            player.use_powerup()
+        elif question_bool == input_answer:
+            random_bool = random.randint(0, 250)
+
             print('''
                     [CORRECT ANSWER] \n 
 100 points added for player.
 $100 dollars added to player\'s wallet.''')
+            
             player.update_points(100)
             player.update_budget(100)
+
+            if random_bool < 25:
+                player.random_powerup()
+            
     
     # CHECK THAT POINTS & BUDGET DONT GO UNDER 0. SET THEM TO 0 IF THEY DO
     player.check_values()        

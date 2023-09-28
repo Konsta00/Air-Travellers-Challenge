@@ -67,7 +67,7 @@ tai
 ```markdown 
 ## Pelin Kuvaus:
 
-Peli Lentokenttäseikkailu on seikkailupeli, jossa pelaajana toimit seikkailijana, joka matkustaa eri lentokentille ympäri maailmaa. Pelaajana sinun tehtäväsi on ratkaista ohjelmointikysymyksiä, ansaita euroja (€) budjettiisi sekä löytää erityisiä voimapäivityksiä. Samalla saat oppia lentokenttien historiasta ja kulttuurista.
+Air Travellers Challenge on seikkailupeli, jossa pelaajana toimit seikkailijana, joka matkustaa eri lentokentille ympäri maailmaa. Pelaajana sinun tehtäväsi on ratkaista ohjelmointikysymyksiä, ansaita euroja (€) budjettiisi sekä löytää erityisiä voimapäivityksiä. Samalla saat oppia lentokenttien historiasta ja kulttuurista.
 
 ## Pelin Toiminnot:
 

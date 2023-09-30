@@ -30,6 +30,8 @@ def main():
     game, player, questions = setup_game()
     
     question = questions.return_random_question()
+
+    # print(question)
     
     game.display_avatars()
     display_options()
@@ -50,8 +52,6 @@ def main():
             # IMPLEMENT USER POWER
             player.use_powerup()
         elif question_bool == input_answer:
-            random_bool = random.randint(0, 250)
-
             print('''
                     [CORRECT ANSWER] \n 
 100 points added for player.
@@ -60,6 +60,7 @@ $100 dollars added to player\'s wallet.''')
             player.update_points(100)
             player.update_budget(100)
 
+            random_bool = random.randint(0, 250)
             if random_bool < 25:
                 player.random_powerup()
             
@@ -85,26 +86,13 @@ $100 dollars added to player\'s wallet.''')
     except ValueError:
             print('Invalid input. Please enter a valid selection.')
 
-
-# TODO: CHEECK WHAT THE USER CHOOSES FROM INPUT.
-# TODO:
-    
-
     print('NEW VALUES: \n')
     player.print_player()
 
 
 
-<<<<<<< Updated upstream
 if __name__ == "__main__":
     main()
-=======
-
-
-
-questions = Questions()
-questions.set_questions(player.avatar_id)
->>>>>>> Stashed changes
 
 
 

@@ -19,9 +19,11 @@ class Questions:
             question_json = json.dumps(question)
             questions_dict[f"question-{i+1}"] = f'{question_json}'
 
+    
         random_question_key = random.choice(list(questions_dict.keys()))
-        selected_question = questions_dict[f'{random_question_key}']
         selected_question_json = questions_dict[random_question_key]
+
+        # print(questions_dict)
         
         try:
             selected_question = json.loads(selected_question_json)

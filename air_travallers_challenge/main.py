@@ -90,12 +90,8 @@ $100 dollars added to player\'s wallet.''')
 
 # TODO: CHEECK WHAT THE USER CHOOSES FROM INPUT.
 # TODO:
-    
-
     print('NEW VALUES: \n')
     player.print_player()
-
-
 
 if __name__ == "__main__":
     main()

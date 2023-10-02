@@ -82,10 +82,4 @@ def calculate_co2_used(old, new):
 
     co2_calculation = (220/distance)
 
-    print(co2_calculation)
-
-    # if latitude1 is not None and longitude1 is not None and latitude2 is not None and longitude2 is not None:
-    #     point1 = (latitude1, longitude1)
-    #     point2 = (latitude2, longitude2)
-    #     etaisyys = geodesic(point1, point2).kilometers
-    #     print(f"Etäisyys välillä on {etaisyys:.2f} kilometriä!")
+    return co2_calculation

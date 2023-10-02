@@ -2,15 +2,15 @@ class Store:
     def __init__(self):
         self.items = {
             'power_ups': {
-                'skip_question': 100,
-                'show_hint': 50,
-                'free_travel': 100,
-                'random_powerup': 150
+                'skip_question': ('Skip question', 100),
+                'show_hint': ('Show hint', 50),
+                'free_travel': ('Free travel', 50),
+                'random_powerup': ('Random powerup', 150),
             },
             'plant_trees': {
-                'plant_10_trees': 30,
-                'plant_20_trees': 50,
-                'plant_30_trees': 65
+                'plant_10_trees': ('Plant 10 trees', 30),
+                'plant_20_trees': ('Plant 20 trees', 50),
+                'plant_30_trees': ('Plant 30 trees', 65),
             }
         }
         self.player_inventory = {}
@@ -19,17 +19,18 @@ class Store:
         print("Welcome to the store! Here are the available items:")
         for category, items in self.items.items():
             print(f"\n{category.upper()}:")
-            for item, price in items.items():
-                print(f"  {item.capitalize()}: {price}€")
+            for item  in items.items():
+                print(f"  {item[1][0]}: {item[1][1]}€")
 
     def purchase_item(self, player, category):
+
         if category in self.items:
             self.display_store_options()
 
             print("Choose an item:")
-            for i, (item, price) in enumerate(self.items[category].items(), start=1):
-                print(f"{i}. {item.capitalize()}: {price}€")
-
+            for i, (item) in enumerate(self.items[category].items(), start=1):
+                print(f"{i}.{item[1][0]}: {item[1][1]}€")
+            
             try:
                 item_choice = int(input("Enter the number of your choice: "))
                 item = list(self.items[category].keys())[item_choice - 1]
@@ -70,7 +71,7 @@ class Store:
                 player.budget -= price
 
                 # Apply CO2 reduction
-                player.reduce_co2_emission(co2_reduction)
+                player.update_co2_emissions(co2_reduction)
 
 
                 print(f"You've successfully purchased {item} for {price}€.")
@@ -78,3 +79,16 @@ class Store:
                 print("Insufficient funds. Cannot purchase the item.")
         except (ValueError, IndexError):
             print("Invalid input. Please enter a valid selection.")
+
+    def process_purchase(self, category, item, player):
+        p = self.items[category]
+
+        if category == 'power_ups':
+            player.budget -= p[item][1]
+            player.powerups += (item,)
+        elif category == 'plant_trees':
+            player.budget -= p[item][1]
+
+        
+
+

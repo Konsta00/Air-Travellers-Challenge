@@ -40,7 +40,9 @@ class Game:
         old = self.old_airport
         new = self.current_airport
 
-        calculate_co2_used(old, new)
+# CALCULATE AND UPDATE PLAYER CO2 CONSUMED
+        co2_used = calculate_co2_used(old, new)
+        self.player.co2_consumed += co2_used
 
 # CHANGE GAME INSTANCE & PLAYER INSTANCE AIRPORT TO NEW AIRPORT BASED ON PLAYER INPUT 
     def travel_to_new_airport(self, input_airport):

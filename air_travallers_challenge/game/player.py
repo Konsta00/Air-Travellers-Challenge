@@ -9,14 +9,12 @@ class Player:
         self.id = None
         self.name = name
         self.airport = None
-        self.budget = 0
+        self.budget = 10000
         self.distance_traveled = 0
         self.avatar_id = avatar_id
         self.co2_consumed = 0
         self.points = 0
-        self.powerups = {
-
-        }
+        self.powerups = ('skip_question', 'skip_question', 'skip_question', 'free_travel', 'random_powerup')
 
     def print_player(self):
         print('ID: ', self.id)
@@ -137,14 +135,10 @@ class Player:
             self.points -= points_to_add
             if self.points < 0: self.points = 0
 
-# TODO: UPDATE CO2 REDUCTION
+# DONE: UPDATE CO2 REDUCTION
     def update_co2_emissions(self, co2_reduction):
         self.co2_consumed -= co2_reduction
         print(f"CO2 emission reduced by {co2_reduction} kg. Current CO2 emission: {self.co2_consumed} kg.")
-
-
-    # TODO: UPDATE CO2 EMISSION
-
 
     def update_distance(self, distance_to_add):
         if bool(distance_to_add):
@@ -154,24 +148,25 @@ class Player:
 
 # TODO: SELECT RANDOM POWERUP AND AND IT TO PLAYER INSTANCE DICTIONARY
     def random_powerup(self):
+        power_ups = ('free_hint', 'skip_question', 'free_travel')
+        random_choise = random.choice(list(power_ups))
+        self.powerups += (random_choise,)
 
-        powerups_dict = {'powerup_skip': 'skip_question',
-                     'powerup_hint': 'free_hint',
-                       'powerup_travel': 'free_travel'}
+    def use_powerup(self, powerup):
+        if powerup == 'free_travel':
+            self.budget += 300
+            return 1
+        elif powerup == 'skip_question':
+            return 2
+        elif powerup == 'random_powerup':
+            return 3
         
-        random_powerup_key = random.choice(list(powerups_dict.keys()))
-
-        content = powerups_dict[random_powerup_key]
-    
-        powerup_json = json.dumps(content)
-        self.powerups[f'{random_powerup_key}'] = f'{powerup_json}'
-
-        print(f'PRINT SELF POWERUPS:\n {self.powerups} ')
+    def use_question_powerup(self, powerup):
+        for powerup in self.powerups:
+            
 
 
-    def use_powerup(self, input):
-        pass
-
+        
     def display_stats(self):
         print(f'''
               Player stats: 
@@ -179,5 +174,7 @@ class Player:
               Points: {self.points}
               Budget: {self.budget}
               Co2 used: {self.co2_consumed}
+
+              {self.powerups}
               ''')
 

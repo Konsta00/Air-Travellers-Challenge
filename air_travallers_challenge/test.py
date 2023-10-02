@@ -42,7 +42,6 @@ def main():
         question_bool = questions.ask_question(question)
     
         input_answer = int(input('Select correct answer by typing the corresponding number: '))
-        player.random_powerup()
     
         if input_answer:
             if input_answer == 6:
@@ -50,19 +49,20 @@ def main():
                 print(player.powerups)
 
                 # IMPLEMENT USER POWER
-                player.use_powerup()
+                player.use_question_powerup('skip_question')
+                
             elif question_bool == input_answer:
                 print('''
                     [CORRECT ANSWER] \n 
 100 points added for player.
 $100 dollars added to player\'s wallet.''')
-            
                 player.update_points(100)
-                player.update_budget(100)
+                player.update_budget(25)
 
                 random_bool = random.randint(0, 250)
                 if random_bool < 25:
                     player.random_powerup()
+                    pass #NIGGA
     
     ask_question()
 
@@ -88,8 +88,9 @@ $100 dollars added to player\'s wallet.''')
                     category_choice = input('Choose a category (power_ups or plant_trees): ')
 
                     if category_choice not in ['power_ups', 'plant_trees']:
-                        print("Invalid category choice.")
-                        return
+                        store.purchase_item(category_choice)
+                    
+                    print(player.powerups)
 
                     store.purchase_item(player, category_choice)
                 elif input_continue == 4:

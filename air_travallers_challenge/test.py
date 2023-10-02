@@ -1,9 +1,9 @@
 from game import Game, Player, Questions
+from game.store import Store
 import random
 
 def setup_game():
     game = Game()
-
     input_name = input("Enter your name: ")
     game.display_avatars()
     input_avatar = int(input("Select an avatar (1, 2, or 3): "))
@@ -17,8 +17,10 @@ def setup_game():
     
     questions = Questions()
     questions.set_questions(player.avatar_id)
-    
-    return game, player, questions
+
+    store = Store()
+
+    return game, player, questions, store
 
 def display_options():
     print('''
@@ -27,7 +29,7 @@ def display_options():
 6. Use a powerup 
     ''')
 def main():
-    game, player, questions = setup_game()
+    game, player, questions, store = setup_game()
     
     question = questions.return_random_question()
 
@@ -81,7 +83,15 @@ $100 dollars added to player\'s wallet.''')
                     game.travel()
                     game.update_game()
                 elif input_continue == 3:
-                    pass
+                    store.display_store_options()
+
+                    category_choice = input('Choose a category (power_ups or plant_trees): ')
+
+                    if category_choice not in ['power_ups', 'plant_trees']:
+                        print("Invalid category choice.")
+                        return
+
+                    store.purchase_item(player, category_choice)
                 elif input_continue == 4:
                     pass
         except ValueError:

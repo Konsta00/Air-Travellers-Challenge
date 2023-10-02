@@ -135,7 +135,15 @@ class Player:
             self.points += points_to_add
         elif not bool(points_to_add):
             self.points -= points_to_add
-            if self.points < 0: self.points = 0 
+            if self.points < 0: self.points = 0
+
+# TODO: UPDATE CO2 REDUCTION
+    def update_co2_emissions(self, co2_reduction):
+        self.co2_consumed -= co2_reduction
+        print(f"CO2 emission reduced by {co2_reduction} kg. Current CO2 emission: {self.co2_consumed} kg.")
+
+
+    # TODO: UPDATE CO2 EMISSION
 
 
     def update_distance(self, distance_to_add):

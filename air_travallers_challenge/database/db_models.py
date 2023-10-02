@@ -78,8 +78,11 @@ def calculate_co2_used(old, new):
     cursor.execute(coords_sql, (new,))
     coords2 = cursor.fetchone()
 
+    distance = geodesic(coords1, coords2).kilometers
 
-    print(coords1, coords2)
+    co2_calculation = (220/distance)
+
+    print(co2_calculation)
 
     # if latitude1 is not None and longitude1 is not None and latitude2 is not None and longitude2 is not None:
     #     point1 = (latitude1, longitude1)

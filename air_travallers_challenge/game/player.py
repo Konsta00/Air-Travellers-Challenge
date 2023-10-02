@@ -115,11 +115,13 @@ class Player:
 
         self.update_database()
 
-    def check_values(self):
+    def check_values(self, game):
         if self.budget < 0:
             self.budget = 0
         if self.points < 0:
             self.points = 0
+        if self.points >= 1000:
+            game.game_over = True
         
     def update_budget(self, amount):
         if bool(amount):
@@ -161,4 +163,13 @@ class Player:
 
     def use_powerup(self, input):
         pass
+
+    def display_stats(self):
+        print(f'''
+              Player stats: 
+              
+              Points: {self.points}
+              Budget: {self.budget}
+              Co2 used: {self.co2_consumed}
+              ''')
 

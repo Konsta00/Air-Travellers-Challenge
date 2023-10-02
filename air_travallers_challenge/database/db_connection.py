@@ -7,7 +7,7 @@ def connect_to_database():
             host="127.0.0.1",
             port=3306,
             user="root",
-            password="1234",
+            password="root",
             database="flight_game",
             autocommit=True
         )
@@ -41,7 +41,7 @@ def fetch_data(connection, query, params=None):
     try:
         if type(params) == int:
             cursor.execute(query, (params, ))
-        elif len(params) > 2:
+        elif params is not None and len(params) > 2:
             cursor.execute(query, params)
         elif params:
             cursor.execute(query, (params,))

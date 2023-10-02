@@ -1,3 +1,4 @@
+from geopy.distance import geodesic
 from database import db_connection
 
 connection = db_connection.connect_to_database()
@@ -55,13 +56,33 @@ def insert_player_sql(params):
 # QUESTION CLASS SQL QUERIES
 
 def get_questions_avatar_sql(avatar_id):
-    get_questions_sql = 'SELECT * FROM questions WHERE avatar_id = %s; '
+    get_questions_sql = "SELECT * FROM questions WHERE avatar_id = %s;"
 
     questions = db_connection.fetch_data(connection, get_questions_sql, avatar_id)
 
     return questions
 
 def update_points():
-    update_points = "UPDATE game SET points = points + 100 WHERE name = %s"
+    update_points = "UPDATE game SET points = points + 100 WHERE name = %s; "
     cursor = connection.cursor
     cursor.execute(update_points)
+
+def calculate_co2_used(old, new):
+    coords_sql = "SELECT latitude_deg, longitude_deg FROM airport WHERE ident = %s;"
+
+    
+    cursor = connection.cursor()
+    cursor.execute(coords_sql, (old,))
+    coords1 = cursor.fetchone()
+
+    cursor.execute(coords_sql, (new,))
+    coords2 = cursor.fetchone()
+
+
+    print(coords1, coords2)
+
+    # if latitude1 is not None and longitude1 is not None and latitude2 is not None and longitude2 is not None:
+    #     point1 = (latitude1, longitude1)
+    #     point2 = (latitude2, longitude2)
+    #     etaisyys = geodesic(point1, point2).kilometers
+    #     print(f"Etäisyys välillä on {etaisyys:.2f} kilometriä!")

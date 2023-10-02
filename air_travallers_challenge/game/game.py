@@ -1,6 +1,7 @@
 import random
 # from player import Player 
 from database.db_models import get_closest_airports
+from database.db_models import calculate_co2_used
 
 class Game:
     def __init__(self):
@@ -8,6 +9,7 @@ class Game:
         self.closest_airports = None
         self.player = None
         self.current_airport = None
+        self.old_airport = None
 
 # SET GAME INSTANCE PLAYER
     def set_player(self, player):
@@ -24,7 +26,7 @@ class Game:
     def print_available_airports(self):
         print('Select from the airports to which you want to travel to.')
         for i, airport in enumerate(self.closest_airports, start=0):
-            print(f'{"CURREN AIRPORT:" if i == 0 else f"{i}."} {airport["name"]} | {airport["ident"]}')
+            print(f'{"CURRENT AIRPORT:" if i == 0 else f"{i}."} {airport["name"]} | {airport["ident"]}')
 
 # PRINT AVATARS ON SCREEN 
     def display_avatars(self):
@@ -33,17 +35,21 @@ class Game:
             print(f'{index}. {avatar}')
 
 # UPDATE GAME WITH NEW VALUES
-    def update_game(self, status, is_game_over, new_airport, new_closest_airports):
-        self.game_over = is_game_over
-        self.current_airport = new_airport
-        self.closest_airports = new_closest_airports
+    def update_game(self):
+        # GET CLOSEST AIRPORTS 
+        old = self.old_airport
+        new = self.current_airport
+
+        calculate_co2_used(old, new)
 
 # CHANGE GAME INSTANCE & PLAYER INSTANCE AIRPORT TO NEW AIRPORT BASED ON PLAYER INPUT 
     def travel_to_new_airport(self, input_airport):
         for i, airport in enumerate(self.closest_airports):
-            if i+1 == input_airport:
+            if i == input_airport:
+                self.old_airport = self.current_airport
                 self.current_airport = airport['ident']
                 self.player.airport = airport['ident']
+                self.load_closest_airports()
 
     def display_options(self):
         print(f'''

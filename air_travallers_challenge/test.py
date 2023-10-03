@@ -2,6 +2,21 @@ from game import Game, Player, Questions
 from game.store import Store
 import random
 
+print('''
+   _____  .__         ___________                         .__  .__              /\       
+  /  _  \ |__|______  \__    ___/___________ ___  __ ____ |  | |  |   __________)/ ______
+ /  /_\  \|  \_  __ \   |    |  \_  __ \__  \\  \/ // __ \|  | |  | _/ __ \_  __ \/  ___/
+/    |    \  ||  | \/   |    |   |  | \// __ \\   /\  ___/|  |_|  |_\  ___/|  | \/\___ \ 
+\____|__  /__||__|      |____|   |__|  (____  /\_/  \___  >____/____/\___  >__|  /____  >
+        \/                                  \/          \/               \/           \/ 
+              _________ .__           .__  .__                                           
+              \_   ___ \|  |__ _____  |  | |  |   ____   ____    ____   ____             
+              /    \  \/|  |  \\__  \ |  | |  | _/ __ \ /    \  / ___\_/ __ \            
+              \     \___|   Y  \/ __ \|  |_|  |_\  ___/|   |  \/ /_/  >  ___/            
+               \______  /___|  (____  /____/____/\___  >___|  /\___  / \___  >           
+                      \/     \/     \/               \/     \//_____/      \/            
+      ''')
+
 def setup_game():
     game = Game()
     input_name = input("Enter your name: ")
@@ -31,14 +46,10 @@ def display_options():
 def main():
     game, player, questions, store = setup_game()
     
-    question = questions.return_random_question()
-
-    game.display_avatars()
-    display_options()
-    
     # PRINT THE QUESTIONS, RANDOMIZE ORDER OF THE QUESTIONS AND
     # RETURN THE RIGHT VALUE THAT MATCHES THE CORRECT ANSWERS INPUT 
-    def ask_question(): 
+    def ask_question():
+        question = questions.return_random_question() 
         question_bool = questions.ask_question(question)
     
         input_answer = int(input('Select correct answer by typing the corresponding number: '))
@@ -48,7 +59,7 @@ def main():
                 print('Which powerup do you want to use: ')
                 print(player.powerups)
 
-                # IMPLEMENT USER POWER
+                # IMPLEMENT USER POWER WHICH SHOW PLAYER POWERS UPS THEY CAN USE IN QUESTION PART OF THE GAME
                 player.use_question_powerup('skip_question')
                 
             elif question_bool == input_answer:
@@ -67,13 +78,12 @@ $100 dollars added to player\'s wallet.''')
     ask_question()
 
     def continuation():
-        player.display_stats()
         # CHECK THAT POINTS & BUDGET DONT GO UNDER 0. SET THEM TO 0 IF THEY DO
         player.check_values(game) 
         # DISPLAY OPTIONS FOR PLAYER TO CHOOSE FROM
         game.display_options()   
         
-        input_continue = int(input('Select (1, 2, 3 or 4)'))
+        input_continue = int(input('Select (1, 2, 3 or 4): '))
         try: 
             if input_continue:
                 if input_continue == 1:
@@ -84,17 +94,22 @@ $100 dollars added to player\'s wallet.''')
                     game.update_game()
                 elif input_continue == 3:
                     store.display_store_options()
+                    category_choice = int(input('Choose a category (1. Power ups or 2. Plant trees): '))
 
-                    category_choice = input('Choose a category (power_ups or plant_trees): ')
-
-                    if category_choice not in ['power_ups', 'plant_trees']:
-                        store.purchase_item(category_choice)
+                    try:
+                        if category_choice in [1, 2]:
+                            if category_choice == 1:
+                                store.purchase_item(player, 'power_ups', category_choice)   
+                            elif category_choice == 2:
+                                store.purchase_item(player, 'plant_trees', category_choice)   
+                    except ValueError:
+                        print('Invalid input')
                     
                     print(player.powerups)
 
-                    store.purchase_item(player, category_choice)
+                    # store.purchase_item(player, category_choice)
                 elif input_continue == 4:
-                    pass
+                    player.display_stats()
         except ValueError:
                 print('Invalid input. Please enter a valid selection.')
     

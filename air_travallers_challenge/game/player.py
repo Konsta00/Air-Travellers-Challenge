@@ -163,10 +163,8 @@ class Player:
         
     def use_question_powerup(self, powerup):
         for powerup in self.powerups:
-            
+            pass
 
-
-        
     def display_stats(self):
         print(f'''
               Player stats: 
@@ -174,7 +172,9 @@ class Player:
               Points: {self.points}
               Budget: {self.budget}
               Co2 used: {self.co2_consumed}
-
-              {self.powerups}
+              Powerups:
               ''')
+        for item in self.powerups: 
+            print('''item''')
+
 

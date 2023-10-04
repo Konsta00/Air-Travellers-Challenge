@@ -87,11 +87,11 @@ $75 dollars added to player\'s wallet.''')
                 player.update_points(-65)
                 player.update_budget(0)
 
-
     ask_question()
 
     def co2_result():
         pass
+
     def continuation():
         # CHECK THAT POINTS & BUDGET DONT GO UNDER 0. SET THEM TO 0 IF THEY DO
         player.check_values(game)

@@ -3,6 +3,7 @@ import random
 from database.db_models import get_closest_airports
 from database.db_models import calculate_co2_used
 
+
 class Game:
     def __init__(self):
         self.game_over = False
@@ -54,16 +55,17 @@ class Game:
                 self.load_closest_airports()
 
     def display_options(self):
+        print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
         print(f'''
               [PLAYER {self.player.name.upper()}]:\n
-                {self.player.points} points \n
-                {self.player.budget}€
+                Points: {self.player.points} points 
+                Budged: {self.player.budget}€
+                Co2 consumed: {self.player.co2_consumed}
 
               WHAT DO YOU WANT TO DO:
                 1. ANSWER ANOTHER QUESTION
                 2. TRAVEL TO NEW AIRPORT
                 3. VISIT THE STORE
-                4. STATS
             ''')
         
     def travel(self):

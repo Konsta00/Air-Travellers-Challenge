@@ -83,3 +83,5 @@ def calculate_co2_used(old, new):
     co2_calculation = (220/distance)
 
     return co2_calculation
+
+

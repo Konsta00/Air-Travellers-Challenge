@@ -38,6 +38,7 @@ def setup_game():
     return game, player, questions, store
 
 def display_options():
+    print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
     print('''
 [OPTIONS]
 5. Display a clue ($TBD)
@@ -49,11 +50,11 @@ def main():
     # PRINT THE QUESTIONS, RANDOMIZE ORDER OF THE QUESTIONS AND
     # RETURN THE RIGHT VALUE THAT MATCHES THE CORRECT ANSWERS INPUT 
     def ask_question():
-        question = questions.return_random_question() 
+        question = questions.return_random_question()
         question_bool = questions.ask_question(question)
-    
+
         input_answer = int(input('Select correct answer by typing the corresponding number: '))
-    
+
         if input_answer:
             if input_answer == 6:
                 print('Which powerup do you want to use: ')
@@ -61,8 +62,10 @@ def main():
 
                 # IMPLEMENT USER POWER WHICH SHOW PLAYER POWERS UPS THEY CAN USE IN QUESTION PART OF THE GAME
                 player.use_question_powerup('skip_question')
-                
+
             elif question_bool == input_answer:
+                print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
+
                 print('''
                     [CORRECT ANSWER] \n 
 100 points added for player.
@@ -73,18 +76,20 @@ $100 dollars added to player\'s wallet.''')
                 random_bool = random.randint(0, 250)
                 if random_bool < 25:
                     player.random_powerup()
-                    pass #NIGGA
-    
+                    pass
+
     ask_question()
 
+    def co2_result():
+        pass
     def continuation():
         # CHECK THAT POINTS & BUDGET DONT GO UNDER 0. SET THEM TO 0 IF THEY DO
-        player.check_values(game) 
+        player.check_values(game)
         # DISPLAY OPTIONS FOR PLAYER TO CHOOSE FROM
-        game.display_options()   
-        
+        game.display_options()
+
         input_continue = int(input('Select (1, 2, 3 or 4): '))
-        try: 
+        try:
             if input_continue:
                 if input_continue == 1:
                     ask_question()
@@ -94,17 +99,17 @@ $100 dollars added to player\'s wallet.''')
                     game.update_game()
                 elif input_continue == 3:
                     store.display_store_options()
-                    category_choice = int(input('Choose a category (1. Power ups or 2. Plant trees): '))
+                    category_choice = int(input('\n Choose a category (1. Power ups or 2. Plant trees): '))
 
                     try:
                         if category_choice in [1, 2]:
                             if category_choice == 1:
-                                store.purchase_item(player, 'power_ups', category_choice)   
+                                store.purchase_item(player, 'power_ups', category_choice)
                             elif category_choice == 2:
-                                store.purchase_item(player, 'plant_trees', category_choice)   
+                                store.purchase_item(player, 'plant_trees', category_choice)
                     except ValueError:
                         print('Invalid input')
-                    
+
                     print(player.powerups)
 
                     # store.purchase_item(player, category_choice)
@@ -112,7 +117,7 @@ $100 dollars added to player\'s wallet.''')
                     player.display_stats()
         except ValueError:
                 print('Invalid input. Please enter a valid selection.')
-    
+
     while game.game_over is not True:
         continuation()
 

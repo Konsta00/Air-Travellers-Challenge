@@ -34,6 +34,7 @@ class Questions:
     
 
     def ask_question(self, question):
+        print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
         print('''
         [KYSYMYS]
               ''')
@@ -62,7 +63,7 @@ class Questions:
 6. USE POWER-UP
                 ''')
                 return 2
-            else: 
+            else:
                 print(f'''
 1. WRONG ANSWER HERE: {question["wrong_answer2"]}
 2. {question["wrong_answer"]}

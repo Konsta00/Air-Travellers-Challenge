@@ -21,6 +21,7 @@ print('\033[91m' + '''
 def setup_game():
     game = Game()
     input_name = input("Enter your name: ")
+
     game.display_avatars()
     input_avatar = int(input("Select an avatar (1, 2, or 3): "))
     
@@ -38,13 +39,6 @@ def setup_game():
 
     return game, player, questions, store
 
-def display_options():
-    print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
-    print('''
-[OPTIONS]
-5. Display a clue ($TBD)
-6. Use a powerup 
-    ''')
 def main():
     game, player, questions, store = setup_game()
     
@@ -53,7 +47,7 @@ def main():
     def ask_question():
         question = questions.return_random_question()
         question_bool = questions.ask_question(question)
-
+        
         input_answer = int(input('Select correct answer by typing the corresponding number: '))
 
         if input_answer:
@@ -69,74 +63,90 @@ def main():
 
                 print('''
                     [CORRECT ANSWER!] \n 
-100 points added for player.
-$75 dollars added to player\'s wallet.''')
+            100 points added for player.
+            $75 dollars added to player\'s wallet.''')
                 player.update_points(100)
                 player.update_budget(75)
+                player.update_questions()
 
                 random_bool = random.randint(0, 250)
-                if random_bool < 25:
+                if random_bool < 40:
                     player.random_powerup()
-                    pass
 
             elif question_bool != input_answer:
                 print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
                 print('''
-                                    [WRONG ANSWER!] \n 
-                Points will be deducted by 65.''')
+                     [WRONG ANSWER!] \n 
+            Points will be deducted by 65.''')
                 player.update_points(-65)
-                player.update_budget(0)
+                player.current_answered += 1
 
-    ask_question()
-
-    def co2_result():
-        pass
-
-    def continuation():
+    def game_loop():
         # CHECK THAT POINTS & BUDGET DONT GO UNDER 0. SET THEM TO 0 IF THEY DO
         player.check_values(game)
-        # DISPLAY OPTIONS FOR PLAYER TO CHOOSE FROM
-        game.display_options()
 
-        input_continue = int(input('Select (1, 2 or 3): '))
-        try:
-            if input_continue:
-                if input_continue == 1:
-                    ask_question()
-                elif input_continue == 2:
-                    game.print_available_airports()
-                    game.travel()
-                    game.update_game()
-                elif input_continue == 3:
-                    store.display_store_options()
-                    category_choice = int(input('\n Choose a category (1. Power ups or 2. Plant trees): '))
+        if player.current_answered > 3:
+            game.display_options()
+            input_continue = int(input('Select (1 or 2): '))
+            try:
+                if input_continue:
+                    if input_continue == 1:
+                        game.print_available_airports()
+                        game.travel()
+                        game.update_game()
+                    elif input_continue == 2:
+                        store.display_store_options()
+                        category_choice = int(input('\n Choose a category (1. Power ups or 2. Plant trees): '))
+                        try:
+                            if category_choice in [1, 2]:
+                                if category_choice == 1:
+                                    store.purchase_item(player, 'power_ups', category_choice)
+                                elif category_choice == 2:
+                                    store.purchase_item(player, 'plant_trees', category_choice)
+                        except ValueError:
+                            print('Invalid input')
+            except ValueError:
+                    print('Invalid input. Please enter a valid selection.')
+        else:
+            if player.current_answered == 0:
+                ask_question()
+            
+            game.display_options()
+            input_continue = int(input('Select (1, 2 or 3): '))
+            try:
+                if input_continue:
+                    if input_continue == 1:
+                        ask_question()
+                    elif input_continue == 2:
+                        game.print_available_airports()
+                        game.travel()
+                        game.update_game()
+                    elif input_continue == 3:
+                        store.display_store_options()
+                        category_choice = int(input('\n Choose a category (1. Power ups or 2. Plant trees): '))
 
-                    try:
-                        if category_choice in [1, 2]:
-                            if category_choice == 1:
-                                store.purchase_item(player, 'power_ups', category_choice)
-                            elif category_choice == 2:
-                                store.purchase_item(player, 'plant_trees', category_choice)
-                    except ValueError:
-                        print('Invalid input')
-
-                    print(player.powerups)
-
-                    # store.purchase_item(player, category_choice)
-                elif input_continue == 4:
-                    player.display_stats()
-        except ValueError:
-                print('Invalid input. Please enter a valid selection.')
-
+                        try:
+                            if category_choice in [1, 2]:
+                                if category_choice == 1:
+                                    store.purchase_item(player, 'power_ups', category_choice)
+                                elif category_choice == 2:
+                                    store.purchase_item(player, 'plant_trees', category_choice)
+                        except ValueError:
+                            print('Invalid input')
+            except ValueError:
+                    print('Invalid input. Please enter a valid selection.')
+            
     while game.game_over is not True:
-        continuation()
-
-
+        game_loop()
 
 if __name__ == "__main__":
     main()
 
-
+# TODO: PELIN ALKUUN SÄÄNNÖT/TARINA.
+# TODO: POWERUP OSTO JA KÄYTTÖ ERI PELIN TILANTEISSA
+# TODO: NÄKYVIIN LENTTOKENTTIEN ETÄISYYS KUN MATKUSTAA
+# TODO: TARKISTA KÄYTTÄJÄN INPUT JOKAISESSA KOHDASSA JOSSA KÄYTTÄJÄLTÄ KYSYTÄÄN SYÖTETTÄ
+# TODO: KUN KÄYTTÄJÄ VASTAA OIKEIN KYSYMYKSEEN VÄRJÄÄ "VÄLITEKSI" VIHREÄKSI, JOS VÄÄRIN NIIN PUNAISEKSI
 
 
 

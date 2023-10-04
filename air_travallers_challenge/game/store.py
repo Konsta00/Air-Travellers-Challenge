@@ -29,6 +29,8 @@ class Store:
                 item_choice = input_number
                 item = list(self.items[category].keys())[item_choice - 1]
 
+
+                # TODO: FIX POWER_UPS = HANDLING PURCHASING AND USING THEM 
                 if category == 'power_ups':
                     print("Choose an item:")
                     for i, (item) in enumerate(self.items[category].items(), start=1):

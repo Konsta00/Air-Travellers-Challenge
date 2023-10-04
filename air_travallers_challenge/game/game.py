@@ -40,10 +40,10 @@ class Game:
         # GET CLOSEST AIRPORTS 
         old = self.old_airport
         new = self.current_airport
-
-# CALCULATE AND UPDATE PLAYER CO2 CONSUMED
-        co2_used = calculate_co2_used(old, new)
+        # CALCULATE AND UPDATE PLAYER CO2 CONSUMED
+        co2_used, distance = calculate_co2_used(old, new)
         self.player.co2_consumed += co2_used
+        self.player.distance_traveled += distance
 
 # CHANGE GAME INSTANCE & PLAYER INSTANCE AIRPORT TO NEW AIRPORT BASED ON PLAYER INPUT 
     def travel_to_new_airport(self, input_airport):
@@ -53,21 +53,33 @@ class Game:
                 self.current_airport = airport['ident']
                 self.player.airport = airport['ident']
                 self.load_closest_airports()
+                self.player.current_answered = 0
 
     def display_options(self):
         print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
         print(f'''
-              [PLAYER {self.player.name.upper()}]:\n
-                Points: {self.player.points} points 
+            [PLAYER {self.player.name.upper()}]:\n
+                Points: {self.player.points} 
                 Budged: {self.player.budget}€
-                Co2 consumed: {self.player.co2_consumed}
-
-              WHAT DO YOU WANT TO DO:
+                Emissions: {self.player.co2_consumed:.2f} KG/C02
+                Distance traveled: {self.player.distance_traveled:.2f}KM
+                Current airport: {self.player.airport}
+                Total questions answered correct: {self.player.total_questions_answered}
+            ''')
+        if self.player.current_answered <= 3:
+            print('''
+            WHAT DO YOU WANT TO DO:
                 1. ANSWER ANOTHER QUESTION
                 2. TRAVEL TO NEW AIRPORT
                 3. VISIT THE STORE
-            ''')
-        
+                ''')
+        else: 
+            print('''
+            WHAT DO YOU WANT TO DO:
+                1. TRAVEL TO NEW AIRPORT
+                2. VISIT THE STORE
+                ''')
+            
     def travel(self):
         try:
             input_airport = int(input(f'SELECT AIRPORT BY TYPING 1-{len(self.closest_airports)-1}:'))

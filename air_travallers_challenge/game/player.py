@@ -15,6 +15,8 @@ class Player:
         self.co2_consumed = 0
         self.points = 0
         self.powerups = ('skip_question', 'skip_question', 'skip_question', 'free_travel', 'random_powerup')
+        self.total_questions_answered = 0
+        self.current_answered = 0
 
     def print_player(self):
         print('ID: ', self.id)
@@ -121,14 +123,13 @@ class Player:
         if self.points >= 1000:
             game.game_over = True
 
-        
     def update_budget(self, amount):
         if bool(amount):
             self.budget += amount
         elif not bool(amount):
             self.budget -= amount
 
-# TODO: UPDATE PLAYER POINTS
+# DONE: UPDATE PLAYER POINTS
     def update_points(self, points_to_add):
         if bool(points_to_add):
             self.points += points_to_add
@@ -166,16 +167,6 @@ class Player:
         for powerup in self.powerups:
             pass
 
-    def display_stats(self):
-        print(f'''
-              Player stats: 
-              
-              Points: {self.points}
-              Budget: {self.budget}
-              Co2 used: {self.co2_consumed}
-              Powerups:
-              ''')
-        for item in self.powerups: 
-            print('''item''')
-
-
+    def update_questions(self):
+        self.total_questions_answered += 1
+        self.current_answered += 1

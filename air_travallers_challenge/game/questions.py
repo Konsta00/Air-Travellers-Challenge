@@ -13,7 +13,6 @@ class Questions:
         self.questions = questions
 
     def return_random_question(self):
-        
         questions_dict = {}
         for i, question in enumerate(self.questions):
             question_json = json.dumps(question)
@@ -41,37 +40,32 @@ class Questions:
         print(f'{question["question_text"]}')
 
         # PUT QUESTIONS IN RANDOM ORDER & PRINT THEM
-        if question["wrong_answer2"] == '':
-            rand = random.randint(0, 100)
+        rand = random.randint(0, 100)
 
-            if rand < 33:
-                print(f'''
+        if rand < 33:
+            print(f'''
 1. {question["answer"]}
 2. {question["wrong_answer"]} 
-3. WRONG ANSWER HERE: {question["wrong_answer2"]}
+3. {question["wrong_answer2"]}
 
-6. USE POWER-UP
-
-                ''')
-                return 1
-            elif rand > 66:
-                print(f'''
+6. USE POWER-UP''')
+            return 1
+        elif rand > 66:
+            print(f'''
 1. {question["wrong_answer"]}
 2. {question["answer"]}
-3. WRONG ANSWER HERE: {question["wrong_answer2"]}
+3. {question["wrong_answer2"]}
 
-6. USE POWER-UP
-                ''')
-                return 2
-            else:
-                print(f'''
-1. WRONG ANSWER HERE: {question["wrong_answer2"]}
+6. USE POWER-UP ''')
+            return 2
+        else:
+            print(f'''
+1. {question["wrong_answer2"]}
 2. {question["wrong_answer"]}
 3. {question["answer"]}
 
-6. USE POWER-UP
-                ''')
-                return 3
+6. USE POWER-UP''')
+            return 3
 
 
     

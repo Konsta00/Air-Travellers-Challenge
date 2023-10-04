@@ -20,6 +20,8 @@ def get_closest_airports(current_airport):
             ) AS Distance_KM
         FROM
             airport
+        WHERE
+            type = "large_airport"
         ORDER BY
             Distance_KM ASC
         LIMIT 11;
@@ -31,7 +33,7 @@ def get_closest_airports(current_airport):
 # PLAYER CLASS SQL QUERIES
 
 def get_airports_iso_sql(iso):
-    get_airports_iso_sql = 'SELECT * FROM airport WHERE iso_country = %s LIMIT 5; '
+    get_airports_iso_sql = 'SELECT * FROM airport WHERE iso_country = %s and type = "large_airport" LIMIT 10; '
 
     airports = db_connection.fetch_data(connection, get_airports_iso_sql, iso)
 
@@ -80,8 +82,8 @@ def calculate_co2_used(old, new):
 
     distance = geodesic(coords1, coords2).kilometers
 
-    co2_calculation = (220/distance)
+    co2_calculation = (distance/220)
 
-    return co2_calculation
+    return co2_calculation, distance
 
 

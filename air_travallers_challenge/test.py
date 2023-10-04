@@ -97,7 +97,7 @@ $100 dollars added to player\'s wallet.''')
         # DISPLAY OPTIONS FOR PLAYER TO CHOOSE FROM
         game.display_options()
 
-        input_continue = int(input('Select (1, 2, 3 or 4): '))
+        input_continue = int(input('Select (1, 2 or 3): '))
         try:
             if input_continue:
                 if input_continue == 1:

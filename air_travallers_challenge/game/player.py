@@ -118,8 +118,9 @@ class Player:
             self.budget = 0
         if self.points < 0:
             self.points = 0
-        if self.points >= 1000:
+        if self.points >= 200:
             game.game_over = True
+
         
     def update_budget(self, amount):
         if bool(amount):

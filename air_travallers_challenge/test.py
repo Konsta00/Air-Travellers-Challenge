@@ -135,7 +135,6 @@ $75 dollars added to player\'s wallet.''')
 
 if __name__ == "__main__":
     main()
-    # LASKEA PALJON LENTOKENTTIEN VÄLINEN MATKUSTAMINEN KULUTTAA CO2/KILSA
 
 
 

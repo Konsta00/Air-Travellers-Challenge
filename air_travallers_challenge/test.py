@@ -67,7 +67,7 @@ def main():
                 print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
 
                 print('''
-                    [CORRECT ANSWER] \n 
+                    [CORRECT ANSWER!] \n 
 100 points added for player.
 $100 dollars added to player\'s wallet.''')
                 player.update_points(100)
@@ -77,6 +77,15 @@ $100 dollars added to player\'s wallet.''')
                 if random_bool < 25:
                     player.random_powerup()
                     pass
+
+            elif question_bool != input_answer:
+                print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
+                print('''
+                                    [WRONG ANSWER!] \n 
+                Points will be deducted by 65.''')
+                player.update_points(-65)
+                player.update_budget(0)
+
 
     ask_question()
 

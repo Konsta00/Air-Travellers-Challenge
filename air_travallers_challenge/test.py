@@ -40,14 +40,6 @@ You have the power to make a positive impact by planting trees to reduce your em
 Additionally, there are power-ups available for purchase to help you skip questions and avoid losing points.
 
 ''' + '\033[0m')
-print('''
-        Rules of the game. In this game you need to travel between airports. Your starting airport is determined by you avatar. 
-        Donald Trump plays in the United States. Mona Lisa plays in France and Felipe IV in Spain. Difficulty level is also determined by your avatar.
-        Donald Trump is easiest and Felipe IV is the hardest.
-        Your goal is to get 1000 points by answering questions and create as little CO2 emissions as possible.
-        You can also plant trees to lower your emissions in the store. There are also power ups that you can buy to, for example skip questions to avoid losing points.
-      ''')
-
 def setup_game():
     game = Game()
     input_name = input("Enter your name: ")
@@ -81,57 +73,61 @@ def main():
     # PRINT THE QUESTIONS, RANDOMIZE ORDER OF THE QUESTIONS AND
     # RETURN THE RIGHT VALUE THAT MATCHES THE CORRECT ANSWERS INPUT 
     def ask_question():
-        question = questions.return_random_question()
-        question_bool = questions.ask_question(question)
-        
-        input_answer = int(input('Select correct answer by typing the corresponding number: '))
+        input_ = None
+        while input_ is None:  
+            try: 
+                question = questions.return_random_question()
+                question_bool = questions.ask_question(question)
 
-        if input_answer:
-            if input_answer == 6:
-                print('Which powerup do you want to use: ')
-                print(player.powerups)
+                input_answer = int(input('Select correct answer by typing the corresponding number: '))
+                if input_answer in [1,2,3,6]:
+                    input_ = True
+                    if input_answer == 6:
+                        print('Which powerup do you want to use: ')
+                        print(player.powerups)
 
-                # IMPLEMENT USER POWER WHICH SHOW PLAYER POWERS UPS THEY CAN USE IN QUESTION PART OF THE GAME
-                player.use_question_powerup('skip_question')
+                        # IMPLEMENT USER POWER WHICH SHOW PLAYER POWERS UPS THEY CAN USE IN QUESTION PART OF THE GAME
+                        player.use_question_powerup('skip_question')
 
-            elif question_bool == input_answer:
-                print('''
-                ╔══════════════════════════╗ 
-                  Air Travellers Challenge
-                ╚══════════════════════════╝
-                      ''')
+                    elif question_bool == input_answer:
+                        print('''
+                        ╔══════════════════════════╗ 
+                        Air Travellers Challenge
+                        ╚══════════════════════════╝
+                            ''')
 
-                print('\033[92m'+'''
-                    [CORRECT ANSWER!] \n 
-            100 points added for player.
-            $75 dollars added to player\'s wallet.
-            '''+'\033[0m')
-                player.update_points(100)
-                player.update_budget(75)
-                player.update_questions()
+                        print('\033[92m'+'''
+                            [CORRECT ANSWER!] \n 
+                    100 points added to player.
+                    $75 dollars added to player\'s wallet.
+                    '''+'\033[0m')
+                        player.update_points(100)
+                        player.update_budget(75)
+                        player.update_questions()
 
-                random_bool = random.randint(0, 250)
-                if random_bool < 40:
-                    player.random_powerup()
+                        random_bool = random.randint(0, 250)
+                        if random_bool < 40:
+                            player.random_powerup()
 
-            elif question_bool != input_answer:
-                print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
-                print('''
-                     [WRONG ANSWER!] \n 
-                Points will be deducted by 65.'''+'\033[0m')
-                player.update_points(-65)
-                player.current_answered += 1
+                    elif question_bool != input_answer:
+                        print('''
+                        ╔══════════════════════════╗ 
+                        Air Travellers Challenge
+                        ╚══════════════════════════╝
+                            ''')
+                        print('''\033[91m
+                            [WRONG ANSWER!] \n 
+                        Points deducted by 65.
+                            \033[0m''')
+                        player.update_points(-65)
+                        player.current_answered += 1
+            except ValueError:
+                print('Invalid input')
 
     def game_loop():
         # CHECK THAT POINTS & BUDGET DONT GO UNDER 0. SET THEM TO 0 IF THEY DO
         player.check_values(game)
-
-        print('''
-                ╔══════════════════════════╗ 
-                  Air Travellers Challenge
-                ╚══════════════════════════╝
-                      ''')
-
+ 
         if player.current_answered > 2:
             game.display_options()
             input_continue = int(input('Select (1 or 2): '))

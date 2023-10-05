@@ -63,10 +63,13 @@ class Store:
             # Calculate CO2 reduction based on the chosen option
             if item == 'plant_10_trees':
                 co2_reduction = 1.5
+                print('CO2 reducted by 1.5KG/CO2')
             elif item == 'plant_20_trees':
                 co2_reduction = 3.5
+                print('CO2 reducted by 3.5KG/CO2')
             elif item == 'plant_30_trees':
                 co2_reduction = 6.5
+                print('CO2 reducted by 6.5KG/CO2')
             else:
                 print("Invalid item choice.")
                 return

@@ -14,7 +14,7 @@ class Player:
         self.avatar_id = avatar_id
         self.co2_consumed = 0
         self.points = 0
-        self.powerups = ('skip_question', 'skip_question', 'skip_question', 'free_travel', 'random_powerup')
+        self.powerups = ('skip_question', 'skip_question', 'skip_question', 'random_reward')
         self.total_questions_answered = 0
         self.current_answered = 0
 
@@ -150,13 +150,19 @@ class Player:
 
 # TODO: SELECT RANDOM POWERUP AND AND IT TO PLAYER INSTANCE DICTIONARY
     def random_powerup(self):
-        power_ups = ('free_hint', 'skip_question', 'free_travel')
-        random_choise = random.choice(list(power_ups))
-        self.powerups += (random_choise,)
+        power_ups = ('skip_question', 'random_reward')
+        random_choice = random.choice(list(power_ups))
+        self.powerups += (random_choice,)
 
     def use_powerup(self, powerup):
-        if powerup == 'free_travel':
-            self.budget += 300
+        if powerup == 'random_reward':
+            random_num = random.randint(0, 15)
+            if random_num < 2:
+                self.budget += 200
+            elif random_num >2 and random_num < 6:
+                self.budget += 150
+            else:
+                self.budget += 100
             return 1
         elif powerup == 'skip_question':
             return 2

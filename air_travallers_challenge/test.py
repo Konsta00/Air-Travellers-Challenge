@@ -19,7 +19,7 @@ print('\033[91m' + '''
 
 print('\033[92m' + '''
 ╭──────────────────────────────────────────────────────────────────────╮
-│                              Game Rules                               │
+│                              Game Rules                              │
 ╰──────────────────────────────────────────────────────────────────────╯
 
 In this game, your mission is to travel between airports and accumulate points while minimizing your carbon emissions. 
@@ -34,7 +34,8 @@ The difficulty level is also determined by your avatar:
 -  Mona Lisa provides a medium challenge.
 -  Felipe IV offers the hardest experience.
 
-Your objective is to reach 1000 points by answering questions and keeping your CO2 emissions as low as possible. 
+Your objective is to reach 1000 points by answering questions and keeping your CO2 emissions as low as possible.
+As you are playing you earn point and money by answering correctly. Wrong answers deducts your points.
 
 You have the power to make a positive impact by planting trees to reduce your emissions. 
 Additionally, there are power-ups available for purchase to help you skip questions and avoid losing points.
@@ -52,7 +53,7 @@ def setup_game():
                 player = Player(input_name, input_avatar)
                 player.set_starting_airport(player.avatar_id)
             else:
-                print("Invalid avatar.")
+                print("Invalid avatar. Select from 1-3.")
         except ValueError:
             pass
 
@@ -91,13 +92,12 @@ def main():
 
                     elif question_bool == input_answer:
                         print('''
-                        ╔══════════════════════════╗ 
-                        Air Travellers Challenge
-                        ╚══════════════════════════╝
-                            ''')
+                    ╔══════════════════════════╗ 
+                      Air Travellers Challenge
+                    ╚══════════════════════════╝''')
 
                         print('\033[92m'+'''
-                            [CORRECT ANSWER!] \n 
+                          [CORRECT ANSWER!] \n 
                     100 points added to player.
                     $75 dollars added to player\'s wallet.
                     '''+'\033[0m')
@@ -111,13 +111,12 @@ def main():
 
                     elif question_bool != input_answer:
                         print('''
-                        ╔══════════════════════════╗ 
-                        Air Travellers Challenge
-                        ╚══════════════════════════╝
-                            ''')
+                    ╔══════════════════════════╗ 
+                      Air Travellers Challenge
+                    ╚══════════════════════════╝''')
                         print('''\033[91m
-                            [WRONG ANSWER!] \n 
-                        Points deducted by 65.
+                          [WRONG ANSWER!] \n 
+                    Points deducted by 65.
                             \033[0m''')
                         player.update_points(-65)
                         player.current_answered += 1
@@ -185,11 +184,11 @@ def main():
 if __name__ == "__main__":
     main()
 
-# TODO: PELIN ALKUUN SÄÄNNÖT/TARINA.
+
 # TODO: POWERUP OSTO JA KÄYTTÖ ERI PELIN TILANTEISSA
 # TODO: NÄKYVIIN LENTTOKENTTIEN ETÄISYYS KUN MATKUSTAA
 # TODO: TARKISTA KÄYTTÄJÄN INPUT JOKAISESSA KOHDASSA JOSSA KÄYTTÄJÄLTÄ KYSYTÄÄN SYÖTETTÄ
-# TODO: KUN MATKUSTAA NÄYTTÄÄ LENTOKENTÄN JOHON MATKUSTI
+
 
 
 

@@ -20,15 +20,14 @@
 ```markdown 
 ## Pelin Kuvaus:
 
-Air Travellers Challenge on seikkailupeli, jossa pelaajana toimit seikkailijana, joka matkustaa eri lentokentille ympäri maailmaa. Pelaajana sinun tehtäväsi on ratkaista ohjelmointikysymyksiä, ansaita euroja (€) budjettiisi sekä löytää erityisiä voimapäivityksiä. Samalla saat oppia lentokenttien historiasta ja kulttuurista.
+Air Travellers Challenge on seikkailupeli, jossa pelaajana toimit seikkailijana, joka matkustaa eri lentokentille ympäri maailmaa. 
+Pelaajana sinun tehtäväsi on ratkaista ohjelmointikysymyksiä, ansaita euroja (€) budjettiisi sekä pisteitä.
 
 ## Pelin Toiminnot:
 
 Peli alkaa valitsemalla hahmosi, joka määrää kysymysten vaikeustason ja aloituspaikan maailmassa.
-Alussa voit matkustaa lähimpään 10 lentokenttään.
-Pelaajan tason noustessa voit matkustaa kauemmas.
+Pelissä voit matkustaa lähimpään 10 lentokenttään.
 Matkustaminen kuluttaa budjettiasi ja lisää hiilidioksidipäästöjäsi.
-Pelaajan taso vaikuttaa myös kysymysten vaikeustasoon.
 
 ## Palkinnot:
 
@@ -39,7 +38,6 @@ Alussa sinulla on 3 ilmaista vihjettä, mutta voit ostaa lisää, samoin kuin Po
 
 ## Powerupit:
 - Ilmainen matka mihin tahansa lentokenttään.
-- 3 ilmaista lisävihjettä.
 - Käteispalkinto.
 - Kysymyksen ohittaminen.
 

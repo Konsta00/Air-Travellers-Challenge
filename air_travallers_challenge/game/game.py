@@ -56,39 +56,45 @@ class Game:
                 self.player.current_answered = 0
 
     def display_options(self):
+        color_yellow = "\033[93m"
+        color_red = "\033[91m"
+        color_end = "\033[0m"
         print(f'''
-            [PLAYER {self.player.name.upper()}]:\n
-                Points: {self.player.points} 
-                Budged: {self.player.budget}€
-                Emissions: {self.player.co2_consumed:.2f} KG/C02
-                Distance traveled: {self.player.distance_traveled:.2f}KM
-                Current airport: {self.player.airport}
-                Total questions answered correct: {self.player.total_questions_answered}
+                ───────────────────────────────────────────
+                [PLAYER {color_red}{self.player.name.upper()}{color_end}]\n
+                Points: {color_yellow}{self.player.points}{color_end}
+                Budged: {color_yellow}{self.player.budget}€{color_end}
+                Emissions: {color_yellow}{self.player.co2_consumed:.2f} KG/C02{color_end}
+                Distance traveled: {color_yellow}{self.player.distance_traveled:.2f}KM{color_end}
+                Current airport: {color_yellow}{self.player.airport}{color_end}
+                Total questions answered correctly: {color_yellow}{self.player.total_questions_answered}{color_end}
+                ────────────────────────────────────────────
             ''')
         if self.player.current_answered <= 2:
             print('''
-            WHAT DO YOU WANT TO DO:
+                WHAT DO YOU WANT TO DO:
                 1. ANSWER ANOTHER QUESTION
                 2. TRAVEL TO NEW AIRPORT
                 3. VISIT THE STORE
                 ''')
         else: 
             print('''
-            WHAT DO YOU WANT TO DO:
+                WHAT DO YOU WANT TO DO:
                 1. TRAVEL TO NEW AIRPORT
                 2. VISIT THE STORE
                 ''')
             
     def travel(self):
         try:
-            input_airport = int(input(f'SELECT AIRPORT BY TYPING 1-{len(self.closest_airports)-1}:'))
+            print('''''')
+            input_airport = int(input(f'SELECT AIRPORT BY TYPING 1-{len(self.closest_airports)-1}: '))
             if 1 <= input_airport <= len(self.closest_airports) - 1:
                 print(f'''\033[93m
-                    Travelled to {self.closest_airports[input_airport]["name"]}
+                Travelled to {self.closest_airports[input_airport]["name"]}
                             \033[0m''')
             else: 
                 print('''\033[91m
-                    Invalid airport selection.'
+                Invalid airport selection.'
                             \033[0m''')
         except ValueError:
             print('Invalid input. Please enter a valid airport number.')

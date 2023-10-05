@@ -2,6 +2,10 @@ import random
 import json
 from database.db_models import get_questions_avatar_sql
 
+color_yellow = "\033[93m"
+color_red = "\033[91m"
+color_end = "\033[0m"
+
 # GET QUESTIONS FOR PLAYER
 class Questions:
     def __init__(self):
@@ -33,8 +37,8 @@ class Questions:
     
 
     def ask_question(self, question):        
-        print('''
-        [QUESTION]
+        print(f'''
+        {color_yellow}[QUESTION]{color_end}
               ''')
         print(f'{question["question_text"]}')
 

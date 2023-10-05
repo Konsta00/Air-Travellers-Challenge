@@ -178,13 +178,22 @@ class Player:
         if self.budget > 130: 
             self.budget -= 130
             self.random_powerup()
+            
             print(f'''
                 You have spent {color_bright_red}130€{color_end}
-                Balance remaining {color_bright_cyan}{self.budget}€{color_end}
-                ''')
+                Balance remaining {color_bright_cyan}{self.budget}€{color_end}''')
             last_inserted_power_up = self.powerups[-1]
-            print(f''' 
-                You received {color_green}{last_inserted_power_up}{color_end}''')
+            b = self.budget
+            reward = None
+            if last_inserted_power_up == 'random_reward':
+                new_b = self.use_powerup('random_reward')
+                reward = new_b - b
+                print(f'                You received {color_green}{reward}{color_end}')
+                print(f'Total balance: {self.budget}')
+            else:
+                print(f'                You received {color_green}skip question power-up{color_end}')
+                self.powerups = ('skip_question',)
+                
 
     def display_powerups(self):
         print(f'''

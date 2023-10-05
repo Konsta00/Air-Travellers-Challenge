@@ -21,10 +21,8 @@ class Store:
     def display_store_options(self):
         print('''
                     ╔══════════════════════════╗ 
-                      Air Travellers Challenge
+                        Welcome to the store!
                     ╚══════════════════════════╝''')
-        print('''
-                Welcome to the store!''')
         for category, items in self.items.items():
             print(f"{color_yellow}\n{'                1. Power ups: ' if category == 'power_ups' else '                2. Plant trees:'}{color_end}")
             for item  in items.items():

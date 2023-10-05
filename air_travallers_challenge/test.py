@@ -148,33 +148,40 @@ def main():
                         store.display_store_options()
                         store.buy()
             except ValueError:
-                    print(f'{color_bright_red}Invalid input. Please enter a valid selection.f{color_bright_red}')
+                print(f'{color_bright_red}Invalid input. Please enter a valid selection.f{color_bright_red}')
         else:
             if player.current_answered == 0:
                 ask_question()
             
             game.display_options()
             # ASK USER TO SELECT BETWEEN THE OPTIONS 
-            input_continue = int(input('                Select 1-4: '))
-            try:
-                if input_continue:
-                    if input_continue == 1:
-                        ask_question()
-                    elif input_continue == 2:
-                        game.print_available_airports()
-                        game.travel()
-                        game.update_game()
-                    elif input_continue == 3:
-                        player.display_powerups()
-                    elif input_continue == 4:
-                        store.display_store_options()
-                        store.buy(player)
-                    else:
-                        print(f'''
-                        {color_red}INPUT IS NOT IN THE AVAILABLE RANGE!{color_end} ''')
+            ask = False
+            while ask is False:
+                input_continue = int(input('                Select 1-4: '))
+                try:
+                    if input_continue:
+                        if input_continue == 1:
+                            ask_question()
+                            ask = True
+                        elif input_continue == 2:
+                            game.print_available_airports()
+                            game.travel()
+                            game.update_game()
+                            ask = True
+                        elif input_continue == 3:
+                            player.display_powerups()
+                            ask = True
+                        elif input_continue == 4:
+                            store.display_store_options()
+                            store.buy(player)
+                            ask = True
+                        else:
+                            print(f'''
+                            {color_red}INPUT IS NOT IN THE AVAILABLE RANGE!{color_end} ''')
 
-            except ValueError:
+                except ValueError:
                     print(f'{color_bright_red}Invalid input. Please enter a valid selection.{color_end}')
+
             
     while game.game_over is not True:
         game_loop()

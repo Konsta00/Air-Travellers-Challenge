@@ -169,6 +169,7 @@ class Player:
             self.budget -= 100
             self.powerups += ('skip_question',)
             print(f'''
+                Purchased {color_blue}SKIP QUESTION{color_end} successfully!
                 You have spent {color_bright_red}100€{color_end}
                 Balance remaining {self.budget}
                 ''')

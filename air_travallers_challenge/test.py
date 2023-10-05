@@ -129,7 +129,7 @@ def main():
                 print(f'{color_bright_red}Invalid input{color_end}')
 
     def game_loop():
-        # CHECK THAT POINTS & BUDGET DONT GO UNDER 0. SET THEM TO 0 IF THEY DO
+        # CHECK THAT POINTS & BUDGET DON'T GO UNDER 0. SET THEM TO 0 IF THEY DO
         player.check_values(game)
  
         if player.current_answered > 2:
@@ -165,10 +165,14 @@ def main():
                         game.travel()
                         game.update_game()
                     elif input_continue == 3:
-                        player.display_powerups()       
-                    else:
+                        player.display_powerups()
+                    elif input_continue == 4:
                         store.display_store_options()
                         store.buy(player)
+                    else:
+                        print(f'''
+                        {color_red}INPUT IS NOT IN THE AVAILABLE RANGE!{color_end} ''')
+
             except ValueError:
                     print(f'{color_bright_red}Invalid input. Please enter a valid selection.{color_end}')
             

@@ -48,14 +48,14 @@ def setup_game():
     while player is None:
         try:
             game.display_avatars()
-            input_avatar = int(input("Select an avatar (1, 2, or 3): "))
+            input_avatar = int(input("Select an avatar 1-3: "))
             if input_avatar in [1, 2, 3]:
                 player = Player(input_name, input_avatar)
                 player.set_starting_airport(player.avatar_id)
             else:
                 print("Invalid avatar. Select from 1-3.")
         except ValueError:
-            pass
+            print('Invalid input')
 
     game.set_player(player)
     game.set_current_airport()
@@ -84,11 +84,12 @@ def main():
                 if input_answer in [1,2,3,6]:
                     input_ = True
                     if input_answer == 6:
-                        print('Which powerup do you want to use: ')
-                        print(player.powerups)
-
                         # IMPLEMENT USER POWER WHICH SHOW PLAYER POWERS UPS THEY CAN USE IN QUESTION PART OF THE GAME
-                        player.use_question_powerup('skip_question')
+                        bool = player.use_question_powerup()
+
+                        if bool == True:
+                            game.print_available_airports()
+                            game.travel()
 
                     elif question_bool == input_answer:
                         print('''
@@ -97,9 +98,9 @@ def main():
                     ╚══════════════════════════╝''')
 
                         print('\033[92m'+'''
-                          [CORRECT ANSWER!] \n 
-                    100 points added to player.
-                    $75 dollars added to player\'s wallet.
+                          [CORRECT ANSWER] \n 
+                100 points added to player.
+                $75 dollars added to player\'s wallet.
                     '''+'\033[0m')
                         player.update_points(100)
                         player.update_budget(75)
@@ -115,8 +116,8 @@ def main():
                       Air Travellers Challenge
                     ╚══════════════════════════╝''')
                         print('''\033[91m
-                          [WRONG ANSWER!] \n 
-                    Points deducted by 65.
+                          [WRONG ANSWER] \n 
+                Points deducted by 65.
                             \033[0m''')
                         player.update_points(-65)
                         player.current_answered += 1
@@ -129,7 +130,7 @@ def main():
  
         if player.current_answered > 2:
             game.display_options()
-            input_continue = int(input('Select (1 or 2): '))
+            input_continue = int(input('                Select 1 or 2: '))
             print(player.current_answered)
 
             try:
@@ -140,7 +141,10 @@ def main():
                         game.update_game()
                     elif input_continue == 2:
                         store.display_store_options()
-                        category_choice = int(input('\n Choose a category (1. Power ups or 2. Plant trees): '))
+                        category_choice = int(input('''
+                1. Power ups
+                2. Plant trees
+                Choose a category: '''))
                         try:
                             if category_choice in [1, 2]:
                                 if category_choice == 1:
@@ -156,7 +160,7 @@ def main():
                 ask_question()
             
             game.display_options()
-            input_continue = int(input('Select (1, 2 or 3): '))
+            input_continue = int(input('                Select 1-3: '))
             try:
                 if input_continue:
                     if input_continue == 1:
@@ -167,8 +171,10 @@ def main():
                         game.update_game()
                     elif input_continue == 3:
                         store.display_store_options()
-                        category_choice = int(input('\n Choose a category (1. Power ups or 2. Plant trees): '))
-
+                        category_choice = int(input('''
+                1. Power ups
+                2. Plant trees
+                Choose a category: '''))
                         try:
                             if category_choice in [1, 2]:
                                 if category_choice == 1:

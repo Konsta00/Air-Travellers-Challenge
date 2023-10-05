@@ -25,13 +25,14 @@ class Game:
         self.closest_airports = get_closest_airports(self.current_airport)
 
     def print_available_airports(self):
-        print('Select from the airports to which you want to travel to.')
+        print('\nSelect from the airports to which you want to travel to.\n')
         for i, airport in enumerate(self.closest_airports, start=0):
             print(f'{"CURRENT AIRPORT:" if i == 0 else f"{i}."} {airport["name"]} | {airport["ident"]}')
 
 # PRINT AVATARS ON SCREEN 
     def display_avatars(self):
         avatars = ('Donald Trump', 'Mona Lisa', 'Felipe VI')
+        print('')
         for index, avatar in enumerate(avatars, start=1):
             print(f'{index}. {avatar}')
 
@@ -45,7 +46,7 @@ class Game:
         self.player.co2_consumed += co2_used
         self.player.distance_traveled += distance
 
-# CHANGE GAME INSTANCE & PLAYER INSTANCE AIRPORT TO NEW AIRPORT BASED ON PLAYER INPUT 
+# CHANGE GAME INSTANCE & PLAYER INSTANCE AIRPORT TO NEW AIRPORT BASED ON PLAYER INPUT TODO: UNUSED
     def travel_to_new_airport(self, input_airport):
         for i, airport in enumerate(self.closest_airports):
             if i == input_airport:
@@ -85,12 +86,13 @@ class Game:
             
     def travel(self):
         try:
-            print('''''')
             input_airport = int(input(f'SELECT AIRPORT BY TYPING 1-{len(self.closest_airports)-1}: '))
             if 1 <= input_airport <= len(self.closest_airports) - 1:
                 print(f'''\033[93m
                 Travelled to {self.closest_airports[input_airport]["name"]}
                             \033[0m''')
+                self.travel_to_new_airport(input_airport)
+                
                 self.player.current_answered = 0
             else: 
                 print('''\033[91m

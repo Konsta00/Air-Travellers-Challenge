@@ -1,3 +1,7 @@
+color_yellow = "\033[93m"
+color_red = "\033[91m"
+color_end = "\033[0m"
+
 class Store:
     def __init__(self):
         self.items = {
@@ -16,12 +20,16 @@ class Store:
         self.player_inventory = {}
 
     def display_store_options(self):
-        print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
-        print("Welcome to the store! Here are the available items:")
+        print('''
+                    ╔══════════════════════════╗ 
+                      Air Travellers Challenge
+                    ╚══════════════════════════╝''')
+        print('''
+                Welcome to the store!''')
         for category, items in self.items.items():
-            print(f"\n{'1. Power ups: ' if category == 'power_ups' else '2. Plant trees:'}")
+            print(f"{color_yellow}\n{'                1. Power ups: ' if category == 'power_ups' else '                2. Plant trees:'}{color_end}")
             for item  in items.items():
-                print(f"  {item[1][0]}: {item[1][1]}€")
+                print(f'                {item[1][0]}: {item[1][1]}€')
 
     def purchase_item(self, player, category, input_number):
         if category in self.items:
@@ -51,13 +59,17 @@ class Store:
         pass
 
     def purchase_plant_trees(self, player):
-        print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
-        print("Choose a tree planting option:")
+        print('''
+                    ╔══════════════════════════╗ 
+                      Air Travellers Challenge
+                    ╚══════════════════════════╝
+              ''')
+        print(f"{color_yellow}                Choose a tree planting option:{color_end}")
         for i, item in enumerate(self.items['plant_trees'].items(), start=1):
-            print(f"{i}. {item[1][0]}: {item[1][1]}€")
+            print(f"                {i}. {item[1][0]}: {item[1][1]}€")
 
         try:
-            item_choice = int(input("\nEnter the number of your choice: "))
+            item_choice = int(input("\n                Enter the number of your choice: "))
             item = list(self.items['plant_trees'].keys())[item_choice - 1]
 
             # Calculate CO2 reduction based on the chosen option

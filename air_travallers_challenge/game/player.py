@@ -169,9 +169,21 @@ class Player:
         elif powerup == 'random_powerup':
             return 3
         
-    def use_question_powerup(self, powerup):
-        for powerup in self.powerups:
-            pass
+    def use_question_powerup(self):
+        print('Available powerups to use: ')
+        skip_powerups = ()
+        index = 0
+        for i, powerup_ in enumerate(self.powerups, start=1):
+            if powerup_ == 'skip_question':
+                print(f'{i}. {powerup_}')
+                skip_powerups += (powerup_, )    
+                index += 1
+        input_powerup = int(input(f'''
+                Select the powerup you want to use by typing the corresponding number: '''))
+
+        for i, powerup in enumerate(skip_powerups, start=1):
+            if i == input_powerup:
+                return True
 
     def update_questions(self):
         self.total_questions_answered += 1

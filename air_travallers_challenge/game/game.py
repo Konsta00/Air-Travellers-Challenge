@@ -56,7 +56,6 @@ class Game:
                 self.player.current_answered = 0
 
     def display_options(self):
-        print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
         print(f'''
             [PLAYER {self.player.name.upper()}]:\n
                 Points: {self.player.points} 
@@ -66,7 +65,7 @@ class Game:
                 Current airport: {self.player.airport}
                 Total questions answered correct: {self.player.total_questions_answered}
             ''')
-        if self.player.current_answered <= 3:
+        if self.player.current_answered <= 2:
             print('''
             WHAT DO YOU WANT TO DO:
                 1. ANSWER ANOTHER QUESTION
@@ -84,9 +83,13 @@ class Game:
         try:
             input_airport = int(input(f'SELECT AIRPORT BY TYPING 1-{len(self.closest_airports)-1}:'))
             if 1 <= input_airport <= len(self.closest_airports) - 1:
-                self.travel_to_new_airport(input_airport)
-            else:
-                print('Invalid airport selection.')
+                print(f'''\033[93m
+                    Travelled to {self.closest_airports[input_airport]["name"]}
+                            \033[0m''')
+            else: 
+                print('''\033[91m
+                    Invalid airport selection.'
+                            \033[0m''')
         except ValueError:
             print('Invalid input. Please enter a valid airport number.')
 

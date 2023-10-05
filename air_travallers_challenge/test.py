@@ -40,14 +40,13 @@ You have the power to make a positive impact by planting trees to reduce your em
 Additionally, there are power-ups available for purchase to help you skip questions and avoid losing points.
 
 ''' + '\033[0m')
-
 def setup_game():
     game = Game()
     input_name = input("Enter your name: ")
-    game.display_avatars()
     player = None
     while player is None:
         try:
+            game.display_avatars()
             input_avatar = int(input("Select an avatar (1, 2, or 3): "))
             if input_avatar in [1, 2, 3]:
                 player = Player(input_name, input_avatar)
@@ -70,51 +69,66 @@ def setup_game():
 
 def main():
     game, player, questions, store = setup_game()
-
+    
     # PRINT THE QUESTIONS, RANDOMIZE ORDER OF THE QUESTIONS AND
     # RETURN THE RIGHT VALUE THAT MATCHES THE CORRECT ANSWERS INPUT 
     def ask_question():
-        question = questions.return_random_question()
-        question_bool = questions.ask_question(question)
-        
-        input_answer = int(input('Select correct answer by typing the corresponding number: '))
+        input_ = None
+        while input_ is None:  
+            try: 
+                question = questions.return_random_question()
+                question_bool = questions.ask_question(question)
 
-        if input_answer:
-            if input_answer == 6:
-                print('Which powerup do you want to use: ')
-                print(player.powerups)
+                input_answer = int(input('Select correct answer by typing the corresponding number: '))
+                if input_answer in [1,2,3,6]:
+                    input_ = True
+                    if input_answer == 6:
+                        print('Which powerup do you want to use: ')
+                        print(player.powerups)
 
-                # IMPLEMENT USER POWER WHICH SHOW PLAYER POWERS UPS THEY CAN USE IN QUESTION PART OF THE GAME
-                player.use_question_powerup('skip_question')
+                        # IMPLEMENT USER POWER WHICH SHOW PLAYER POWERS UPS THEY CAN USE IN QUESTION PART OF THE GAME
+                        player.use_question_powerup('skip_question')
 
-            elif question_bool == input_answer:
-                print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
-                print('\033[92m'+'''
-                    [CORRECT ANSWER!] \n 
-            100 points added for player.
-            $75 dollars added to player\'s wallet.
-            '''+'\033[0m')
-                player.update_points(100)
-                player.update_budget(75)
-                player.update_questions()
+                    elif question_bool == input_answer:
+                        print('''
+                        ╔══════════════════════════╗ 
+                        Air Travellers Challenge
+                        ╚══════════════════════════╝
+                            ''')
 
-                random_bool = random.randint(0, 250)
-                if random_bool < 40:
-                    player.random_powerup()
+                        print('\033[92m'+'''
+                            [CORRECT ANSWER!] \n 
+                    100 points added to player.
+                    $75 dollars added to player\'s wallet.
+                    '''+'\033[0m')
+                        player.update_points(100)
+                        player.update_budget(75)
+                        player.update_questions()
 
-            elif question_bool != input_answer:
-                print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
-                print('\033[91m'+'''
-                     [WRONG ANSWER!] \n 
-                Points will be deducted by 65.'''+'\033[0m')
-                player.update_points(-65)
-                player.current_answered += 1
+                        random_bool = random.randint(0, 250)
+                        if random_bool < 40:
+                            player.random_powerup()
+
+                    elif question_bool != input_answer:
+                        print('''
+                        ╔══════════════════════════╗ 
+                        Air Travellers Challenge
+                        ╚══════════════════════════╝
+                            ''')
+                        print('''\033[91m
+                            [WRONG ANSWER!] \n 
+                        Points deducted by 65.
+                            \033[0m''')
+                        player.update_points(-65)
+                        player.current_answered += 1
+            except ValueError:
+                print('Invalid input')
 
     def game_loop():
         # CHECK THAT POINTS & BUDGET DONT GO UNDER 0. SET THEM TO 0 IF THEY DO
         player.check_values(game)
-
-        if player.current_answered > 3:
+ 
+        if player.current_answered > 2:
             game.display_options()
             input_continue = int(input('Select (1 or 2): '))
             try:
@@ -123,7 +137,6 @@ def main():
                         game.print_available_airports()
                         game.travel()
                         game.update_game()
-                        game.print_current_airport()
                     elif input_continue == 2:
                         store.display_store_options()
                         category_choice = int(input('\n Choose a category (1. Power ups or 2. Plant trees): '))
@@ -151,7 +164,6 @@ def main():
                         game.print_available_airports()
                         game.travel()
                         game.update_game()
-                        game.print_current_airport()
                     elif input_continue == 3:
                         store.display_store_options()
                         category_choice = int(input('\n Choose a category (1. Power ups or 2. Plant trees): '))
@@ -173,10 +185,11 @@ def main():
 if __name__ == "__main__":
     main()
 
+# TODO: PELIN ALKUUN SÄÄNNÖT/TARINA.
 # TODO: POWERUP OSTO JA KÄYTTÖ ERI PELIN TILANTEISSA
 # TODO: NÄKYVIIN LENTTOKENTTIEN ETÄISYYS KUN MATKUSTAA
 # TODO: TARKISTA KÄYTTÄJÄN INPUT JOKAISESSA KOHDASSA JOSSA KÄYTTÄJÄLTÄ KYSYTÄÄN SYÖTETTÄ
-
+# TODO: KUN MATKUSTAA NÄYTTÄÄ LENTOKENTÄN JOHON MATKUSTI
 
 
 

@@ -35,7 +35,9 @@ class Store:
                     print("Choose an item:")
                     for i, (item) in enumerate(self.items[category].items(), start=1):
                         print(f"{i}.{item[1][0]}: {item[1][1] }€")
-                        self.process_purchase(category, item, player)
+                    
+                    
+                    self.process_purchase(category, item, player)
                 elif category == 'plant_trees':
                     self.purchase_plant_trees(player)
                 
@@ -61,10 +63,13 @@ class Store:
             # Calculate CO2 reduction based on the chosen option
             if item == 'plant_10_trees':
                 co2_reduction = 1.5
+                print('CO2 reducted by 1.5KG/CO2')
             elif item == 'plant_20_trees':
                 co2_reduction = 3.5
+                print('CO2 reducted by 3.5KG/CO2')
             elif item == 'plant_30_trees':
                 co2_reduction = 6.5
+                print('CO2 reducted by 6.5KG/CO2')
             else:
                 print("Invalid item choice.")
                 return
@@ -89,8 +94,8 @@ class Store:
 
         if category == 'power_ups':
             # p = self.items[category]
-            pass
-            # player.budget -= p[item]
+            print(p)
+            # player.budget -= p[item][1]
             # print(p[item][0])
             # player.powerups += (item,)
 

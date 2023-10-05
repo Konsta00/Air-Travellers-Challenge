@@ -3,9 +3,7 @@ import json
 from database.db_models import insert_player_sql 
 from database.db_models import get_airports_iso_sql
 from database.db_models import update_points
-color_yellow = "\033[93m"
-color_red = "\033[91m"
-color_end = "\033[0m"
+from colors import *
 
 class Player:
     def __init__(self, name, avatar_id):
@@ -69,55 +67,13 @@ class Player:
                         self.airport,
                         self.co2_consumed
                     )
-
             try:
                 self.id =  insert_player_sql(params)
                 print(self.id)
             except Exception as error:
                 print('Error inserting player to database: {error}')
 
-
 # TODO: UPDATE PLAYER INFO TO DABASE ALMOST EVERYTIME SOMETHING GETS CHANGED
-    def update_database(self):
-        print(f'''
-        NEW PLAYER VALUES FROM update_database(): 
-            \n ID: {self.id}
-            \n Name: {self.name}
-            \n Points: {self.points}
-            \n Budget: {self.budget} 
-            \n Distance traveled: {self.distance_travelled}
-            \n Co2 consumed: {self.co2_consumed}
-        ''')
-
-# TODO: UPDATE PLAYER
-    def update_player(self, points, amount, distance, new_airport, amount_co2_consumed):
-        
-        print(f'''
-        OLD PLAYER VALUES: 
-            \n ID: {self.id}
-            \n Name: {self.name}
-            \n Points: {self.points}
-            \n Budget: {self.budget} 
-            \n Distance traveled: {self.distance_travelled}
-            \n Co2 consumed: {self.co2_consumed}
-        ''')
-
-        if bool(points):
-            self.points += points
-        else:
-            self.points -= points
-        
-        if bool(amount):
-            self.budget += amount
-        else:
-            self.budget -= amount
-
-        self.distance_travelled += distance
-        self.airport = new_airport
-        self.co2_consumed += amount_co2_consumed
-
-        self.update_database()
-
     def check_values(self, game):
         if self.budget < 0:
             self.budget = 0
@@ -163,10 +119,13 @@ class Player:
             random_num = random.randint(0, 15)
             if random_num < 2:
                 self.budget += 200
+                return self.budget
             elif random_num >2 and random_num < 6:
                 self.budget += 150
+                return self.budget
             else:
                 self.budget += 100
+                return self.budget
             return 1
         elif powerup == 'skip_question':
             return 2
@@ -196,10 +155,13 @@ class Player:
     def buy_random_reward(self):
         if self.budget > 160:
             self.budget -= 160
-            self.powerups += ('random_reward',)
+            b = self.budget
+            new_b = self.use_powerup('random_reward')
+            reward = new_b - b
             print(f'''
-                            {self.name} used 160€. 
-                            Balance remaining {self.budget}
+                {self.name} used 160€. 
+                Balance remaining {color_bright_cyan}{self.budget}€{color_end}
+                You have received {color_green}{reward}€{color_end}
                 ''')
 
     def buy_skip_question(self):
@@ -207,8 +169,8 @@ class Player:
             self.budget -= 100
             self.powerups += ('skip_question',)
             print(f'''
-                            {self.name} used 100€. 
-                            Balance remaining {self.budget}
+                You have spent {color_bright_red}100€{color_end}
+                Balance remaining {self.budget}
                 ''')
         
     def buy_random_powerup(self):
@@ -216,11 +178,12 @@ class Player:
             self.budget -= 130
             self.random_powerup()
             print(f'''
-                            {self.name} used 130€ for a random powerup. 
-                            Balance remaining {self.budget}
+                You have spent {color_bright_red}130€{color_end}
+                Balance remaining {color_bright_cyan}{self.budget}€{color_end}
                 ''')
             last_inserted_power_up = self.powerups[-1]
-            print('You received {last_inserted_power_up}')
+            print(f''' 
+                You received {color_green}{last_inserted_power_up}{color_end}''')
 
     def display_powerups(self):
         print(f'''

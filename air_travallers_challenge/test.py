@@ -18,7 +18,7 @@ print(f'''{color_red}
                       \\/     \\/     \\/               \\/     \\//_____/      \\/            
 {color_end}''')
 
-print('\033[92m' + '''
+print(f'''{color_bright_magenta}
 ╭──────────────────────────────────────────────────────────────────────╮
 │                              Game Rules                              │
 ╰──────────────────────────────────────────────────────────────────────╯
@@ -40,8 +40,8 @@ As you are playing you earn point and money by answering correctly. Wrong answer
 
 You have the power to make a positive impact by planting trees to reduce your emissions. 
 Additionally, there are power-ups available for purchase to help you skip questions and avoid losing points.
-
-''' + '\033[0m')
+{color_end}
+''')
 def setup_game():
     game = Game()
     input_name = input("Enter your name: ")
@@ -54,9 +54,9 @@ def setup_game():
                 player = Player(input_name, input_avatar)
                 player.set_starting_airport(player.avatar_id)
             else:
-                print("Invalid avatar. Select from 1-3.")
+                print(f'{color_bright_red}Invalid avatar. Select from 1-3.{color_end}')
         except ValueError:
-            print('Invalid input')
+            print(f'{color_bright_red}Invalid input{color_end}')
 
     game.set_player(player)
     game.set_current_airport()
@@ -99,9 +99,11 @@ def main():
                     ╚══════════════════════════╝''')
 
                         print(f'''
-                        [CORRECT ANSWER] \n 
+                        {color_bright_green}
+                [CORRECT ANSWER] \n 
                 100 points added to player.
                 $75 dollars added to player\'s wallet.
+                        {color_end}
                     ''')
                         player.update_points(100)
                         player.update_budget(75)
@@ -116,14 +118,15 @@ def main():
                     ╔══════════════════════════╗ 
                       Air Travellers Challenge
                     ╚══════════════════════════╝''')
-                        print('''\033[91m
-                                [INCORRECT ANSWER] \n 
+                        print(f'''
+                        {color_bright_red}
+                [INCORRECT ANSWER] \n 
                 Points deducted by 65.
-                            \033[0m''')
+                        {color_end}''')
                         player.update_points(-65)
                         player.current_answered += 1
             except ValueError:
-                print('Invalid input')
+                print(f'{color_bright_red}Invalid input{color_end}')
 
     def game_loop():
         # CHECK THAT POINTS & BUDGET DONT GO UNDER 0. SET THEM TO 0 IF THEY DO
@@ -145,7 +148,7 @@ def main():
                         store.display_store_options()
                         store.buy()
             except ValueError:
-                    print('Invalid input. Please enter a valid selection.')
+                    print(f'{color_bright_red}Invalid input. Please enter a valid selection.f{color_bright_red}')
         else:
             if player.current_answered == 0:
                 ask_question()
@@ -167,7 +170,7 @@ def main():
                         store.display_store_options()
                         store.buy(player)
             except ValueError:
-                    print('Invalid input. Please enter a valid selection.')
+                    print(f'{color_bright_red}Invalid input. Please enter a valid selection.{color_end}')
             
     while game.game_over is not True:
         game_loop()

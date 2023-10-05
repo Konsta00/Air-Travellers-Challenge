@@ -99,10 +99,11 @@ class Store:
                     ╚══════════════════════════╝
               ''')
         print(f'''
-                    {color_yellow}Choose a power-up:{color_end}''')
+                {color_yellow}Choose a power-up:{color_end}''')
                     
         for i, item in enumerate(self.items['power_ups'].items(), start=1):
-           print(f''' {i}. {item[1][0]}: {item[1][1]}€''')
+           print(f''' 
+                {i}. {item[1][0]}: {item[1][1]}€''')
 
         try:
             item_choice = int(input("\n                 Enter the number of your choice: "))

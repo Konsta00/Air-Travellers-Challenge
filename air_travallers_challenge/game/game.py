@@ -21,18 +21,19 @@ class Game:
     def set_current_airport(self):
         self.current_airport = self.player.airport
 
-# SET 10 CLOSEST AIRPORT TO GAME FROM DATABASE QUERY 
+# SET 10 CLOSEST AIRPORT TO GAME FROM DATABASE
     def load_closest_airports(self):
         self.closest_airports = get_closest_airports(self.current_airport)
 
     def print_available_airports(self):
-        # LASKE GEOPYÖLLÄ ETÄISYYDET KOORDINAATTIEN AVULLA
+        # SET THE COORDINATES OF THE CLOSEST AIRPORT
         lat = self.closest_airports[0]['latitude_deg']
         lon = self.closest_airports[0]['longitude_deg']
         coords = lat, lon
     
         print('\nSelect from the airports to which you want to travel to.\n')
         for i, airport in enumerate(self.closest_airports, start=0):
+            # SET THE COORDINATES OF THE OTHER AIRPORTS
             lat = airport['latitude_deg'] 
             lon = airport['longitude_deg']
             coords2 = lat, lon
@@ -97,18 +98,19 @@ class Game:
         try:
             input_airport = int(input(f'SELECT AIRPORT BY TYPING 1-{len(self.closest_airports)-1}: '))
             if 1 <= input_airport <= len(self.closest_airports) - 1:
-                print(f'''\033[93m
+                print(f'''
+                        {color_bright_cyan}
                 Travelled to {self.closest_airports[input_airport]["name"]}
-                            \033[0m''')
+                        {color_end}''')
                 self.travel_to_new_airport(input_airport)
                 
                 self.player.current_answered = 0
             else: 
-                print('''\033[91m
+                print(f'''{color_bright_red}
                 Invalid airport selection.'
-                            \033[0m''')
+                            {color_end}''')
         except ValueError:
-            print('Invalid input. Please enter a valid airport number.')
+            print(f'{color_bright_red} Invalid input. Please enter a valid airport number.{color_end}')
 
 
 

@@ -44,7 +44,7 @@ Additionally, there are power-ups available for purchase to help you skip questi
 ''')
 def setup_game():
     game = Game()
-    input_name = input("Enter your name: ")
+    input_name = input("Enter your name (not avatar): ")
     player = None
     while player is None:
         try:

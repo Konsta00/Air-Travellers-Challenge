@@ -3,9 +3,7 @@ import random
 from database.db_models import get_closest_airports
 from database.db_models import calculate_co2_used
 from geopy.distance import geodesic
-color_yellow = "\033[93m"
-color_red = "\033[91m"
-color_end = "\033[0m"
+from colors import *
 
 class Game:
     def __init__(self):
@@ -67,7 +65,6 @@ class Game:
                 self.load_closest_airports()
 
     def display_options(self):
-        
         print(f'''
                 ───────────────────────────────────────────
                 [PLAYER {color_red}{self.player.name.upper()}{color_end}]\n

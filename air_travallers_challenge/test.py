@@ -1,12 +1,9 @@
 from game import Game, Player, Questions
 from game.store import Store
 import random
+from colors import *
 
-color_yellow = "\033[93m"
-color_red = "\033[91m"
-color_end = "\033[0m"
-
-print('\033[91m' + '''
+print(f'''{color_red}
    _____  .__         ___________                         .__  .__              /\\       
   /  _  \\ |__|______  \\__    ___/___________ ___  __ ____ |  | |  |   __________)/ ______
  /  /_\\  \\|  \\_  __ \\   |    |  \\_  __ \\__  \\\\  \\/ // __ \\|  | |  | _/ __ \\_  __ \\/  ___/
@@ -19,7 +16,7 @@ print('\033[91m' + '''
               \\     \\___|   Y  \\/ __ \\|  |_|  |_\\  ___/|   |  \\/ /_/  >  ___/            
                \\______  /___|  (____  /____/____/\\___  >___|  /\\___  / \\___  >           
                       \\/     \\/     \\/               \\/     \\//_____/      \\/            
-\033[0m''')
+{color_end}''')
 
 print('\033[92m' + '''
 ╭──────────────────────────────────────────────────────────────────────╮
@@ -101,11 +98,11 @@ def main():
                       Air Travellers Challenge
                     ╚══════════════════════════╝''')
 
-                        print('\033[92m'+'''
-                                [CORRECT ANSWER] \n 
+                        print(f'''
+                        [CORRECT ANSWER] \n 
                 100 points added to player.
                 $75 dollars added to player\'s wallet.
-                    '''+'\033[0m')
+                    ''')
                         player.update_points(100)
                         player.update_budget(75)
                         player.update_questions()

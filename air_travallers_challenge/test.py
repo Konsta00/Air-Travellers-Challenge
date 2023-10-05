@@ -90,10 +90,11 @@ def main():
             elif question_bool == input_answer:
                 print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
 
-                print('''
+                print('\033[92m'+'''
                     [CORRECT ANSWER!] \n 
             100 points added for player.
-            $75 dollars added to player\'s wallet.''')
+            $75 dollars added to player\'s wallet.
+            '''+'\033[0m')
                 player.update_points(100)
                 player.update_budget(75)
                 player.update_questions()
@@ -104,9 +105,9 @@ def main():
 
             elif question_bool != input_answer:
                 print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
-                print('''
+                print('\033[91m'+'''
                      [WRONG ANSWER!] \n 
-            Points will be deducted by 65.''')
+                Points will be deducted by 65.'''+'\033[0m')
                 player.update_points(-65)
                 player.current_answered += 1
 

@@ -17,17 +17,29 @@ print('\033[91m' + '''
                       \\/     \\/     \\/               \\/     \\//_____/      \\/            
 \033[0m''')
 
+print('''
+        Rules of the game. In this game you need to travel between airports. Your starting airport is determined by you avatar. 
+        Donald Trump plays in the United States. Mona Lisa plays in France and Felipe IV in Spain. Difficulty level is also determined by your avatar.
+        Donald Trump is easiest and Felipe IV is hardest.
+        Your goal is to get 1000 points by answering questions and create as little c02 emissions as possible.
+        You can also plant trees to lower your emissions. There are also power ups that you can buy to skip questions to avoid losing points.''')
 
 def setup_game():
     game = Game()
     input_name = input("Enter your name: ")
-
     game.display_avatars()
-    input_avatar = int(input("Select an avatar (1, 2, or 3): "))
-    
-    player = Player(input_name, input_avatar)
-    player.set_starting_airport(player.avatar_id)
-    
+    player = None
+    while player is None:
+        try:
+            input_avatar = int(input("Select an avatar (1, 2, or 3): "))
+            if input_avatar in [1, 2, 3]:
+                player = Player(input_name, input_avatar)
+                player.set_starting_airport(player.avatar_id)
+            else:
+                print("Invalid avatar.")
+        except ValueError:
+            pass
+
     game.set_player(player)
     game.set_current_airport()
     game.load_closest_airports()
@@ -147,7 +159,7 @@ if __name__ == "__main__":
 # TODO: NÄKYVIIN LENTTOKENTTIEN ETÄISYYS KUN MATKUSTAA
 # TODO: TARKISTA KÄYTTÄJÄN INPUT JOKAISESSA KOHDASSA JOSSA KÄYTTÄJÄLTÄ KYSYTÄÄN SYÖTETTÄ
 # TODO: KUN KÄYTTÄJÄ VASTAA OIKEIN KYSYMYKSEEN VÄRJÄÄ "VÄLITEKSI" VIHREÄKSI, JOS VÄÄRIN NIIN PUNAISEKSI
-
+# TODO KUN MATKUSTAA NÄYTTÄÄ LENTOKENTÄN JOLLE MATKUSTI ENNEN KYSYMYSTÄ
 
 
 

@@ -93,8 +93,6 @@ class Game:
         except ValueError:
             print('Invalid input. Please enter a valid airport number.')
 
-    def print_current_airport(self):
-        print('''''')
-        print('''You are currently at: \033[92m''' + self.current_airport + '''\033[0m Airport!''')
+
 
 

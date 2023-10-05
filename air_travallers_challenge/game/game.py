@@ -85,6 +85,8 @@ class Game:
             input_airport = int(input(f'SELECT AIRPORT BY TYPING 1-{len(self.closest_airports)-1}:'))
             if 1 <= input_airport <= len(self.closest_airports) - 1:
                 self.travel_to_new_airport(input_airport)
+                print(f'\nTravelled to {self.closest_airports[input_airport]["name"]}')
+                
             else:
                 print('Invalid airport selection.')
         except ValueError:

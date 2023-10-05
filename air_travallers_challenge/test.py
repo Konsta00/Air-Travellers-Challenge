@@ -20,17 +20,18 @@ print('\033[91m' + '''
 print('''
         Rules of the game. In this game you need to travel between airports. Your starting airport is determined by you avatar. 
         Donald Trump plays in the United States. Mona Lisa plays in France and Felipe IV in Spain. Difficulty level is also determined by your avatar.
-        Donald Trump is easiest and Felipe IV is hardest.
-        Your goal is to get 1000 points by answering questions and create as little c02 emissions as possible.
-        You can also plant trees to lower your emissions. There are also power ups that you can buy to skip questions to avoid losing points.''')
+        Donald Trump is easiest and Felipe IV is the hardest.
+        Your goal is to get 1000 points by answering questions and create as little CO2 emissions as possible.
+        You can also plant trees to lower your emissions in the store. There are also power ups that you can buy to, for example skip questions to avoid losing points.
+      ''')
 
 def setup_game():
     game = Game()
     input_name = input("Enter your name: ")
-    game.display_avatars()
     player = None
     while player is None:
         try:
+            game.display_avatars()
             input_avatar = int(input("Select an avatar (1, 2, or 3): "))
             if input_avatar in [1, 2, 3]:
                 player = Player(input_name, input_avatar)
@@ -71,7 +72,11 @@ def main():
                 player.use_question_powerup('skip_question')
 
             elif question_bool == input_answer:
-                print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
+                print('''
+                ╔══════════════════════════╗ 
+                  Air Travellers Challenge
+                ╚══════════════════════════╝
+                      ''')
 
                 print('''
                     [CORRECT ANSWER!] \n 
@@ -86,7 +91,11 @@ def main():
                     player.random_powerup()
 
             elif question_bool != input_answer:
-                print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
+                print('''
+                ╔══════════════════════════╗ 
+                  Air Travellers Challenge
+                ╚══════════════════════════╝
+                      ''')
                 print('''
                      [WRONG ANSWER!] \n 
             Points will be deducted by 65.''')
@@ -97,7 +106,13 @@ def main():
         # CHECK THAT POINTS & BUDGET DONT GO UNDER 0. SET THEM TO 0 IF THEY DO
         player.check_values(game)
 
-        if player.current_answered > 3:
+        print('''
+                ╔══════════════════════════╗ 
+                  Air Travellers Challenge
+                ╚══════════════════════════╝
+                      ''')
+
+        if player.current_answered > 2:
             game.display_options()
             input_continue = int(input('Select (1 or 2): '))
             try:

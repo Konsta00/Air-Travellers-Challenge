@@ -35,7 +35,9 @@ class Store:
                     print("Choose an item:")
                     for i, (item) in enumerate(self.items[category].items(), start=1):
                         print(f"{i}.{item[1][0]}: {item[1][1] }€")
-                        self.process_purchase(category, item, player)
+                    
+                    
+                    self.process_purchase(category, item, player)
                 elif category == 'plant_trees':
                     self.purchase_plant_trees(player)
                 
@@ -89,8 +91,8 @@ class Store:
 
         if category == 'power_ups':
             # p = self.items[category]
-            pass
-            # player.budget -= p[item]
+            print(p)
+            # player.budget -= p[item][1]
             # print(p[item][0])
             # player.powerups += (item,)
 

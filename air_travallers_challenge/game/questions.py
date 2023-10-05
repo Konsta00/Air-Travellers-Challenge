@@ -32,8 +32,7 @@ class Questions:
             return {}  # Return an empty dictionary on error
     
 
-    def ask_question(self, question):
-        print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
+    def ask_question(self, question):        
         print('''
         [KYSYMYS]
               ''')

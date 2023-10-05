@@ -17,6 +17,29 @@ print('\033[91m' + '''
                       \\/     \\/     \\/               \\/     \\//_____/      \\/            
 \033[0m''')
 
+print('\033[92m' + '''
+╭──────────────────────────────────────────────────────────────────────╮
+│                              Game Rules                               │
+╰──────────────────────────────────────────────────────────────────────╯
+
+In this game, your mission is to travel between airports and accumulate points while minimizing your carbon emissions. 
+
+Your journey begins at your chosen starting airport, depending on your avatar:
+-  Donald Trump plays in the United States.
+-  Mona Lisa plays in France.
+-  Felipe IV plays in Spain.
+
+The difficulty level is also determined by your avatar:
+-  Donald Trump represents the easiest level.
+-  Mona Lisa provides a medium challenge.
+-  Felipe IV offers the hardest experience.
+
+Your objective is to reach 1000 points by answering questions and keeping your CO2 emissions as low as possible. 
+
+You have the power to make a positive impact by planting trees to reduce your emissions. 
+Additionally, there are power-ups available for purchase to help you skip questions and avoid losing points.
+
+''' + '\033[0m')
 print('''
         Rules of the game. In this game you need to travel between airports. Your starting airport is determined by you avatar. 
         Donald Trump plays in the United States. Mona Lisa plays in France and Felipe IV in Spain. Difficulty level is also determined by your avatar.
@@ -78,10 +101,11 @@ def main():
                 ╚══════════════════════════╝
                       ''')
 
-                print('''
+                print('\033[92m'+'''
                     [CORRECT ANSWER!] \n 
             100 points added for player.
-            $75 dollars added to player\'s wallet.''')
+            $75 dollars added to player\'s wallet.
+            '''+'\033[0m')
                 player.update_points(100)
                 player.update_budget(75)
                 player.update_questions()
@@ -91,14 +115,10 @@ def main():
                     player.random_powerup()
 
             elif question_bool != input_answer:
-                print('''
-                ╔══════════════════════════╗ 
-                  Air Travellers Challenge
-                ╚══════════════════════════╝
-                      ''')
+                print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
                 print('''
                      [WRONG ANSWER!] \n 
-            Points will be deducted by 65.''')
+                Points will be deducted by 65.'''+'\033[0m')
                 player.update_points(-65)
                 player.current_answered += 1
 
@@ -173,7 +193,7 @@ if __name__ == "__main__":
 # TODO: POWERUP OSTO JA KÄYTTÖ ERI PELIN TILANTEISSA
 # TODO: NÄKYVIIN LENTTOKENTTIEN ETÄISYYS KUN MATKUSTAA
 # TODO: TARKISTA KÄYTTÄJÄN INPUT JOKAISESSA KOHDASSA JOSSA KÄYTTÄJÄLTÄ KYSYTÄÄN SYÖTETTÄ
-# TODO: KUN KÄYTTÄJÄ VASTAA OIKEIN KYSYMYKSEEN VÄRJÄÄ "VÄLITEKSI" VIHREÄKSI, JOS VÄÄRIN NIIN PUNAISEKSI
+# TODO: KUN MATKUSTAA NÄYTTÄÄ LENTOKENTÄN JOHON MATKUSTI
 
 
 

@@ -70,7 +70,7 @@ def setup_game():
 
 def main():
     game, player, questions, store = setup_game()
-    
+
     # PRINT THE QUESTIONS, RANDOMIZE ORDER OF THE QUESTIONS AND
     # RETURN THE RIGHT VALUE THAT MATCHES THE CORRECT ANSWERS INPUT 
     def ask_question():
@@ -89,7 +89,6 @@ def main():
 
             elif question_bool == input_answer:
                 print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
-
                 print('\033[92m'+'''
                     [CORRECT ANSWER!] \n 
             100 points added for player.
@@ -124,6 +123,7 @@ def main():
                         game.print_available_airports()
                         game.travel()
                         game.update_game()
+                        game.print_current_airport()
                     elif input_continue == 2:
                         store.display_store_options()
                         category_choice = int(input('\n Choose a category (1. Power ups or 2. Plant trees): '))
@@ -151,6 +151,7 @@ def main():
                         game.print_available_airports()
                         game.travel()
                         game.update_game()
+                        game.print_current_airport()
                     elif input_continue == 3:
                         store.display_store_options()
                         category_choice = int(input('\n Choose a category (1. Power ups or 2. Plant trees): '))
@@ -172,11 +173,10 @@ def main():
 if __name__ == "__main__":
     main()
 
-# TODO: PELIN ALKUUN SÄÄNNÖT/TARINA.
 # TODO: POWERUP OSTO JA KÄYTTÖ ERI PELIN TILANTEISSA
 # TODO: NÄKYVIIN LENTTOKENTTIEN ETÄISYYS KUN MATKUSTAA
 # TODO: TARKISTA KÄYTTÄJÄN INPUT JOKAISESSA KOHDASSA JOSSA KÄYTTÄJÄLTÄ KYSYTÄÄN SYÖTETTÄ
-# TODO: KUN MATKUSTAA NÄYTTÄÄ LENTOKENTÄN JOHON MATKUSTI
+
 
 
 

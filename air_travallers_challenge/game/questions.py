@@ -35,7 +35,7 @@ class Questions:
     def ask_question(self, question):
         print("\n╔══════════════════════════╗\n  Air Travellers Challenge\n╚══════════════════════════╝\n")
         print('''
-        [KYSYMYS]
+        [QUESTION]
               ''')
         print(f'{question["question_text"]}')
 

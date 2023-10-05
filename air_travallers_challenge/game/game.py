@@ -2,7 +2,10 @@ import random
 # from player import Player 
 from database.db_models import get_closest_airports
 from database.db_models import calculate_co2_used
-
+from geopy.distance import geodesic
+color_yellow = "\033[93m"
+color_red = "\033[91m"
+color_end = "\033[0m"
 
 class Game:
     def __init__(self):
@@ -25,9 +28,18 @@ class Game:
         self.closest_airports = get_closest_airports(self.current_airport)
 
     def print_available_airports(self):
+        # LASKE GEOPYÖLLÄ ETÄISYYDET KOORDINAATTIEN AVULLA
+        lat = self.closest_airports[0]['latitude_deg']
+        lon = self.closest_airports[0]['longitude_deg']
+        coords = lat, lon
+    
         print('\nSelect from the airports to which you want to travel to.\n')
         for i, airport in enumerate(self.closest_airports, start=0):
-            print(f'{"CURRENT AIRPORT:" if i == 0 else f"{i}."} {airport["name"]} | {airport["ident"]}')
+            lat = airport['latitude_deg'] 
+            lon = airport['longitude_deg']
+            coords2 = lat, lon
+            distance = geodesic(coords, coords2).kilometers
+            print(f'{color_yellow}{"CURRENT AIRPORT:" if i == 0 else f"{color_end}{i}."} {airport["name"]} | {airport["ident"]} | {distance:.0f}KM to airport')
 
 # PRINT AVATARS ON SCREEN 
     def display_avatars(self):
@@ -38,7 +50,6 @@ class Game:
 
 # UPDATE GAME WITH NEW VALUES
     def update_game(self):
-        # GET CLOSEST AIRPORTS 
         old = self.old_airport
         new = self.current_airport
         # CALCULATE AND UPDATE PLAYER CO2 CONSUMED
@@ -56,9 +67,7 @@ class Game:
                 self.load_closest_airports()
 
     def display_options(self):
-        color_yellow = "\033[93m"
-        color_red = "\033[91m"
-        color_end = "\033[0m"
+        
         print(f'''
                 ───────────────────────────────────────────
                 [PLAYER {color_red}{self.player.name.upper()}{color_end}]\n
@@ -71,17 +80,20 @@ class Game:
                 ────────────────────────────────────────────
             ''')
         if self.player.current_answered <= 2:
-            print('''
-                WHAT DO YOU WANT TO DO:
+            print(f'''
+                {color_yellow}WHAT DO YOU WANT TO DO:{color_end}
                 1. ANSWER ANOTHER QUESTION
                 2. TRAVEL TO NEW AIRPORT
-                3. VISIT THE STORE
+                3. SHOW AVAILABLE POWER UPS
+                4. VISIT THE STORE
                 ''')
         else: 
-            print('''
-                WHAT DO YOU WANT TO DO:
+            print(f'''
+                {color_yellow}WHAT DO YOU WANT TO DO:{color_end}
                 1. TRAVEL TO NEW AIRPORT
-                2. VISIT THE STORE
+                2. SHOW AVAILABLE POWER UPS
+                3. VISIT THE STORE
+
                 ''')
             
     def travel(self):

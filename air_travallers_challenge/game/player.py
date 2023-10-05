@@ -3,13 +3,16 @@ import json
 from database.db_models import insert_player_sql 
 from database.db_models import get_airports_iso_sql
 from database.db_models import update_points
+color_yellow = "\033[93m"
+color_red = "\033[91m"
+color_end = "\033[0m"
 
 class Player:
     def __init__(self, name, avatar_id):
         self.id = None
         self.name = name
         self.airport = None
-        self.budget = 10000
+        self.budget = 500
         self.distance_traveled = 0
         self.avatar_id = avatar_id
         self.co2_consumed = 0
@@ -188,3 +191,43 @@ class Player:
     def update_questions(self):
         self.total_questions_answered += 1
         self.current_answered += 1
+
+    def buy_random_reward(self):
+        if self.budget > 160:
+            self.budget -= 160
+            self.powerups += ('random_reward',)
+            print(f'''
+                            {self.name} used 160€. 
+                            Balance remaining {self.budget}
+                ''')
+
+    def buy_skip_question(self):
+        if self.budget > 100: 
+            self.budget -= 100
+            self.powerups += ('skip_question',)
+            print(f'''
+                            {self.name} used 100€. 
+                            Balance remaining {self.budget}
+                ''')
+        
+    def buy_random_powerup(self):
+        if self.budget > 130: 
+            self.budget -= 130
+            self.random_powerup()
+            print(f'''
+                            {self.name} used 130€ for a random powerup. 
+                            Balance remaining {self.budget}
+                ''')
+            last_inserted_power_up = self.powerups[-1]
+            print('You received {last_inserted_power_up}')
+
+    def display_powerups(self):
+        print(f'''
+            {color_yellow}  [AVAILABLE POWER UPS]{color_end}''')
+        for i, p in enumerate(self.powerups, start=1):
+            if p == 'skip_question':
+                print(f'                {i}. Skip question')
+            elif p == 'random_reward':
+                print(f'                {i}. Random reward')
+            else:
+                print(f'                {i}. Random powerup') 

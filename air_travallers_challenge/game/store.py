@@ -6,10 +6,9 @@ class Store:
     def __init__(self):
         self.items = {
             'power_ups': {
-                'skip_question': ('Skip question', 100),
-                'show_hint': ('Show hint', 50),
-                'free_travel': ('Free travel', 50),
-                'random_powerup': ('Random powerup', 150),
+                'skip_question': ('Skip a question when playing', 100),
+                'random_reward': ('Get a random reward', 160),
+                'random_powerup': ('Get a random power-up', 130),
             },
             'plant_trees': {
                 'plant_10_trees': ('Plant 10 trees', 30),
@@ -40,12 +39,11 @@ class Store:
 
                 # TODO: FIX POWER_UPS = HANDLING PURCHASING AND USING THEM 
                 if category == 'power_ups':
-                    print("Choose an item:")
-                    for i, (item) in enumerate(self.items[category].items(), start=1):
-                        print(f"{i}.{item[1][0]}: {item[1][1] }€")
+                    # print("Choose an item:")
+                    # for i, (item) in enumerate(self.items[category].items(), start=1):
+                    #     print(f"{i}.{item[1][0]}: {item[1][1] }€")
                     
-                    
-                    self.process_purchase(category, item, player)
+                    self.purchase_power_up(player)
                 elif category == 'plant_trees':
                     self.purchase_plant_trees(player)
                 
@@ -54,14 +52,11 @@ class Store:
         else:
             print("-------------[Invalid category choice.]-------------")
 
-    def purchase_power_up(self, player):
-        # Implementation for purchasing power-ups
-        pass
 
     def purchase_plant_trees(self, player):
         print('''
                     ╔══════════════════════════╗ 
-                      Air Travellers Challenge
+                        STORE --> PLANT TREES
                     ╚══════════════════════════╝
               ''')
         print(f"{color_yellow}                Choose a tree planting option:{color_end}")
@@ -69,7 +64,7 @@ class Store:
             print(f"                {i}. {item[1][0]}: {item[1][1]}€")
 
         try:
-            item_choice = int(input("\n                Enter the number of your choice: "))
+            item_choice = int(input("\n                 Enter the number of your choice: "))
             item = list(self.items['plant_trees'].keys())[item_choice - 1]
 
             # Calculate CO2 reduction based on the chosen option
@@ -101,17 +96,47 @@ class Store:
         except (ValueError, IndexError):
             print("Invalid input. Please enter a valid selection.")
 
-    def process_purchase(self, category, item, player):
-        p = self.items[category]
+    def purchase_power_up(self, player):
+        print('''
+                    ╔══════════════════════════╗ 
+                         STORE --> POWER-UPS
+                    ╚══════════════════════════╝
+              ''')
+        print(f'''
+                    {color_yellow}Choose a power-up:{color_end}''')
+                    
+        for i, item in enumerate(self.items['power_ups'].items(), start=1):
+           print(f''' {i}. {item[1][0]}: {item[1][1]}€''')
 
-        if category == 'power_ups':
-            # p = self.items[category]
-            print(p)
-            # player.budget -= p[item][1]
-            # print(p[item][0])
-            # player.powerups += (item,)
+        try:
+            item_choice = int(input("\n                 Enter the number of your choice: "))
+            item = list(self.items['power_ups'].keys())[item_choice - 1]
+
+            if item == 'skip_question':
+                player.buy_skip_question()
+            elif item == 'random_reward':
+                player.buy_random_reward()
+            elif item == 'random_powerup':
+                player.buy_random_powerup()
+            else:
+                print("Invalid item choice.")
+                return   
+        except (ValueError, IndexError):
+            print("Invalid input. Please enter a valid selection.")
 
 
-        
+    def buy(self, player):
+        category_choice = int(input('''
+                1. Power-ups
+                2. Plant trees
+                Choose a category: '''))
+        try:
+            if category_choice in [1, 2]:
+                if category_choice == 1:
+                    self.purchase_item(player, 'power_ups', category_choice)
+                elif category_choice == 2:
+                    self.purchase_item(player, 'plant_trees', category_choice)
+        except ValueError:
+            print('Invalid input')
 
 

@@ -2,6 +2,10 @@ from game import Game, Player, Questions
 from game.store import Store
 import random
 
+color_yellow = "\033[93m"
+color_red = "\033[91m"
+color_end = "\033[0m"
+
 print('\033[91m' + '''
    _____  .__         ___________                         .__  .__              /\\       
   /  _  \\ |__|______  \\__    ___/___________ ___  __ ____ |  | |  |   __________)/ ______
@@ -98,7 +102,7 @@ def main():
                     ╚══════════════════════════╝''')
 
                         print('\033[92m'+'''
-                          [CORRECT ANSWER] \n 
+                                [CORRECT ANSWER] \n 
                 100 points added to player.
                 $75 dollars added to player\'s wallet.
                     '''+'\033[0m')
@@ -116,7 +120,7 @@ def main():
                       Air Travellers Challenge
                     ╚══════════════════════════╝''')
                         print('''\033[91m
-                          [WRONG ANSWER] \n 
+                                [INCORRECT ANSWER] \n 
                 Points deducted by 65.
                             \033[0m''')
                         player.update_points(-65)
@@ -130,8 +134,7 @@ def main():
  
         if player.current_answered > 2:
             game.display_options()
-            input_continue = int(input('                Select 1 or 2: '))
-            print(player.current_answered)
+            input_continue = int(input('                Select 1-3: '))
 
             try:
                 if input_continue:
@@ -140,19 +143,10 @@ def main():
                         game.travel()
                         game.update_game()
                     elif input_continue == 2:
+                        player.display_powerups() 
+                    elif input_continue == 3:
                         store.display_store_options()
-                        category_choice = int(input('''
-                1. Power ups
-                2. Plant trees
-                Choose a category: '''))
-                        try:
-                            if category_choice in [1, 2]:
-                                if category_choice == 1:
-                                    store.purchase_item(player, 'power_ups', category_choice)
-                                elif category_choice == 2:
-                                    store.purchase_item(player, 'plant_trees', category_choice)
-                        except ValueError:
-                            print('Invalid input')
+                        store.buy()
             except ValueError:
                     print('Invalid input. Please enter a valid selection.')
         else:
@@ -160,7 +154,8 @@ def main():
                 ask_question()
             
             game.display_options()
-            input_continue = int(input('                Select 1-3: '))
+            # ASK USER TO SELECT BETWEEN THE OPTIONS 
+            input_continue = int(input('                Select 1-4: '))
             try:
                 if input_continue:
                     if input_continue == 1:
@@ -170,19 +165,10 @@ def main():
                         game.travel()
                         game.update_game()
                     elif input_continue == 3:
+                        player.display_powerups()       
+                    else:
                         store.display_store_options()
-                        category_choice = int(input('''
-                1. Power ups
-                2. Plant trees
-                Choose a category: '''))
-                        try:
-                            if category_choice in [1, 2]:
-                                if category_choice == 1:
-                                    store.purchase_item(player, 'power_ups', category_choice)
-                                elif category_choice == 2:
-                                    store.purchase_item(player, 'plant_trees', category_choice)
-                        except ValueError:
-                            print('Invalid input')
+                        store.buy(player)
             except ValueError:
                     print('Invalid input. Please enter a valid selection.')
             
@@ -194,7 +180,7 @@ if __name__ == "__main__":
 
 
 # TODO: POWERUP OSTO JA KÄYTTÖ ERI PELIN TILANTEISSA
-# TODO: NÄKYVIIN LENTTOKENTTIEN ETÄISYYS KUN MATKUSTAA
+# TODO: NÄKYVIIN LENTTOKENTTIEN ETÄISYYS KUN MATKUSTAA *PRIORITY*
 # TODO: TARKISTA KÄYTTÄJÄN INPUT JOKAISESSA KOHDASSA JOSSA KÄYTTÄJÄLTÄ KYSYTÄÄN SYÖTETTÄ
 
 

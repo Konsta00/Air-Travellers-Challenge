@@ -131,6 +131,8 @@ def main():
         if player.current_answered > 2:
             game.display_options()
             input_continue = int(input('Select (1 or 2): '))
+            print(player.current_answered)
+
             try:
                 if input_continue:
                     if input_continue == 1:

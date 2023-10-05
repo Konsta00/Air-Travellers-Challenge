@@ -53,7 +53,6 @@ class Game:
                 self.current_airport = airport['ident']
                 self.player.airport = airport['ident']
                 self.load_closest_airports()
-                self.player.current_answered = 0
 
     def display_options(self):
         print(f'''
@@ -86,6 +85,7 @@ class Game:
                 print(f'''\033[93m
                     Travelled to {self.closest_airports[input_airport]["name"]}
                             \033[0m''')
+                self.player.current_answered = 0
             else: 
                 print('''\033[91m
                     Invalid airport selection.'

@@ -64,37 +64,33 @@ class Store:
             print(f"                {i}. {item[1][0]}: {item[1][1]}€")
 
         try:
-            item_choice = int(input("\n                 Enter the number of your choice: "))
+            item_choice = int(input("\n                Enter the number of your choice: "))
+            print('')
             item = list(self.items['plant_trees'].keys())[item_choice - 1]
-
             # Calculate CO2 reduction based on the chosen option
             if item == 'plant_10_trees':
                 co2_reduction = 1.5
-                print('CO2 reducted by 1.5KG/CO2')
             elif item == 'plant_20_trees':
                 co2_reduction = 3.5
-                print('CO2 reducted by 3.5KG/CO2')
             elif item == 'plant_30_trees':
                 co2_reduction = 6.5
-                print('CO2 reducted by 6.5KG/CO2')
             else:
-                print("Invalid item choice.")
+                print("                Invalid item choice.")
                 return
 
             # Deduct the price from the player's budget
             price = self.items['plant_trees'][item][1]
             if player.budget >= price:
                 player.budget -= price
-
+                print(f"                You have spent {color_red}{price}€{color_end}")
                 # Apply CO2 reduction
                 player.update_co2_emissions(co2_reduction)
 
 
-                print(f"You've successfully purchased {item} for {price}€.")
             else:
-                print("Insufficient funds. Cannot purchase the item.")
+                print(f"{color_red}Insufficient funds. Cannot purchase the item.{color_end}")
         except (ValueError, IndexError):
-            print("Invalid input. Please enter a valid selection.")
+            print(f"{color_red}Invalid input. Please enter a valid selection.{color_end}")
 
     def purchase_power_up(self, player):
         print('''

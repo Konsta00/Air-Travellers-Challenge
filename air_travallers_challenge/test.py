@@ -17,12 +17,29 @@ print('\033[91m' + '''
                       \\/     \\/     \\/               \\/     \\//_____/      \\/            
 \033[0m''')
 
-print('''
-        Rules of the game. In this game you need to travel between airports. Your starting airport is determined by you avatar. 
-        Donald Trump plays in the United States. Mona Lisa plays in France and Felipe IV in Spain. Difficulty level is also determined by your avatar.
-        Donald Trump is easiest and Felipe IV is hardest.
-        Your goal is to get 1000 points by answering questions and create as little c02 emissions as possible.
-        You can also plant trees to lower your emissions. There are also power ups that you can buy to skip questions to avoid losing points.''')
+print('\033[92m' + '''
+╭──────────────────────────────────────────────────────────────────────╮
+│                              Game Rules                               │
+╰──────────────────────────────────────────────────────────────────────╯
+
+In this game, your mission is to travel between airports and accumulate points while minimizing your carbon emissions. 
+
+Your journey begins at your chosen starting airport, depending on your avatar:
+-  Donald Trump plays in the United States.
+-  Mona Lisa plays in France.
+-  Felipe IV plays in Spain.
+
+The difficulty level is also determined by your avatar:
+-  Donald Trump represents the easiest level.
+-  Mona Lisa provides a medium challenge.
+-  Felipe IV offers the hardest experience.
+
+Your objective is to reach 1000 points by answering questions and keeping your CO2 emissions as low as possible. 
+
+You have the power to make a positive impact by planting trees to reduce your emissions. 
+Additionally, there are power-ups available for purchase to help you skip questions and avoid losing points.
+
+''' + '\033[0m')
 
 def setup_game():
     game = Game()

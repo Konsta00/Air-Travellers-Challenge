@@ -60,9 +60,9 @@ def setup_game():
                 player = Player(input_name, input_avatar)
                 player.set_starting_airport(player.avatar_id)
             else:
-                print(f'{color_bright_red}Invalid avatar.               Select from 1-3.{color_end}')
+                print(f'{color_bright_red}                Invalid avatar. Select from 1-3.{color_end}')
         except ValueError:
-            print(f'{color_bright_red}              Invalid input{color_end}')
+            print(f'{color_bright_red}                Invalid input{color_end}')
 
     game.set_player(player)
     game.set_current_airport()

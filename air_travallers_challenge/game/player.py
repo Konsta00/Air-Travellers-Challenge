@@ -127,14 +127,13 @@ class Player:
                 self.budget += 100
                 return self.budget
         elif powerup == 'skip_question':
-            self.total_questions_answered += 1
-            self.current_answered += 1
-            self.skip_question()
+            self.update_questions()
+            self.skip_question1()
             return 2
         elif powerup == 'random_powerup':
             return 3
 
-    def skip_question(self):
+    def skip_question1(self):
         print(f'''
         {color_green}QUESTION SKIPPED (1 answering chance used before flying){color_end}''')
 

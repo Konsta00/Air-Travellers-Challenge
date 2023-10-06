@@ -20,9 +20,9 @@ print(f'''{color_red}
 
 def setup_game():
     game = Game()
-    input_name = input(f"{color_yellow}                Enter your name (not avatar):{color_end} ")
+    input_name = input(f"{color_yellow}                Enter your name: {color_end} ")
     rules = input(f"{color_yellow}                Do you want to read the rules? YES or NO? {color_end}")
-    if rules == 'YES':
+    if rules.upper() == 'YES':
         print(f'''{color_bright_magenta}
                 ╭──────────────────────────────────────────────────────────────────────╮
                 │                              Game Rules                              │
@@ -49,7 +49,7 @@ def setup_game():
         ''')
     else:
         print('')
-        print(f"{color_yellow}                You chose not to read rules. Let's start the game!{color_end}")
+        print(f"{color_yellow}                You chose not to read the rules. Let's start the game!{color_end}")
     player = None
     while player is None:
         try:

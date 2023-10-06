@@ -212,3 +212,4 @@ class Player:
                 print(f'                {i}. Random reward')
             else:
                 print(f'                {i}. Random powerup')
+

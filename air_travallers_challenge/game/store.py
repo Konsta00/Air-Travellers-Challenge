@@ -1,6 +1,4 @@
-color_yellow = "\033[93m"
-color_red = "\033[91m"
-color_end = "\033[0m"
+from colors import *
 
 class Store:
     def __init__(self):

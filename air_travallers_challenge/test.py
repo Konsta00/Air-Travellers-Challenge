@@ -21,7 +21,7 @@ print(f'''{color_red}
 def setup_game():
     game = Game()
     input_name = input(f"{color_yellow}                Enter your name (not avatar):{color_end} ")
-    rules = input(f"{color_yellow}                Do you want to read the rules? YES or NO?{color_end}")
+    rules = input(f"{color_yellow}                Do you want to read the rules? YES or NO? {color_end}")
     if rules == 'YES':
         print(f'''{color_bright_magenta}
                 ╭──────────────────────────────────────────────────────────────────────╮
@@ -47,6 +47,9 @@ def setup_game():
                 Additionally, there are power-ups available for purchase to help you skip questions and avoid losing points.
         {color_end}
         ''')
+    else:
+        print('')
+        print(f"{color_yellow}                You chose not to read rules. Let's start the game!{color_end}")
     player = None
     while player is None:
         try:
@@ -64,7 +67,7 @@ def setup_game():
     game.set_player(player)
     game.set_current_airport()
     game.load_closest_airports()
-    
+
     questions = Questions()
     questions.set_questions(player.avatar_id)
 
@@ -74,13 +77,13 @@ def setup_game():
 
 def main():
     game, player, questions, store = setup_game()
-    
+
     # PRINT THE QUESTIONS, RANDOMIZE ORDER OF THE QUESTIONS AND
-    # RETURN THE RIGHT VALUE THAT MATCHES THE CORRECT ANSWERS INPUT 
+    # RETURN THE RIGHT VALUE THAT MATCHES THE CORRECT ANSWERS INPUT
     def ask_question():
         input_ = None
-        while input_ is None:  
-            try: 
+        while input_ is None:
+            try:
                 question = questions.return_random_question()
                 question_bool = questions.ask_question(question)
 
@@ -88,7 +91,7 @@ def main():
                 if input_answer in [1,2,3,6]:
                     input_ = True
                     if input_answer == 6:
-                        # 
+                        #
                         bool = player.use_question_powerup()
                         print(bool)
                         if bool == 2:
@@ -137,7 +140,7 @@ def main():
     def game_loop():
         # CHECK THAT POINTS & BUDGET DON'T GO UNDER 0. SET THEM TO 0 IF THEY DO
         player.check_values(game)
- 
+
         if player.current_answered > 2:
             game.display_options()
             input_continue = int(input('                Select 1-3: '))
@@ -149,7 +152,7 @@ def main():
                         game.travel()
                         game.update_game()
                     elif input_continue == 2:
-                        player.display_powerups() 
+                        player.display_powerups()
                     elif input_continue == 3:
                         store.display_store_options()
                         store.buy(player)
@@ -189,7 +192,7 @@ def main():
                 except ValueError:
                     print(f'{color_bright_red}Invalid input. Please enter a valid selection.{color_end}')
 
-            
+
     while game.game_over is not True:
         game_loop()
     print(f"""{color_bright_cyan}

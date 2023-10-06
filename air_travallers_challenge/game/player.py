@@ -211,4 +211,4 @@ class Player:
             elif p == 'random_reward':
                 print(f'                {i}. Random reward')
             else:
-                print(f'                {i}. Random powerup') 
+                print(f'                {i}. Random powerup')

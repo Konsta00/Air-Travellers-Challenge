@@ -183,7 +183,6 @@ def main():
                             print(f'''
                             {color_red}INPUT IS NOT IN THE AVAILABLE RANGE!{color_end} ''')
                             ask = False
-
                 except ValueError:
                     print(f'{color_bright_red}Invalid input. Please enter a valid selection.{color_end}')
 

@@ -157,7 +157,6 @@ class Player:
         except ValueError:
             print('Invalid Input. ')
 
-
     def update_questions(self):
         self.total_questions_answered += 1
         self.current_answered += 1
@@ -203,7 +202,6 @@ class Player:
             else:
                 print(f'                You received {color_green}skip question power-up{color_end}')
                 self.powerups = ('skip_question',)
-                
 
     def display_powerups(self):
         print(f'''

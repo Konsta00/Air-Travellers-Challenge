@@ -171,7 +171,7 @@ class Player:
             print(f'''
                 Purchased {color_blue}SKIP QUESTION{color_end} successfully!
                 You have spent {color_bright_red}100€{color_end}
-                Balance remaining {self.budget}
+                Balance remaining {color_green}{self.budget}€{color_end}
                 ''')
         
     def buy_random_powerup(self):

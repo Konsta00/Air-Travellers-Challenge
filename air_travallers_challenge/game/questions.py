@@ -36,7 +36,7 @@ class Questions:
             return {}  # Return an empty dictionary on error
     
 
-    def ask_question(self, question):        
+    def ask_question(self, question):
         print(f'''
         {color_yellow}[QUESTION]{color_end}
               ''')

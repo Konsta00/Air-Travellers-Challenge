@@ -125,6 +125,9 @@ def main():
                         {color_end}''')
                         player.update_points(-65)
                         player.current_answered += 1
+
+                    else:
+                        print('Choose the right number from the options!')
             except ValueError:
                 print(f'{color_bright_red}Invalid input{color_end}')
 
@@ -148,13 +151,14 @@ def main():
                         store.display_store_options()
                         store.buy()
             except ValueError:
-                print(f'{color_bright_red}Invalid input. Please enter a valid selection.f{color_bright_red}')
+                print(f'{color_bright_red}Invalid input. Please enter a valid selection.{color_end}')
         else:
             if player.current_answered == 0:
                 ask_question()
-            
+
             game.display_options()
-            # ASK USER TO SELECT BETWEEN THE OPTIONS 
+
+            # ASK USER TO SELECT BETWEEN THE OPTIONS
             ask = True
             while ask is True:
                 input_continue = int(input('                Select 1-4: '))
@@ -162,15 +166,19 @@ def main():
                     if input_continue:
                         if input_continue == 1:
                             ask_question()
+                            ask = False
                         elif input_continue == 2:
                             game.print_available_airports()
                             game.travel()
                             game.update_game()
+                            ask = False
                         elif input_continue == 3:
                             player.display_powerups()
+                            ask = False
                         elif input_continue == 4:
                             store.display_store_options()
                             store.buy(player)
+                            ask = False
                         else:
                             print(f'''
                             {color_red}INPUT IS NOT IN THE AVAILABLE RANGE!{color_end} ''')
@@ -182,12 +190,21 @@ def main():
             
     while game.game_over is not True:
         game_loop()
+    print("""
+      ____                         ___   __
+     / ___| __ _ _ __ ___   ___   / _ \ / /_ _____   _____ _ __
+    | |  _ / _` | '_ ` _ \ / _ \ | | | | '_ \_  / | | / _ \ '__|
+    | |_| | (_| | | | | | |  __/ | |_| | (_) / /| |_| |  __/ |
+     \____|\__,_|_| |_| |_|\___|  \___/ \___/___|\__,_|\___|_|
+
+        """)
 
 if __name__ == "__main__":
     main()
 
 
 # TODO: POWERUP OSTO JA KÄYTTÖ ERI PELIN TILANTEISSA
+# TODO: KYSYMYKSET MUUTTUVAT AINA KUN PELAAJA SYÖTTÄÄ KYSYMYSTEN VASTAUSTEN VAIHTOEHTOJEN ULKOPUOLELTA. VOIKO KYSYMYKSIÄ PITÄÄ SAMANA ETTEI PELAAJA SAA ILMAISEKSI VAIHDETTUA KYSYMYSTÄ.
 
 
 

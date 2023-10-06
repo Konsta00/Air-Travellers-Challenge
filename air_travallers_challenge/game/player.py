@@ -138,17 +138,17 @@ class Player:
         {color_green}QUESTION SKIPPED (1 answering chance used before flying){color_end}''')
 
     def use_question_powerup(self):
-        print('Available powerups to use: ')
+        print('             Available powerups to use: ')
         skip_powerups = ()
         index = 0
         for i, powerup_ in enumerate(self.powerups, start=1):
             if powerup_ == 'skip_question':
-                print(f'{i}. {powerup_}')
+                print(f'{i}.               Skip question')
                 skip_powerups += (powerup_, )
                 index += 1
         try:
             input_powerup = int(input(f'''
-                    Select the powerup you want to use by typing the corresponding number: '''))
+                Select the powerup you want to use by typing the corresponding number: '''))
 
             for i, powerup in enumerate(skip_powerups, start=1):
                 if i == input_powerup:
@@ -197,7 +197,7 @@ class Player:
                 new_b = self.use_powerup('random_reward')
                 reward = new_b - b
                 print(f'                You received {color_green}{reward}{color_end}')
-                print(f'Total balance: {self.budget}')
+                print(f'                Total balance: {self.budget}')
             else:
                 print(f'                You received {color_green}skip question power-up{color_end}')
                 self.powerups = ('skip_question',)

@@ -135,7 +135,7 @@ class Player:
 
     def skip_question1(self):
         print(f'''
-                {color_green}QUESTION SKIPPED (1 answering chance used before flying){color_end}''')
+                {color_bright_green}QUESTION SKIPPED (1 answering chance used before flying){color_end}''')
 
     def use_question_powerup(self):
         print('             Available powerups to use: ')
@@ -167,9 +167,9 @@ class Player:
             new_b = self.use_powerup('random_reward')
             reward = new_b - b
             print(f'''
-                {self.name} used 160€. 
-                Balance remaining {color_bright_cyan}{self.budget}€{color_end}
-                You have received {color_green}{reward}€{color_end}
+                {self.name} used {color_bright_red}160${color_end} 
+                Balance remaining {color_bright_green}{self.budget}${color_end}
+                You have received {color_bright_green}{reward}${color_end}
                 ''')
 
     def buy_skip_question(self):
@@ -178,8 +178,8 @@ class Player:
             self.powerups += ('skip_question',)
             print(f'''
                 Purchased {color_blue}SKIP QUESTION{color_end} successfully!
-                You have spent {color_bright_red}100€{color_end}
-                Balance remaining {color_green}{self.budget}€{color_end}
+                You have spent {color_bright_red}100${color_end}
+                Balance remaining {color_bright_green}{self.budget}${color_end}
                 ''')
         
     def buy_random_powerup(self):
@@ -188,18 +188,18 @@ class Player:
             self.random_powerup()
             
             print(f'''
-                You have spent {color_bright_red}130€{color_end}
-                Balance remaining {color_bright_cyan}{self.budget}€{color_end}''')
+                You have spent {color_bright_red}130${color_end}
+                Balance remaining {color_bright_green}{self.budget}${color_end}''')
             last_inserted_power_up = self.powerups[-1]
             b = self.budget
             reward = None
             if last_inserted_power_up == 'random_reward':
                 new_b = self.use_powerup('random_reward')
                 reward = new_b - b
-                print(f'                You received {color_green}{reward}{color_end}')
-                print(f'                Total balance: {self.budget}')
+                print(f'                You received {color_bright_green}{reward}${color_end}')
+                print(f'                Total balance:{color_bright_green}{self.budget}{color_end}')
             else:
-                print(f'                You received {color_green}skip question power-up{color_end}')
+                print(f'                You received {color_bright_green}skip question power-up{color_end}')
                 self.powerups = ('skip_question',)
 
     def display_powerups(self):

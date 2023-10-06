@@ -133,7 +133,7 @@ def main():
                         player.current_answered += 1
 
                     else:
-                        print('Choose the right number from the options!')
+                        print(f'{color_bright_red}Choose the right number from the options!{color_end}')
             except ValueError:
                 print(f'{color_bright_red}Invalid input{color_end}')
 
@@ -187,7 +187,7 @@ def main():
                             ask = False
                         else:
                             print(f'''
-                            {color_red}INPUT IS NOT IN THE AVAILABLE RANGE!{color_end} ''')
+                            {color_bright_red}INPUT IS NOT IN THE AVAILABLE RANGE!{color_end} ''')
                             ask = False
                 except ValueError:
                     print(f'{color_bright_red}Invalid input. Please enter a valid selection.{color_end}')

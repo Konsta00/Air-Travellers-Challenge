@@ -24,7 +24,7 @@ class Store:
         for category, items in self.items.items():
             print(f"{color_yellow}\n{'                1. Power ups: ' if category == 'power_ups' else '                2. Plant trees:'}{color_end}")
             for item  in items.items():
-                print(f'                {item[1][0]}: {item[1][1]}€')
+                print(f'                {item[1][0]}: {item[1][1]}$')
 
     def purchase_item(self, player, category, input_number):
         if category in self.items:
@@ -37,7 +37,7 @@ class Store:
                 if category == 'power_ups':
                     # print("Choose an item:")
                     # for i, (item) in enumerate(self.items[category].items(), start=1):
-                    #     print(f"{i}.{item[1][0]}: {item[1][1] }€")
+                    #     print(f"{i}.{item[1][0]}: {item[1][1] }$")
                     
                     self.purchase_power_up(player)
                 elif category == 'plant_trees':
@@ -56,8 +56,9 @@ class Store:
                     ╚══════════════════════════╝
               ''')
         print(f"{color_yellow}                Choose a tree planting option:{color_end}")
+        print('')
         for i, item in enumerate(self.items['plant_trees'].items(), start=1):
-            print(f"                {i}. {item[1][0]}: {item[1][1]}€")
+            print(f"                {i}. {item[1][0]}: {item[1][1]}$")
 
         try:
             item_choice = int(input("\n               Enter the number of your choice: "))
@@ -78,7 +79,7 @@ class Store:
             price = self.items['plant_trees'][item][1]
             if player.budget >= price:
                 player.budget -= price
-                print(f"                You have spent {color_red}{price}€{color_end}")
+                print(f"                You have spent {color_red}{price}${color_end}")
                 # Apply CO2 reduction
                 player.update_co2_emissions(co2_reduction)
 
@@ -99,10 +100,10 @@ class Store:
                     
         for i, item in enumerate(self.items['power_ups'].items(), start=1):
            print(f''' 
-                {i}. {item[1][0]}: {item[1][1]}€''')
+                {i}. {item[1][0]}: {item[1][1]}$''')
 
         try:
-            item_choice = int(input("\n                 Enter the number of your choice: "))
+            item_choice = int(input("\n                Enter the number of your choice: "))
             item = list(self.items['power_ups'].keys())[item_choice - 1]
 
             if item == 'skip_question':
@@ -119,10 +120,8 @@ class Store:
 
 
     def buy(self, player):
-        category_choice = int(input('''
-                1. Power-ups
-                2. Plant trees
-                Choose a category: '''))
+        category_choice = int(input(f'''{color_yellow}
+                Choose a category 1-2: {color_end}'''))
         try:
             if category_choice in [1, 2]:
                 if category_choice == 1:

@@ -18,33 +18,35 @@ print(f'''{color_red}
                       \\/     \\/     \\/               \\/     \\//_____/      \\/            
 {color_end}''')
 
-print(f'''{color_bright_magenta}
-╭──────────────────────────────────────────────────────────────────────╮
-│                              Game Rules                              │
-╰──────────────────────────────────────────────────────────────────────╯
-
-In this game, your mission is to travel between airports and accumulate points while minimizing your carbon emissions. 
-
-Your journey begins at your chosen starting airport, depending on your avatar:
--  Donald Trump plays in the United States.
--  Mona Lisa plays in France.
--  Felipe IV plays in Spain.
-
-The difficulty level is also determined by your avatar:
--  Donald Trump represents the easiest level.
--  Mona Lisa provides a medium challenge.
--  Felipe IV offers the hardest experience.
-
-Your objective is to reach 1000 points by answering questions and keeping your CO2 emissions as low as possible.
-As you are playing you earn point and money by answering correctly. Wrong answers deducts your points.
-
-You have the power to make a positive impact by planting trees to reduce your emissions. 
-Additionally, there are power-ups available for purchase to help you skip questions and avoid losing points.
-{color_end}
-''')
 def setup_game():
     game = Game()
     input_name = input(f"{color_yellow}                Enter your name (not avatar):{color_end} ")
+    rules = input(f"{color_yellow}                Do you want to read the rules? YES or NO?{color_end}")
+    if rules == 'YES':
+        print(f'''{color_bright_magenta}
+                ╭──────────────────────────────────────────────────────────────────────╮
+                │                              Game Rules                              │
+                ╰──────────────────────────────────────────────────────────────────────╯
+        
+                In this game, your mission is to travel between airports and accumulate points while minimizing your carbon emissions. 
+        
+                Your journey begins at your chosen starting airport, depending on your avatar:
+                -  Donald Trump plays in the United States.
+                -  Mona Lisa plays in France.
+                -  Felipe IV plays in Spain.
+        
+                The difficulty level is also determined by your avatar:
+                -  Donald Trump represents the easiest level.
+                -  Mona Lisa provides a medium challenge.
+                -  Felipe IV offers the hardest experience.
+        
+                Your objective is to reach 1000 points by answering questions and keeping your CO2 emissions as low as possible.
+                As you are playing you earn point and money by answering correctly. Wrong answers deducts your points.
+        
+                You have the power to make a positive impact by planting trees to reduce your emissions. 
+                Additionally, there are power-ups available for purchase to help you skip questions and avoid losing points.
+        {color_end}
+        ''')
     player = None
     while player is None:
         try:
@@ -190,14 +192,14 @@ def main():
             
     while game.game_over is not True:
         game_loop()
-    print("""
+    print(f"""{color_bright_cyan}
       ____                         ___   __
      / ___| __ _ _ __ ___   ___   / _ \ / /_ _____   _____ _ __
     | |  _ / _` | '_ ` _ \ / _ \ | | | | '_ \_  / | | / _ \ '__|
     | |_| | (_| | | | | | |  __/ | |_| | (_) / /| |_| |  __/ |
      \____|\__,_|_| |_| |_|\___|  \___/ \___/___|\__,_|\___|_|
 
-        """)
+        {color_end}""")
 
 if __name__ == "__main__":
     main()

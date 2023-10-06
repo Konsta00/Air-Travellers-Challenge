@@ -62,7 +62,7 @@ class Store:
             print(f"                {i}. {item[1][0]}: {item[1][1]}€")
 
         try:
-            item_choice = int(input("\n                Enter the number of your choice: "))
+            item_choice = int(input("\n               Enter the number of your choice: "))
             print('')
             item = list(self.items['plant_trees'].keys())[item_choice - 1]
             # Calculate CO2 reduction based on the chosen option

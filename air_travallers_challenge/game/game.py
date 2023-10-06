@@ -31,7 +31,8 @@ class Game:
         lon = self.closest_airports[0]['longitude_deg']
         coords = lat, lon
     
-        print('\nSelect from the airports to which you want to travel to.\n')
+        print(f'{color_yellow}\nSELECT FROM THE AIRPORTS TO WHICH YOU WANT TO TRAVEL TO:\n{color_end}')
+        print('')
         for i, airport in enumerate(self.closest_airports, start=0):
             # SET THE COORDINATES OF THE OTHER AIRPORTS
             lat = airport['latitude_deg'] 
@@ -39,6 +40,7 @@ class Game:
             coords2 = lat, lon
             distance = geodesic(coords, coords2).kilometers
             print(f'{color_yellow}{"CURRENT AIRPORT:" if i == 0 else f"{color_end}{i}."} {airport["name"]} | {airport["ident"]} | {distance:.0f}KM to airport')
+            print('─────────────────────────────────────────────────────────────────────')
 
 # PRINT AVATARS ON SCREEN 
     def display_avatars(self):
@@ -96,7 +98,7 @@ class Game:
             
     def travel(self):
         try:
-            input_airport = int(input(f'SELECT AIRPORT BY TYPING 1-{len(self.closest_airports)-1}: '))
+            input_airport = int(input(f'{color_yellow}SELECT AIRPORT BY TYPING 1-{len(self.closest_airports)-1}:{color_end} '))
             if 1 <= input_airport <= len(self.closest_airports) - 1:
                 print(f'''
                         {color_bright_cyan}

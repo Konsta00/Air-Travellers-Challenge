@@ -38,36 +38,36 @@ class Questions:
 
     def ask_question(self, question):
         print(f'''
-        {color_yellow}[QUESTION]{color_end}
+                        {color_yellow}[QUESTION]{color_end}
               ''')
-        print(f'{question["question_text"]}')
+        print(f'                {question["question_text"]}')
 
         # PUT QUESTIONS IN RANDOM ORDER & PRINT THEM
         rand = random.randint(0, 100)
 
         if rand < 33:
             print(f'''
-1. {question["answer"]}
-2. {question["wrong_answer"]} 
-3. {question["wrong_answer2"]}
+                1. {question["answer"]}
+                2. {question["wrong_answer"]} 
+                3. {question["wrong_answer2"]}
 
-6. USE POWER-UP''')
+                6. USE POWER-UP''')
             return 1
         elif rand > 66:
             print(f'''
-1. {question["wrong_answer"]}
-2. {question["answer"]}
-3. {question["wrong_answer2"]}
+                1. {question["wrong_answer"]}
+                2. {question["answer"]}
+                3. {question["wrong_answer2"]}
 
-6. USE POWER-UP ''')
+                6. USE POWER-UP ''')
             return 2
         else:
             print(f'''
-1. {question["wrong_answer2"]}
-2. {question["wrong_answer"]}
-3. {question["answer"]}
+                1. {question["wrong_answer2"]}
+                2. {question["wrong_answer"]}
+                3. {question["answer"]}
 
-6. USE POWER-UP''')
+                6. USE POWER-UP''')
             return 3
 
 

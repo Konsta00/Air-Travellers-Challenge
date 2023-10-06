@@ -81,7 +81,7 @@ def main():
                 question = questions.return_random_question()
                 question_bool = questions.ask_question(question)
 
-                input_answer = int(input('Select correct answer by typing the corresponding number: '))
+                input_answer = int(input('                Select correct answer by typing the corresponding number: '))
                 if input_answer in [1,2,3,6]:
                     input_ = True
                     if input_answer == 6:

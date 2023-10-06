@@ -86,10 +86,10 @@ def main():
                 if input_answer in [1,2,3,6]:
                     input_ = True
                     if input_answer == 6:
-                        # IMPLEMENT USER POWER WHICH SHOW PLAYER POWERS UPS THEY CAN USE IN QUESTION PART OF THE GAME
+                        # 
                         bool = player.use_question_powerup()
-
-                        if bool == True:
+                        print(bool)
+                        if bool == 2:
                             game.print_available_airports()
                             game.travel()
 

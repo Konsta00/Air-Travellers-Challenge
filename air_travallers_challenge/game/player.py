@@ -135,7 +135,7 @@ class Player:
 
     def skip_question1(self):
         print(f'''
-        {color_green}QUESTION SKIPPED (1 answering chance used before flying){color_end}''')
+                {color_green}QUESTION SKIPPED (1 answering chance used before flying){color_end}''')
 
     def use_question_powerup(self):
         print('             Available powerups to use: ')

@@ -126,12 +126,18 @@ class Player:
             else:
                 self.budget += 100
                 return self.budget
-            return 1
         elif powerup == 'skip_question':
+            self.total_questions_answered += 1
+            self.current_answered += 1
+            self.skip_question()
             return 2
         elif powerup == 'random_powerup':
             return 3
-        
+
+    def skip_question(self):
+        print(f'''
+        {color_green}QUESTION SKIPPED (1 answering chance used before flying){color_end}''')
+
     def use_question_powerup(self):
         print('Available powerups to use: ')
         skip_powerups = ()
@@ -139,14 +145,18 @@ class Player:
         for i, powerup_ in enumerate(self.powerups, start=1):
             if powerup_ == 'skip_question':
                 print(f'{i}. {powerup_}')
-                skip_powerups += (powerup_, )    
+                skip_powerups += (powerup_, )
                 index += 1
-        input_powerup = int(input(f'''
-                Select the powerup you want to use by typing the corresponding number: '''))
+        try:
+            input_powerup = int(input(f'''
+                    Select the powerup you want to use by typing the corresponding number: '''))
 
-        for i, powerup in enumerate(skip_powerups, start=1):
-            if i == input_powerup:
-                return True
+            for i, powerup in enumerate(skip_powerups, start=1):
+                if i == input_powerup:
+                    return self.use_powerup(powerup)
+        except ValueError:
+            print('Invalid Input. ')
+
 
     def update_questions(self):
         self.total_questions_answered += 1

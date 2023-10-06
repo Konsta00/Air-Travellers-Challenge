@@ -149,7 +149,7 @@ def main():
                         player.display_powerups() 
                     elif input_continue == 3:
                         store.display_store_options()
-                        store.buy()
+                        store.buy(player)
             except ValueError:
                 print(f'{color_bright_red}Invalid input. Please enter a valid selection.{color_end}')
         else:

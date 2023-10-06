@@ -45,7 +45,7 @@ class Game:
         avatars = ('Donald Trump', 'Mona Lisa', 'Felipe VI')
         print('')
         for index, avatar in enumerate(avatars, start=1):
-            print(f'{index}. {avatar}')
+            print(f'                {index}. {avatar}')
 
 # UPDATE GAME WITH NEW VALUES
     def update_game(self):

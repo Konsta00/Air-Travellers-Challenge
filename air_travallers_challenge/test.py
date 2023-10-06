@@ -44,19 +44,20 @@ Additionally, there are power-ups available for purchase to help you skip questi
 ''')
 def setup_game():
     game = Game()
-    input_name = input("Enter your name (not avatar): ")
+    input_name = input(f"{color_yellow}                Enter your name (not avatar):{color_end} ")
     player = None
     while player is None:
         try:
             game.display_avatars()
-            input_avatar = int(input("Select an avatar 1-3: "))
+            print('')
+            input_avatar = int(input(f"{color_yellow}                Select an avatar 1-3: {color_end}"))
             if input_avatar in [1, 2, 3]:
                 player = Player(input_name, input_avatar)
                 player.set_starting_airport(player.avatar_id)
             else:
-                print(f'{color_bright_red}Invalid avatar. Select from 1-3.{color_end}')
+                print(f'{color_bright_red}Invalid avatar.               Select from 1-3.{color_end}')
         except ValueError:
-            print(f'{color_bright_red}Invalid input{color_end}')
+            print(f'{color_bright_red}              Invalid input{color_end}')
 
     game.set_player(player)
     game.set_current_airport()

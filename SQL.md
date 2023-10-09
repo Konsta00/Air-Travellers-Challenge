@@ -64,6 +64,10 @@ ALTER TABLE player MODIFY COLUMN id INT AUTO_INCREMENT;
 -- Clear the 'player' table
 DELETE FROM player;
 
+-- Clear the 'questions' table
+
+DELETE FROM questions;
+
 -- Insert sample questions into the 'questions' table
 INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
 (1, 'Mikä seuraavista tulostaa Pythonissa?', 'Input().', 'self.print()()', 'print()'),
@@ -113,11 +117,6 @@ INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, an
 (3, 'Mikä on Espanjan kansallinen juhlapäivä?', 'San Juanin päivä', 'Pyhän Jaakobin päivä', 'Espanjan kansallispäivä'),
 (3, 'Mikä on Espanjan perinteinen tanssi?', 'Sardana', 'Sevillanas', 'Flamenco'),
 (1, 'Kuinka paljon on Yhdysvaltojen asukasluku?', '310milj.', '270milj.', '332milj.');
-
-
-
-
-
 
 
 

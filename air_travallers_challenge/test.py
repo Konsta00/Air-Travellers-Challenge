@@ -4,11 +4,18 @@ import random
 from colors import *
 
 print(f'''{color_red}
- █████  ██ ██████      ████████ ██████   █████  ██    ██ ███████ ██      ██      ███████ ██████  ███████     
-██   ██ ██ ██   ██        ██    ██   ██ ██   ██ ██    ██ ██      ██      ██      ██      ██   ██ ██          
-███████ ██ ██████         ██    ██████  ███████ ██    ██ █████   ██      ██      █████   ██████  ███████     
-██   ██ ██ ██   ██        ██    ██   ██ ██   ██  ██  ██  ██      ██      ██      ██      ██   ██      ██     
-██   ██ ██ ██   ██        ██    ██   ██ ██   ██   ████   ███████ ███████ ███████ ███████ ██   ██ ███████     
+            ██     ██ ███████ ██       ██████  ██████  ███    ███ ███████     ████████  ██████
+            ██     ██ ██      ██      ██      ██    ██ ████  ████ ██             ██    ██    ██
+            ██  █  ██ █████   ██      ██      ██    ██ ██ ████ ██ █████          ██    ██    ██
+            ██ ███ ██ ██      ██      ██      ██    ██ ██  ██  ██ ██             ██    ██    ██
+             ███ ███  ███████ ███████  ██████  ██████  ██      ██ ███████        ██     ██████      
+
+                                                                                                  
+ █████  ██ ██████      ████████ ██████   █████  ██    ██ ███████ ██      ██      ███████ ███████  █ ███████     
+██   ██ ██ ██   ██        ██    ██   ██ ██   ██ ██    ██ ██      ██      ██      ██      ██   ██ ██ ██          
+███████ ██ ██████         ██    ██████  ███████ ██    ██ █████   ██      ██      █████   ██████     ███████     
+██   ██ ██ ██   ██        ██    ██   ██ ██   ██  ██  ██  ██      ██      ██      ██      ██   ██         ██     
+██   ██ ██ ██   ██        ██    ██   ██ ██   ██   ████   ███████ ███████ ███████ ███████ ██   ██    ███████     
                                                                                                              
                                                                                                              
                  ██████ ██   ██  █████  ██      ██      ███████ ███    ██  ██████  ███████                   
@@ -47,6 +54,7 @@ def setup_game():
                 Additionally, there are power-ups available for purchase to help you skip questions and avoid losing points.
         {color_end}
         ''')
+    
     else:
         print('')
         print(f"{color_yellow}                You chose not to read the rules. Let's start the game!{color_end}")
@@ -91,7 +99,6 @@ def main():
                 if input_answer in [1,2,3,6]:
                     input_ = True
                     if input_answer == 6:
-                        #
                         bool = player.use_question_powerup()
 
                         if bool == 2:
@@ -101,9 +108,8 @@ def main():
                     elif question_bool == input_answer:
                         print('''
                     ╔══════════════════════════╗ 
-                      Air Travellers Challenge
+                      Air Traveller's Challenge
                     ╚══════════════════════════╝''')
-
                         print(f'''
                         {color_bright_green}
                 [CORRECT ANSWER] \n 
@@ -121,7 +127,7 @@ def main():
                     elif question_bool != input_answer:
                         print('''
                     ╔══════════════════════════╗ 
-                      Air Travellers Challenge
+                      Air Traveller's Challenge
                     ╚══════════════════════════╝''')
                         print(f'''
                         {color_bright_red}
@@ -194,6 +200,23 @@ def main():
 
     while game.game_over is not True:
         game_loop()
+
+    print(f'''
+            {color_blue}
+            ██████ ▄▄▄█████▓ ▄▄▄     ▄▄▄█████▓  ██████ 
+            ▒██    ▒ ▓  ██▒ ▓▒▒████▄   ▓  ██▒ ▓▒▒██    ▒ 
+            ░ ▓██▄   ▒ ▓██░ ▒░▒██  ▀█▄ ▒ ▓██░ ▒░░ ▓██▄
+            ▒   ██▒░ ▓██▓ ░ ░██▄▄▄▄██░ ▓██▓ ░   ▒   ██▒
+            ▒██████▒▒  ▒██▒ ░  ▓█   ▓██▒ ▒██▒ ░ ▒██████▒▒
+            ▒ ▒▓▒ ▒ ░  ▒ ░░    ▒▒   ▓▒█░ ▒ ░░   ▒ ▒▓▒ ▒ ░
+            ░ ░▒  ░ ░    ░      ▒   ▒▒ ░   ░    ░ ░▒  ░ ░
+            ░  ░  ░    ░        ░   ▒    ░      ░  ░  ░
+                ░                 ░  ░              ░            {color_end}
+             Points: {color_bright_magenta}{player.points}{color_end}
+             C02 used: {color_bright_cyan}{player.co2_consumed:.2f}{color_end}
+             Distance traveled: {color_bright_yellow}{player.distance_traveled:.2f}KM {color_end}
+             Donations to all lonely trees: {color_bright_green}{player.budget}€{color_end}
+            ''')    
     print(f"""{color_bright_cyan}
       ▄████  ▄▄▄       ███▄ ▄███▓▓█████     ▒█████   ██▒   █▓▓█████  ██▀███  
      ██▒ ▀█▒▒████▄    ▓██▒▀█▀ ██▒▓█   ▀    ▒██▒  ██▒▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
@@ -206,16 +229,14 @@ def main():
           ░       ░  ░       ░      ░  ░       ░ ░        ░     ░  ░   ░     
                                                          ░                      
 
-            {color_end}""")
+            {color_end}""") 
+    
 
 if __name__ == "__main__":
     main()
 
-
-# TODO: POWERUP OSTO JA KÄYTTÖ ERI PELIN TILANTEISSA
-# TODO: KYSYMYKSET MUUTTUVAT AINA KUN PELAAJA SYÖTTÄÄ KYSYMYSTEN VASTAUSTEN VAIHTOEHTOJEN ULKOPUOLELTA. VOIKO KYSYMYKSIÄ PITÄÄ SAMANA ETTEI PELAAJA SAA ILMAISEKSI VAIHDETTUA KYSYMYSTÄ.
-# tTODO: RANDOM POWER UP SKIP QUESTION EI TOIMI, EI VÄHENNÄ POWERUPPIA
-# tTODO: LOOPPAA SAMAJA KYSYMYKSIÄ KOKOAJAN?
+# TODO: WELCOME TO 'PELIN NIMI' AT THE BEGINNING
+# TODO: MAKE STATS THE SAME KIND OF ASCII AS GAME OVER ETC
 
 
 

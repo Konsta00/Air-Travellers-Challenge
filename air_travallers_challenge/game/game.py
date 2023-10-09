@@ -72,7 +72,7 @@ class Game:
                 ───────────────────────────────────────────
                 [PLAYER {color_red}{self.player.name.upper()}{color_end}]\n
                 Points: {color_yellow}{self.player.points}{color_end}
-                Budged: {color_yellow}{self.player.budget}${color_end}
+                Budget: {color_yellow}{self.player.budget}${color_end}
                 Emissions: {color_yellow}{self.player.co2_consumed:.2f} KG/C02{color_end}
                 Distance traveled: {color_yellow}{self.player.distance_traveled:.2f}KM{color_end}
                 Current airport: {color_yellow}{self.player.airport}{color_end}

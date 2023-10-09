@@ -14,7 +14,7 @@ class Player:
         self.distance_traveled = 0
         self.avatar_id = avatar_id
         self.co2_consumed = 0
-        self.points = 0
+        self.points = 1000
         self.powerups = []
         self.total_questions_answered = 0
         self.current_answered = 0
@@ -138,14 +138,12 @@ class Player:
 
 
     def use_question_powerup(self):
-        print('')
-        print(f"{color_bright_yellow}                Available powerups to use: {color_end}")
-        print('')
+        print(f"\n{color_bright_yellow}                Available powerups to use: {color_end}\n")
         skip_powerups = ()
-        index = 0
+        index = 1
         for i, powerup_ in enumerate(self.powerups, start=1):
             if powerup_ == 'skip_question':
-                print(f'                {i}. Skip question')
+                print(f'                {index}. Skip question')
                 skip_powerups += (powerup_, )
                 index += 1
         try:
@@ -156,8 +154,7 @@ class Player:
                 if i == input_powerup:
                     return self.use_powerup(powerup)
         except ValueError:
-            print('')
-            print(f"{color_red}                Invalid Input.{color_end} ")
+            print(f"\n{color_red}                Invalid Input.{color_end} ")
 
     def update_questions(self):
         self.total_questions_answered += 1
@@ -203,7 +200,7 @@ class Player:
                 print(f'                Total balance:{color_bright_green}{self.budget}{color_end}')
             else:
                 print(f'                You received {color_bright_green}skip question power-up{color_end}')
-                self.powerups = ('skip_question',)
+                self.powerups += ('skip_question',)
 
     def display_powerups(self):
         print(f'''

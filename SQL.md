@@ -66,27 +66,19 @@ DELETE FROM player;
 
 -- Insert sample questions into the 'questions' table
 INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
-(1, 'Mikä seuraavista tulostaa Pythonissa?', 'Input('').', 'self.print('')('')', 'print('')'),
+(1, 'Mikä seuraavista tulostaa Pythonissa?', 'Input().', 'self.print()()', 'print()'),
 (1, 'Mikä on luokka (class) Python-ohjelmoinnissa?', 'Se on koiran nimi', 'Se on Pythonin avainsana', 'Luokka on objekti, joka voi sisältää toiminnallisuutta'),
-
 (2, 'Mikä on Pythonin lista (list)?', 'Se on while rakenne ', 'Se on Pythonin versio sanakirjasta', 'Lista on tietorakenne, joka voi sisältää useita alkioita'),
 (2, 'Mikä on Pythonin if-lauseen (ehtolauseen) tarkoitus?', 'Se looppaa kysymykset läpi', 'Se lopettaa ohjelman suorituksen', 'If-lause mahdollistaa ehtoisen suorituksen riippuen annetusta ehdosta'),
 (2, 'Kuinka Pythonissa käsitellään poikkeuksia (exceptions)?', 'Käyttämällä print komentoa', 'Poikkeuksia ei voi käsitellä Pythonissa', 'Pythonissa poikkeuksia käsitellään try ja except lohkoilla'),
-
-
 (3, 'Mikä on funktio Python-ohjelmoinnissa?', 'Se on luokka', 'Se on tietorakenne', 'Funktio on nimetty lohko koodia, joka suorittaa tietyn tehtävän'),
 (3, 'Mitä tarkoittaa "for"-silmukka Pythonissa?', 'Se on lista', 'Se lopettaa ohjelman suorituksen', '"for"-silmukka toistaa koodilohkoa useita kertoja annetun ehdon perusteella'),
 (3, 'Mikä on Pythonin sanakirja (dictionary)?', 'Se on kirjastobussi', 'Se on lista', 'Sanakirja on tietorakenne, joka sisältää avain-arvo -pareja'),
-
-
-INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
 (1, 'Mikä on Quicksort-algoritmi?', 'Hidas lajittelualgoritmi', 'Nopea internet-yhteys', 'Tehokas lajittelualgoritmi'),
 (1, 'Mitä tarkoittaa HTML?', 'Helsingin Tietomatka Läksyt', 'High Tech Machine Learning', 'HTML on lyhenne sanoista HyperText Markup Language'),
 (1, 'Mikä on CSS?', 'Se on tyypillinen backend kieli', 'Computer Style System', 'CSS on lyhenne sanoista Cascading Style Sheets'),
 (1, 'Mikä on JavaScript?', 'Urheiluvälinemerkki', 'Käyttöjärjestelmä', 'JavaScript on ohjelmointikieli, joka mahdollistaa vuorovaikutuksen verkkosivujen kanssa'),
-(1, 'Mikä on tietokanta?', 'Tietojen tallennusjärjestelmä', 'Matemaattinen kaava', 'Tietokanta on järjestelmä tietojen tallentamiseen, hallintaan ja haettavaksi tekemiseen'),
-(2, 'Mikä on NP-täydellinen ongelma?', 'Nopea ja tehokas', 'Numeerinen ja positiivinen', 'Ei tiedossa oleva tehokas ratkaisu'),
-(2, 'Mikä on monadi Haskell-ohjelmointikielessä?', 'Tietokantakysely', 'Ohjelmistosuunnittelumalli', 'Laskennallinen tyyli'),
+(1, 'Mikä on tietokanta?', 'Pilvipalvelu', 'Matemaattinen kaava', 'Tietokanta on järjestelmä tietojen tallentamiseen, hallintaan ja haettavaksi tekemiseen'),
 (2, 'Mikä on MapReduce?', 'Kartta ja kompassi', 'Ohjelmointiparadigma', 'Funktionaalinen ohjelmointikieli'),
 (2, 'Mikä on P vs NP -ongelma?', 'Pieni vs. normaali', 'Algoritmin suoritusaika vs. ei-polynominen aika', 'Matemaattinen pähkinä'),
 (2, 'Mikä on Turingin kone?', 'Monimutkainen laite', 'Teoreettinen laskentamalli', 'Nopea tietokone'),
@@ -97,7 +89,9 @@ INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, an
 (2, 'Mikä on Ackermannin funktio?', 'Matemaattinen laskentamalli', 'Ohjelmointikielen funktio', 'Nopeasti kasvava matemaattinen funktio'),
 (3, 'Mikä on Byzantine Fault Tolerance?', 'Kaupunki Bysantissa', 'Virhkeenkestävyysjärjestelmä', 'Historiallinen tapahtuma'),
 (3, 'Mikä on Gödelin epätäydellisyyslause?', 'Logiikan periaate', 'Matemaattinen paradoksi', 'Matemaattinen lause'),
-(3, 'Mikä on Fermat\'n suuri lause?', 'Fysiikan sääntö', 'Matemaattinen arvoitus', 'Matemaattinen lause'),
+(3, 'Mikä on Fermat'n suuri lause?', 'Fysiikan sääntö', 'Matemaattinen arvoitus', 'Matemaattinen lause');
+
+INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
 (3, 'Mikä on Turingin kone?', 'Monimutkainen laite', 'Teoreettinen laskentamalli', 'Nopea tietokone'),
 (3, 'Mikä on Kolmogorovin monimutkaisuus?', 'Luonnon ilmiö', 'Algoritmin monimutkaisuusmittari', 'Matemaattinen käsite'),
 (3, 'Mikä on MapReduce?', 'Kartta ja kompassi', 'Ohjelmointiparadigma', 'Funktionaalinen ohjelmointikieli'),
@@ -119,8 +113,8 @@ INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, an
 (3, 'Missä sijaitsee Espanjan korkein vuori?', 'Pyreneet', 'Sierra Nevada', 'Alpit'),
 (3, 'Mikä on Espanjan virallinen kieli?', 'Katalaani', 'Baski', 'Espanja'),
 (3, 'Mikä on Espanjan kansallinen juhlapäivä?', 'San Juanin päivä', 'Pyhän Jaakobin päivä', 'Espanjan kansallispäivä'),
-(3, 'Mikä on Espanjan perinteinen tanssi?', 'Sardana', 'Sevillanas', 'Flamenco');
-
+(3, 'Mikä on Espanjan perinteinen tanssi?', 'Sardana', 'Sevillanas', 'Flamenco'),
+(1, 'Kuinka paljon on Yhdysvaltojen asukasluku?', '310milj.', '270milj.', '332milj.');
 
 
 

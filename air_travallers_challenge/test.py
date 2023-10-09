@@ -235,9 +235,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-# TODO: WELCOME TO 'PELIN NIMI' AT THE BEGINNING
-# TODO: MAKE STATS THE SAME KIND OF ASCII AS GAME OVER ETC
-
 
 
 

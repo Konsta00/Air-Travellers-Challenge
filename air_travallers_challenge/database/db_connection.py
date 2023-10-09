@@ -1,6 +1,6 @@
 import mysql.connector
 from colors import *
-# Function to establish a database connection
+# DATABASE CONNECTION
 def connect_to_database():
     try:
         connection = mysql.connector.connect(
@@ -17,7 +17,7 @@ def connect_to_database():
         print(f"Error: {err}")
         return None
 
-# Function to execute an SQL query
+# SQL QUERY FUNCTIONS
 def execute_query(connection, query, params=None):
     cursor = connection.cursor(dictionary=True)
     try:
@@ -48,7 +48,7 @@ def fetch_data(connection, query, params=None):
         else:
             cursor.execute(query)
 
-        result = cursor.fetchall()  # Fetch and store the results
+        result = cursor.fetchall()
         return result
     except mysql.connector.Error as err:
         print(f"Error: {err}")
@@ -65,7 +65,7 @@ def fetch_one(connection, query, params=None):
         else:
             cursor.execute(query)
 
-        result = cursor.fetchone()  # Fetch and store the results
+        result = cursor.fetchone()
         return result
     except mysql.connector.Error as err:
         print(f"Error: {err}")
@@ -82,7 +82,7 @@ def fetch_coords(connection, query, lat, lon):
         else:
             cursor.execute(query)
 
-        result = cursor.fetchall()  # Fetch and store the results
+        result = cursor.fetchall()
         return result
     except mysql.connector.Error as err:
         print(f"Error: {err}")
@@ -90,9 +90,6 @@ def fetch_coords(connection, query, lat, lon):
     finally:
         cursor.close()
 
-# def fetch_last_row():
-#     cursor.execute("SELECT LAST_INSERT_ID()")
-#     row = cursor.fetchone()
-#     last_inserted_id = row[0]
+
 
 

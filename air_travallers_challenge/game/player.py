@@ -14,7 +14,7 @@ class Player:
         self.distance_traveled = 0
         self.avatar_id = avatar_id
         self.co2_consumed = 0
-        self.points = 1000
+        self.points = 0
         self.powerups = []
         self.total_questions_answered = 0
         self.current_answered = 0
@@ -79,7 +79,7 @@ class Player:
             self.budget = 0
         if self.points < 0:
             self.points = 0
-        if self.points >= 1000:
+        if self.points >= 999:
             game.game_over = True
 
     def update_budget(self, amount):
@@ -117,7 +117,7 @@ class Player:
     def use_powerup(self, powerup):
         if powerup == 'random_reward':
             random_num = random.randint(0, 15)
-            if random_num < 2:
+            if random_num < 3:
                 self.budget += 200
                 return self.budget
             elif random_num >2 and random_num < 6:

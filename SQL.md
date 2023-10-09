@@ -80,9 +80,8 @@ INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, an
 (3, 'Mikä on funktio Python-ohjelmoinnissa?', 'Se on nimetty lohko koodia', 'Se on tietorakenne', 'Funktio on nimetty lohko koodia, joka suorittaa tietyn tehtävän'),
 (3, 'Mitä tarkoittaa "for"-silmukka Pythonissa?', 'Se toistaa koodilohkoa useita kertoja', 'Se lopettaa ohjelman suorituksen', '"for"-silmukka toistaa koodilohkoa useita kertoja annetun ehdon perusteella'),
 (3, 'Mikä on Pythonin sanakirja (dictionary)?', 'Se on tietorakenne, joka sisältää avain-arvo -pareja', 'Se on lista', 'Sanakirja on tietorakenne, joka sisältää avain-arvo -pareja');
-```
 
-------------------------
+-----------------------------------------------------------------------
 -- Insert sample questions into the 'questions' table / MORE QUESTIONS
 
 INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
@@ -116,7 +115,7 @@ INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, an
 (3, 'Mikä on Fermat\n suuri lause?', 'Fysiikan sääntö', 'Matemaattinen arvoitus', 'Matemaattinen lause'),
 (3, 'Mikä on Turingin kone?', 'Monimutkainen laite', 'Teoreettinen laskentamalli', 'Nopea tietokone'),
 (3, 'Mikä on Kolmogorovin monimutkaisuus?', 'Luonnon ilmiö', 'Algoritmin monimutkaisuusmittari', 'Matemaattinen
-
+'''
 
 
 ## Database Schema Diagram

@@ -89,9 +89,7 @@ INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, an
 (2, 'Mikä on Ackermannin funktio?', 'Matemaattinen laskentamalli', 'Ohjelmointikielen funktio', 'Nopeasti kasvava matemaattinen funktio'),
 (3, 'Mikä on Byzantine Fault Tolerance?', 'Kaupunki Bysantissa', 'Virhkeenkestävyysjärjestelmä', 'Historiallinen tapahtuma'),
 (3, 'Mikä on Gödelin epätäydellisyyslause?', 'Logiikan periaate', 'Matemaattinen paradoksi', 'Matemaattinen lause'),
-(3, 'Mikä on Fermat'n suuri lause?', 'Fysiikan sääntö', 'Matemaattinen arvoitus', 'Matemaattinen lause');
-
-INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
+(3, 'Mikä on Fermat\'n suuri lause?', 'Fysiikan sääntö', 'Matemaattinen arvoitus', 'Matemaattinen lause'),
 (3, 'Mikä on Turingin kone?', 'Monimutkainen laite', 'Teoreettinen laskentamalli', 'Nopea tietokone'),
 (3, 'Mikä on Kolmogorovin monimutkaisuus?', 'Luonnon ilmiö', 'Algoritmin monimutkaisuusmittari', 'Matemaattinen käsite'),
 (3, 'Mikä on MapReduce?', 'Kartta ja kompassi', 'Ohjelmointiparadigma', 'Funktionaalinen ohjelmointikieli'),

@@ -66,38 +66,25 @@ DELETE FROM player;
 
 -- Insert sample questions into the 'questions' table
 INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
-(1, 'Mikä on Pythonin peruslauseke?', 'Se on yksinkertainen ohje', 'Se suorittaa tietyn tehtävän', 'Peruslauseke Pythonissa on "print()"'),
-(1, 'Mikä on luokka (class) Python-ohjelmoinnissa?', 'Se on objekti, joka voi sisältää toiminnallisuutta', 'Se on Pythonin avainsana', 'Luokka on objekti, joka voi sisältää toiminnallisuutta'),
-(1, 'Mikä on merkkijonon (string) tärkein ominaisuus Pythonissa?', 'Se voi sisältää tekstiä', 'Se on vain numero', 'Merkkijono voi sisältää tekstiä');
+(1, 'Mikä seuraavista tulostaa Pythonissa?', 'Input('').', 'self.print('')('')', 'print('')'),
+(1, 'Mikä on luokka (class) Python-ohjelmoinnissa?', 'Se on koiran nimi', 'Se on Pythonin avainsana', 'Luokka on objekti, joka voi sisältää toiminnallisuutta'),
+
+(2, 'Mikä on Pythonin lista (list)?', 'Se on while rakenne ', 'Se on Pythonin versio sanakirjasta', 'Lista on tietorakenne, joka voi sisältää useita alkioita'),
+(2, 'Mikä on Pythonin if-lauseen (ehtolauseen) tarkoitus?', 'Se looppaa kysymykset läpi', 'Se lopettaa ohjelman suorituksen', 'If-lause mahdollistaa ehtoisen suorituksen riippuen annetusta ehdosta'),
+(2, 'Kuinka Pythonissa käsitellään poikkeuksia (exceptions)?', 'Käyttämällä print komentoa', 'Poikkeuksia ei voi käsitellä Pythonissa', 'Pythonissa poikkeuksia käsitellään try ja except lohkoilla'),
+
+
+(3, 'Mikä on funktio Python-ohjelmoinnissa?', 'Se on luokka', 'Se on tietorakenne', 'Funktio on nimetty lohko koodia, joka suorittaa tietyn tehtävän'),
+(3, 'Mitä tarkoittaa "for"-silmukka Pythonissa?', 'Se on lista', 'Se lopettaa ohjelman suorituksen', '"for"-silmukka toistaa koodilohkoa useita kertoja annetun ehdon perusteella'),
+(3, 'Mikä on Pythonin sanakirja (dictionary)?', 'Se on kirjastobussi', 'Se on lista', 'Sanakirja on tietorakenne, joka sisältää avain-arvo -pareja'),
+
 
 INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
-(2, 'Miten Pythonissa tulostetaan teksti näytölle?', 'Käyttämällä "print()" -funktiota', 'Käyttämällä "input()" -funktiota', 'Pythonissa teksti tulostetaan näytölle käyttämällä "print()" -funktiota'),
-(2, 'Mikä on Pythonin lista (list)?', 'Se on tietorakenne, joka voi sisältää useita alkioita', 'Se on Pythonin versio sanakirjasta', 'Lista on tietorakenne, joka voi sisältää useita alkioita'),
-(2, 'Mikä on Pythonin if-lauseen (ehtolauseen) tarkoitus?', 'Se mahdollistaa ehtoisen suorituksen', 'Se lopettaa ohjelman suorituksen', 'If-lause mahdollistaa ehtoisen suorituksen riippuen annetusta ehdosta'),
-(2, 'Kuinka Pythonissa käsitellään poikkeuksia (exceptions)?', 'Käyttämällä try ja except lohkoja', 'Poikkeuksia ei voi käsitellä Pythonissa', 'Pythonissa poikkeuksia käsitellään try ja except lohkoilla');
-
-INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
-(3, 'Mikä on funktio Python-ohjelmoinnissa?', 'Se on nimetty lohko koodia', 'Se on tietorakenne', 'Funktio on nimetty lohko koodia, joka suorittaa tietyn tehtävän'),
-(3, 'Mitä tarkoittaa "for"-silmukka Pythonissa?', 'Se toistaa koodilohkoa useita kertoja', 'Se lopettaa ohjelman suorituksen', '"for"-silmukka toistaa koodilohkoa useita kertoja annetun ehdon perusteella'),
-(3, 'Mikä on Pythonin sanakirja (dictionary)?', 'Se on tietorakenne, joka sisältää avain-arvo -pareja', 'Se on lista', 'Sanakirja on tietorakenne, joka sisältää avain-arvo -pareja');
-
------------------------------------------------------------------------
--- Insert sample questions into the 'questions' table / MORE QUESTIONS
-
-INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
-(1, 'Mikä on Quicksort-algoritmi?', 'Nopea lajittelualgoritmi', 'Nopea internet-yhteys', 'Tehokas lajittelualgoritmi'),
-(1, 'Miten Pythonissa tulostetaan teksti näytölle?', 'Käyttämällä "print()" -funktiota', 'Käyttämällä "input()" -funktiota', 'Pythonissa teksti tulostetaan näytölle käyttämällä "print()" -funktiota'),
-(1, 'Mikä on Pythonin lista (list)?', 'Se on tietorakenne, joka voi sisältää useita alkioita', 'Se on Pythonin versio sanakirjasta', 'Lista on tietorakenne, joka voi sisältää useita alkioita'),
-(1, 'Mikä on Pythonin if-lauseen (ehtolauseen) tarkoitus?', 'Se mahdollistaa ehtoisen suorituksen', 'Se lopettaa ohjelman suorituksen', 'If-lause mahdollistaa ehtoisen suorituksen riippuen annetusta ehdosta'),
-(1, 'Kuinka Pythonissa käsitellään poikkeuksia (exceptions)?', 'Käyttämällä try ja except lohkoja', 'Poikkeuksia ei voi käsitellä Pythonissa', 'Pythonissa poikkeuksia käsitellään try ja except lohkoilla'),
-(1, 'Mikä on Pythonin "for"-silmukka?', 'Ohjelmointirakenne toistamiseen', 'Matemaattinen kaava', 'Pythonin for-silmukka toistaa tiettyä koodilohkoa annetun määrän kertoja'),
-(1, 'Mikä on Pythonin merkkijono (string)?', 'Matemaattinen operaatio', 'Sarja numeroita', 'Merkkijono Pythonissa on tietotyyppi, joka sisältää tekstiä'),
-(1, 'Mitä tarkoittaa HTML?', 'HyperText Markup Language', 'High Tech Machine Learning', 'HTML on lyhenne sanoista HyperText Markup Language'),
-(1, 'Mikä on CSS?', 'Cascading Style Sheets', 'Computer Style System', 'CSS on lyhenne sanoista Cascading Style Sheets'),
-(1, 'Mikä on JavaScript?', 'Ohjelmointikieli', 'Käyttöjärjestelmä', 'JavaScript on ohjelmointikieli, joka mahdollistaa vuorovaikutuksen verkkosivujen kanssa'),
-(1, 'Mikä on tietokanta?', 'Tietojen tallennusjärjestelmä', 'Matemaattinen kaava', 'Tietokanta on järjestelmä tietojen tallentamiseen, hallintaan ja haettavaksi tekemiseen');
-
-INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
+(1, 'Mikä on Quicksort-algoritmi?', 'Hidas lajittelualgoritmi', 'Nopea internet-yhteys', 'Tehokas lajittelualgoritmi'),
+(1, 'Mitä tarkoittaa HTML?', 'Helsingin Tietomatka Läksyt', 'High Tech Machine Learning', 'HTML on lyhenne sanoista HyperText Markup Language'),
+(1, 'Mikä on CSS?', 'Se on tyypillinen backend kieli', 'Computer Style System', 'CSS on lyhenne sanoista Cascading Style Sheets'),
+(1, 'Mikä on JavaScript?', 'Urheiluvälinemerkki', 'Käyttöjärjestelmä', 'JavaScript on ohjelmointikieli, joka mahdollistaa vuorovaikutuksen verkkosivujen kanssa'),
+(1, 'Mikä on tietokanta?', 'Tietojen tallennusjärjestelmä', 'Matemaattinen kaava', 'Tietokanta on järjestelmä tietojen tallentamiseen, hallintaan ja haettavaksi tekemiseen'),
 (2, 'Mikä on NP-täydellinen ongelma?', 'Nopea ja tehokas', 'Numeerinen ja positiivinen', 'Ei tiedossa oleva tehokas ratkaisu'),
 (2, 'Mikä on monadi Haskell-ohjelmointikielessä?', 'Tietokantakysely', 'Ohjelmistosuunnittelumalli', 'Laskennallinen tyyli'),
 (2, 'Mikä on MapReduce?', 'Kartta ja kompassi', 'Ohjelmointiparadigma', 'Funktionaalinen ohjelmointikieli'),
@@ -107,9 +94,7 @@ INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, an
 (2, 'Mikä on Shannonin entropia?', 'Kosminen voima', 'Tiedon epävarmuusmittari', 'Kvanttifysiikan laki'),
 (2, 'Mikä on Hilbertin ongelma?', 'Matemaattinen arvoitus', 'Tiedon tallennusmenetelmä', 'Avaruuden geometria'),
 (2, 'Mikä on Riemannin hypoteesi?', 'Fysiikan sääntö', 'Matemaattinen arvaus', 'Matemaattinen lause'),
-(2, 'Mikä on Ackermannin funktio?', 'Matemaattinen laskentamalli', 'Ohjelmointikielen funktio', 'Nopeasti kasvava matemaattinen funktio');
-
-INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
+(2, 'Mikä on Ackermannin funktio?', 'Matemaattinen laskentamalli', 'Ohjelmointikielen funktio', 'Nopeasti kasvava matemaattinen funktio'),
 (3, 'Mikä on Byzantine Fault Tolerance?', 'Kaupunki Bysantissa', 'Virhkeenkestävyysjärjestelmä', 'Historiallinen tapahtuma'),
 (3, 'Mikä on Gödelin epätäydellisyyslause?', 'Logiikan periaate', 'Matemaattinen paradoksi', 'Matemaattinen lause'),
 (3, 'Mikä on Fermat\'n suuri lause?', 'Fysiikan sääntö', 'Matemaattinen arvoitus', 'Matemaattinen lause'),
@@ -119,8 +104,29 @@ INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, an
 (3, 'Mikä on P vs NP -ongelma?', 'Pieni vs. normaali', 'Algoritmin suoritusaika vs. ei-polynominen aika', 'Matemaattinen pähkinä'),
 (3, 'Mikä on Turingin kone?', 'Monimutkainen laite', 'Teoreettinen laskentamalli', 'Nopea tietokone'),
 (3, 'Mikä on Chomskyn hierarkia?', 'Lingvistinen teoria', 'Tietorakenteiden luokitus', 'Ohjelmointikielen syntaksi'),
-(3, 'Mikä on Shannonin entropia?', 'Kosminen voima', 'Tiedon epävarmuusmittari', 'Kvanttifysiikan laki');
-'''
+(3, 'Mikä on Shannonin entropia?', 'Kosminen voima', 'Tiedon epävarmuusmittari', 'Kvanttifysiikan laki'),
+(1, 'Mikä on Yhdysvaltojen pääkaupunki?', 'New York', 'Los Angeles', 'Washington D.C.'),
+(1, 'Missä sijaitsee Yhdysvaltojen korkein vuori?', 'Rocky Mountains', 'Appalakit', 'Alaska'),
+(1, 'Mikä on Yhdysvaltojen virallinen kieli?', 'Espanja', 'Ranska', 'Englanti'),
+(1, 'Mikä on Yhdysvaltojen kansallinen juhlapäivä?', 'Kiitospäivä', 'Memorial Day', 'Itsenäisyyspäivä'),
+(1, 'Mikä on Yhdysvaltojen kansallisurheilu?', 'Jalkapallo', 'Koripallo', 'Baseball'),
+(2, 'Mikä on Ranskan pääkaupunki?', 'Madrid', 'Rooma', 'Pariisi'),
+(2, 'Mikä on Ranskan korkein vuori?', 'Pyreneet', 'Alpit', 'Mont Blanc'),
+(2, 'Mikä on Ranskan virallinen kieli?', 'Espanja', 'Italia', 'Ranska'),
+(2, 'Mikä on Ranskan kansallinen juhlapäivä?', 'Ranskan vallankumouspäivä', 'Armistice Day', 'Bastiljin päivä'),
+(2, 'Mikä on Ranskan tunnetuin ruokalaji?', 'Paella', 'Pizza', 'Ranskalainen sipulikeitto'),
+(3, 'Mikä on Espanjan pääkaupunki?', 'Barcelona', 'Valencia', 'Madrid'),
+(3, 'Missä sijaitsee Espanjan korkein vuori?', 'Pyreneet', 'Sierra Nevada', 'Alpit'),
+(3, 'Mikä on Espanjan virallinen kieli?', 'Katalaani', 'Baski', 'Espanja'),
+(3, 'Mikä on Espanjan kansallinen juhlapäivä?', 'San Juanin päivä', 'Pyhän Jaakobin päivä', 'Espanjan kansallispäivä'),
+(3, 'Mikä on Espanjan perinteinen tanssi?', 'Sardana', 'Sevillanas', 'Flamenco');
+
+
+
+
+
+
+
 
 
 ## Database Schema Diagram
@@ -128,4 +134,4 @@ INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, an
 Below is a database schema diagram for reference:
 
 ![Database Schema](https://raw.githubusercontent.com/Konsta00/Air-Travellers-Challenge/main/images/ER_V2.png)
-```
+

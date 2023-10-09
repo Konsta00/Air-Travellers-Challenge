@@ -95,7 +95,7 @@ INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, an
 (1, 'Mitä tarkoittaa HTML?', 'HyperText Markup Language', 'High Tech Machine Learning', 'HTML on lyhenne sanoista HyperText Markup Language'),
 (1, 'Mikä on CSS?', 'Cascading Style Sheets', 'Computer Style System', 'CSS on lyhenne sanoista Cascading Style Sheets'),
 (1, 'Mikä on JavaScript?', 'Ohjelmointikieli', 'Käyttöjärjestelmä', 'JavaScript on ohjelmointikieli, joka mahdollistaa vuorovaikutuksen verkkosivujen kanssa'),
-(1, 'Mikä on tietokanta?', 'Tietojen tallennusjärjestelmä', 'Matemaattinen kaava', 'Tietokanta on järjestelmä tietojen tallentamiseen, hallintaan ja haettavaksi tekemiseen'),
+(1, 'Mikä on tietokanta?', 'Tietojen tallennusjärjestelmä', 'Matemaattinen kaava', 'Tietokanta on järjestelmä tietojen tallentamiseen, hallintaan ja haettavaksi tekemiseen');
 
 INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
 (2, 'Mikä on NP-täydellinen ongelma?', 'Nopea ja tehokas', 'Numeerinen ja positiivinen', 'Ei tiedossa oleva tehokas ratkaisu'),
@@ -107,7 +107,7 @@ INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, an
 (2, 'Mikä on Shannonin entropia?', 'Kosminen voima', 'Tiedon epävarmuusmittari', 'Kvanttifysiikan laki'),
 (2, 'Mikä on Hilbertin ongelma?', 'Matemaattinen arvoitus', 'Tiedon tallennusmenetelmä', 'Avaruuden geometria'),
 (2, 'Mikä on Riemannin hypoteesi?', 'Fysiikan sääntö', 'Matemaattinen arvaus', 'Matemaattinen lause'),
-(2, 'Mikä on Ackermannin funktio?', 'Matemaattinen laskentamalli', 'Ohjelmointikielen funktio', 'Nopeasti kasvava matemaattinen funktio'),
+(2, 'Mikä on Ackermannin funktio?', 'Matemaattinen laskentamalli', 'Ohjelmointikielen funktio', 'Nopeasti kasvava matemaattinen funktio');
 
 INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
 (3, 'Mikä on Byzantine Fault Tolerance?', 'Kaupunki Bysantissa', 'Virhkeenkestävyysjärjestelmä', 'Historiallinen tapahtuma'),

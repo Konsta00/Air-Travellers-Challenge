@@ -10,12 +10,12 @@ class Player:
         self.id = None
         self.name = name
         self.airport = None
-        self.budget = 500
+        self.budget = 100
         self.distance_traveled = 0
         self.avatar_id = avatar_id
         self.co2_consumed = 0
         self.points = 0
-        self.powerups = ('skip_question', 'skip_question', 'skip_question', 'random_reward')
+        self.powerups = []
         self.total_questions_answered = 0
         self.current_answered = 0
 
@@ -128,22 +128,24 @@ class Player:
                 return self.budget
         elif powerup == 'skip_question':
             self.update_questions()
-            self.skip_question1()
+            self.skip_question1(powerup)
             return 2
-        elif powerup == 'random_powerup':
-            return 3
 
-    def skip_question1(self):
+    def skip_question1(self, powerup):
+        self.powerups.remove(powerup)
         print(f'''
                 {color_bright_green}QUESTION SKIPPED (1 answering chance used before flying){color_end}''')
 
+
     def use_question_powerup(self):
-        print('             Available powerups to use: ')
+        print('')
+        print(f"{color_bright_yellow}                Available powerups to use: {color_end}")
+        print('')
         skip_powerups = ()
         index = 0
         for i, powerup_ in enumerate(self.powerups, start=1):
             if powerup_ == 'skip_question':
-                print(f'{i}.               Skip question')
+                print(f'                {i}. Skip question')
                 skip_powerups += (powerup_, )
                 index += 1
         try:
@@ -154,7 +156,8 @@ class Player:
                 if i == input_powerup:
                     return self.use_powerup(powerup)
         except ValueError:
-            print('Invalid Input. ')
+            print('')
+            print(f"{color_red}                Invalid Input.{color_end} ")
 
     def update_questions(self):
         self.total_questions_answered += 1

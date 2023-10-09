@@ -4,20 +4,20 @@ import random
 from colors import *
 
 print(f'''{color_red}
-   _____  .__         ___________                         .__  .__              /\\       
-  /  _  \\ |__|______  \\__    ___/___________ ___  __ ____ |  | |  |   __________)/ ______
- /  /_\\  \\|  \\_  __ \\   |    |  \\_  __ \\__  \\\\  \\/ // __ \\|  | |  | _/ __ \\_  __ \\/  ___/
-/    |    \\  ||  | \\/   |    |   |  | \\// __ \\ \\   /\\  ___/|  |_|  |_\\  ___/|  | \\/\\___ \\ 
-\\____|__  /__||__|      |____|   |__|  (____  /\\_/  \\___  >____/____/\\___  >__|  /____  >
-        \\/                                  \\/          \\/               \\/           \\/ 
-              _________ .__           .__  .__                                           
-              \\_   ___ \\|  |__ _____  |  | |  |   ____   ____    ____   ____             
-              /    \\  \\/|  |  \\\\__  \\ |  | |  | _/ __ \\ /    \\  / ___\\_/ __ \\            
-              \\     \\___|   Y  \\/ __ \\|  |_|  |_\\  ___/|   |  \\/ /_/  >  ___/            
-               \\______  /___|  (____  /____/____/\\___  >___|  /\\___  / \\___  >           
-                      \\/     \\/     \\/               \\/     \\//_____/      \\/            
+ █████  ██ ██████      ████████ ██████   █████  ██    ██ ███████ ██      ██      ███████ ██████  ███████     
+██   ██ ██ ██   ██        ██    ██   ██ ██   ██ ██    ██ ██      ██      ██      ██      ██   ██ ██          
+███████ ██ ██████         ██    ██████  ███████ ██    ██ █████   ██      ██      █████   ██████  ███████     
+██   ██ ██ ██   ██        ██    ██   ██ ██   ██  ██  ██  ██      ██      ██      ██      ██   ██      ██     
+██   ██ ██ ██   ██        ██    ██   ██ ██   ██   ████   ███████ ███████ ███████ ███████ ██   ██ ███████     
+                                                                                                             
+                                                                                                             
+                 ██████ ██   ██  █████  ██      ██      ███████ ███    ██  ██████  ███████                   
+                ██      ██   ██ ██   ██ ██      ██      ██      ████   ██ ██       ██                        
+                ██      ███████ ███████ ██      ██      █████   ██ ██  ██ ██   ███ █████                     
+                ██      ██   ██ ██   ██ ██      ██      ██      ██  ██ ██ ██    ██ ██                        
+                 ██████ ██   ██ ██   ██ ███████ ███████ ███████ ██   ████  ██████  ███████                   
+                                                                                                                                  
 {color_end}''')
-
 def setup_game():
     game = Game()
     input_name = input(f"{color_yellow}                Enter your name: {color_end} ")
@@ -93,7 +93,7 @@ def main():
                     if input_answer == 6:
                         #
                         bool = player.use_question_powerup()
-                        print(bool)
+
                         if bool == 2:
                             game.print_available_airports()
                             game.travel()
@@ -114,7 +114,6 @@ def main():
                         player.update_points(100)
                         player.update_budget(75)
                         player.update_questions()
-
                         random_bool = random.randint(0, 250)
                         if random_bool < 40:
                             player.random_powerup()
@@ -135,7 +134,7 @@ def main():
                     else:
                         print(f'{color_bright_red}Choose the right number from the options!{color_end}')
             except ValueError:
-                print(f'{color_bright_red}Invalid input{color_end}')
+                print(f'{color_bright_red}                Invalid input{color_end}')
 
     def game_loop():
         # CHECK THAT POINTS & BUDGET DON'T GO UNDER 0. SET THEM TO 0 IF THEY DO
@@ -167,8 +166,8 @@ def main():
             # ASK USER TO SELECT BETWEEN THE OPTIONS
             ask = True
             while ask is True:
-                input_continue = int(input('                Select 1-4: '))
                 try:
+                    input_continue = int(input('                Select 1-4: '))
                     if input_continue:
                         if input_continue == 1:
                             ask_question()
@@ -190,19 +189,24 @@ def main():
                             {color_bright_red}INPUT IS NOT IN THE AVAILABLE RANGE!{color_end} ''')
                             ask = False
                 except ValueError:
-                    print(f'{color_bright_red}Invalid input. Please enter a valid selection.{color_end}')
+                    print(f'{color_bright_red}                Invalid input. Please enter a valid selection.{color_end}')
 
 
     while game.game_over is not True:
         game_loop()
     print(f"""{color_bright_cyan}
-      ____                         ___   __
-     / ___| __ _ _ __ ___   ___   / _ \ / /_ _____   _____ _ __
-    | |  _ / _` | '_ ` _ \ / _ \ | | | | '_ \_  / | | / _ \ '__|
-    | |_| | (_| | | | | | |  __/ | |_| | (_) / /| |_| |  __/ |
-     \____|\__,_|_| |_| |_|\___|  \___/ \___/___|\__,_|\___|_|
+      ▄████  ▄▄▄       ███▄ ▄███▓▓█████     ▒█████   ██▒   █▓▓█████  ██▀███  
+     ██▒ ▀█▒▒████▄    ▓██▒▀█▀ ██▒▓█   ▀    ▒██▒  ██▒▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
+    ▒██░▄▄▄░▒██  ▀█▄  ▓██    ▓██░▒███      ▒██░  ██▒ ▓██  █▒░▒███   ▓██ ░▄█ ▒
+    ░▓█  ██▓░██▄▄▄▄██ ▒██    ▒██ ▒▓█  ▄    ▒██   ██░  ▒██ █░░▒▓█  ▄ ▒██▀▀█▄  
+    ░▒▓███▀▒ ▓█   ▓██▒▒██▒   ░██▒░▒████▒   ░ ████▓▒░   ▒▀█░  ░▒████▒░██▓ ▒██▒
+     ░▒   ▒  ▒▒   ▓▒█░░ ▒░   ░  ░░░ ▒░ ░   ░ ▒░▒░▒░    ░ ▐░  ░░ ▒░ ░░ ▒▓ ░▒▓░
+      ░   ░   ▒   ▒▒ ░░  ░      ░ ░ ░  ░     ░ ▒ ▒░    ░ ░░   ░ ░  ░  ░▒ ░ ▒░
+    ░ ░   ░   ░   ▒   ░      ░      ░      ░ ░ ░ ▒       ░░     ░     ░░   ░ 
+          ░       ░  ░       ░      ░  ░       ░ ░        ░     ░  ░   ░     
+                                                         ░                      
 
-        {color_end}""")
+            {color_end}""")
 
 if __name__ == "__main__":
     main()

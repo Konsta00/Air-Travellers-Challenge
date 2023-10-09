@@ -112,7 +112,7 @@ class Game:
                 Invalid airport selection.'
                             {color_end}''')
         except ValueError:
-            print(f'{color_bright_red} Invalid input. Please enter a valid airport number.{color_end}')
+            print(f'{color_bright_red}Invalid input. Please enter a valid airport number.{color_end}')
 
 
 

@@ -82,6 +82,43 @@ INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, an
 (3, 'Mikä on Pythonin sanakirja (dictionary)?', 'Se on tietorakenne, joka sisältää avain-arvo -pareja', 'Se on lista', 'Sanakirja on tietorakenne, joka sisältää avain-arvo -pareja');
 ```
 
+------------------------
+-- Insert sample questions into the 'questions' table / MORE QUESTIONS
+
+INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
+(1, 'Mikä on Quicksort-algoritmi?', 'Nopea lajittelualgoritmi', 'Nopea internet-yhteys', 'Tehokas lajittelualgoritmi'),
+(1, 'Miten Pythonissa tulostetaan teksti näytölle?', 'Käyttämällä "print()" -funktiota', 'Käyttämällä "input()" -funktiota', 'Pythonissa teksti tulostetaan näytölle käyttämällä "print()" -funktiota'),
+(1, 'Mikä on Pythonin lista (list)?', 'Se on tietorakenne, joka voi sisältää useita alkioita', 'Se on Pythonin versio sanakirjasta', 'Lista on tietorakenne, joka voi sisältää useita alkioita'),
+(1, 'Mikä on Pythonin if-lauseen (ehtolauseen) tarkoitus?', 'Se mahdollistaa ehtoisen suorituksen', 'Se lopettaa ohjelman suorituksen', 'If-lause mahdollistaa ehtoisen suorituksen riippuen annetusta ehdosta'),
+(1, 'Kuinka Pythonissa käsitellään poikkeuksia (exceptions)?', 'Käyttämällä try ja except lohkoja', 'Poikkeuksia ei voi käsitellä Pythonissa', 'Pythonissa poikkeuksia käsitellään try ja except lohkoilla'),
+(1, 'Mikä on Pythonin "for"-silmukka?', 'Ohjelmointirakenne toistamiseen', 'Matemaattinen kaava', 'Pythonin for-silmukka toistaa tiettyä koodilohkoa annetun määrän kertoja'),
+(1, 'Mikä on Pythonin merkkijono (string)?', 'Matemaattinen operaatio', 'Sarja numeroita', 'Merkkijono Pythonissa on tietotyyppi, joka sisältää tekstiä'),
+(1, 'Mitä tarkoittaa HTML?', 'HyperText Markup Language', 'High Tech Machine Learning', 'HTML on lyhenne sanoista HyperText Markup Language'),
+(1, 'Mikä on CSS?', 'Cascading Style Sheets', 'Computer Style System', 'CSS on lyhenne sanoista Cascading Style Sheets'),
+(1, 'Mikä on JavaScript?', 'Ohjelmointikieli', 'Käyttöjärjestelmä', 'JavaScript on ohjelmointikieli, joka mahdollistaa vuorovaikutuksen verkkosivujen kanssa'),
+(1, 'Mikä on tietokanta?', 'Tietojen tallennusjärjestelmä', 'Matemaattinen kaava', 'Tietokanta on järjestelmä tietojen tallentamiseen, hallintaan ja haettavaksi tekemiseen'),
+
+INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
+(2, 'Mikä on NP-täydellinen ongelma?', 'Nopea ja tehokas', 'Numeerinen ja positiivinen', 'Ei tiedossa oleva tehokas ratkaisu'),
+(2, 'Mikä on monadi Haskell-ohjelmointikielessä?', 'Tietokantakysely', 'Ohjelmistosuunnittelumalli', 'Laskennallinen tyyli'),
+(2, 'Mikä on MapReduce?', 'Kartta ja kompassi', 'Ohjelmointiparadigma', 'Funktionaalinen ohjelmointikieli'),
+(2, 'Mikä on P vs NP -ongelma?', 'Pieni vs. normaali', 'Algoritmin suoritusaika vs. ei-polynominen aika', 'Matemaattinen pähkinä'),
+(2, 'Mikä on Turingin kone?', 'Monimutkainen laite', 'Teoreettinen laskentamalli', 'Nopea tietokone'),
+(2, 'Mikä on Chomskyn hierarkia?', 'Lingvistinen teoria', 'Tietorakenteiden luokitus', 'Ohjelmointikielen syntaksi'),
+(2, 'Mikä on Shannonin entropia?', 'Kosminen voima', 'Tiedon epävarmuusmittari', 'Kvanttifysiikan laki'),
+(2, 'Mikä on Hilbertin ongelma?', 'Matemaattinen arvoitus', 'Tiedon tallennusmenetelmä', 'Avaruuden geometria'),
+(2, 'Mikä on Riemannin hypoteesi?', 'Fysiikan sääntö', 'Matemaattinen arvaus', 'Matemaattinen lause'),
+(2, 'Mikä on Ackermannin funktio?', 'Matemaattinen laskentamalli', 'Ohjelmointikielen funktio', 'Nopeasti kasvava matemaattinen funktio'),
+
+INSERT INTO questions (avatar_id, question_text, wrong_answer2, wrong_answer, answer) VALUES
+(3, 'Mikä on Byzantine Fault Tolerance?', 'Kaupunki Bysantissa', 'Virhkeenkestävyysjärjestelmä', 'Historiallinen tapahtuma'),
+(3, 'Mikä on Gödelin epätäydellisyyslause?', 'Logiikan periaate', 'Matemaattinen paradoksi', 'Matemaattinen lause'),
+(3, 'Mikä on Fermat\n suuri lause?', 'Fysiikan sääntö', 'Matemaattinen arvoitus', 'Matemaattinen lause'),
+(3, 'Mikä on Turingin kone?', 'Monimutkainen laite', 'Teoreettinen laskentamalli', 'Nopea tietokone'),
+(3, 'Mikä on Kolmogorovin monimutkaisuus?', 'Luonnon ilmiö', 'Algoritmin monimutkaisuusmittari', 'Matemaattinen
+
+
+
 ## Database Schema Diagram
 
 Below is a database schema diagram for reference:

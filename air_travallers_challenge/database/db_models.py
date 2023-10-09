@@ -82,7 +82,7 @@ def calculate_co2_used(old, new):
 
     distance = geodesic(coords1, coords2).kilometers
 
-    co2_calculation = (distance/220)
+    co2_calculation = (distance/40)
 
     return co2_calculation, distance
 

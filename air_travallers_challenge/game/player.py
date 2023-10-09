@@ -100,7 +100,7 @@ class Player:
     def update_co2_emissions(self, co2_reduction):
         self.co2_consumed -= co2_reduction
         print(f"                CO2 emission reduced by {color_yellow}{co2_reduction}kg{color_end}\n"
-              f"                Current CO2 emission: {color_yellow}{self.co2_consumed}kg{color_end}")
+              f"                Current CO2 emission: {color_yellow}{self.co2_consumed:.2f}kg{color_end}")
 
     def update_distance(self, distance_to_add):
         if bool(distance_to_add):

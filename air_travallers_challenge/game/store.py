@@ -119,14 +119,18 @@ class Store:
 
 
     def buy(self, player):
-        category_choice = int(input(f'''{color_yellow}
-                Choose a category 1-2: {color_end}'''))
         try:
+            category_choice = int(input(f'''{color_yellow}
+                Choose a category 1-2: {color_end}'''))
             if category_choice in [1, 2]:
                 if category_choice == 1:
                     self.purchase_item(player, 'power_ups', category_choice)
                 elif category_choice == 2:
                     self.purchase_item(player, 'plant_trees', category_choice)
+            else:
+                print(f'''
+                {color_red}Invalid Input.{color_end}''')
+                return
         except ValueError:
             print('Invalid input')
 

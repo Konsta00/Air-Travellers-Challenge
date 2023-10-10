@@ -86,7 +86,7 @@ def setup_game():
 def main():
     game, player, questions, store = setup_game()
 
-    # PRINT THE QUESTIONS, RANDOMIZE ORDER OF THE QUESTIONS AND
+    # PRINT THE QUESTIONS, RANDOMIZE ORDER OF THE QUESTIONS AN
     # RETURN THE RIGHT VALUE THAT MATCHES THE CORRECT ANSWERS INPUT
     def ask_question():
         input_ = None
